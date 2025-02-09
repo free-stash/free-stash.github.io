@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-52557.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>k8s入门之pod</title>
+        <meta name="description" content="pod是k8s项目中的最小编排单位，它是运行中的一组（一个或多个）容器，这些容器共享存储、网络、调度等资源，pod是一个逻辑概念，同一个名称空间下不同pod可以通过ip互相访问。  一、通过命令行方式" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-52557.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="k8s入门之pod" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/4de68e53ab890e8e04bf13415528ebd2.webp" />
+        <meta property="og:release_date" content="2025-02-07T07:19:14" />
+    <meta property="og:updated_time" content="2025-02-07T07:19:14" />
+        <meta property="og:description" content="pod是k8s项目中的最小编排单位，它是运行中的一组（一个或多个）容器，这些容器共享存储、网络、调度等资源，pod是一个逻辑概念，同一个名称空间下不同pod可以通过ip互相访问。  一、通过命令行方式" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="k8s入门之pod">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>k8s入门之pod</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>pod是k8s项目中的最小编排单位，它是运行中的一组（一个或多个）容器，这些容器共享存储、网络、调度等资源，pod是一个逻辑概念，同一个名称空间下不同pod可以通过ip互相访问。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/12f620c24820761e06e5f5981dcc6fc7.jpg" alt="k8s入门之pod"></p> <p><strong>一、通过命令行方式管理</strong></p> <p><strong>1.创建</strong></p> <p>在dev名称空间下创建名称为mynginx的pod，如果不指定-n参数，则默认创建在default名称空间下</p> <pre><code>kubectl run mynginx --image=nginx -n dev</code></pre> <p><strong>2.查看dev名称空间下所有pod的简单信息</strong></p> <pre><code>kubectl get pod -n dev</code></pre> <p>创建pod需要时间，尤其是节点上没有该镜像时，还需要下载镜像，可以看到pod的Status状态会随着时间而改变，最后变成Running表示pod启动成功<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c369b50f42a191447676cd2aaf73e99d.jpg" alt="k8s入门之pod"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5b5e3d1e9ff3511bfeb1ed24d146ebbc.jpg" alt="k8s入门之pod"></p> <p><strong>3.查看dev名称空间下所有pod的详细信息</strong></p> <pre><code>kubectl get pod -n dev -owide --show-labels</code></pre> <p>结果截图如下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/17a4d65116012c49c01a140c0783b88e.jpg" alt="k8s入门之pod"></p> <p>NODE：表示该pod被调度了哪个worker节点上</p> <p>IP：k8s会为每个pod分配一个ip，集群中的任意一个机器以及任意的应用都能通过此ip来访问这个Pod</p> <p>在master节点上可以通过curl ip访问pod</p> <pre><code># 默认是80端口，所以访问的是pod中的nginx容器 curl 10.244.218.1</code></pre> <p><strong>4.根据标签检索pod</strong></p> <pre><code>kubectl get pod -n dev -owide --show-labels -l app=nginx</code></pre> <p><strong>5.查看pod的描述信息</strong></p> <pre><code>kubectl describe pod mynginx -n dev</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/790549abc03fde4ad93e5387f8fbaebb.jpg" alt="k8s入门之pod"></p> <p>其中Events事件可以查看到pod被创建的详细过程</p> <p><strong>6.查看Pod的运行日志</strong></p> <pre><code>kubectl logs mynginx -n dev</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2ea4fbeb2fe4ded9260a6a11bfa8564b.jpg" alt="k8s入门之pod"></p> <p><strong>7.进入pod容器</strong></p> <pre><code>kubectl exec -it mynginx /bin/bash -n dev</code></pre> <p>更改nginx容器的index.html内容</p> <pre><code>echo "hello,pod" &gt;&gt; /usr/share/nginx/html/index.html</code></pre> <p>再次访问mynginx</p> <pre><code>curl 10.244.218.1</code></pre> <p>可以看到index.html首页内容已经发生了变化</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/84e7e3ff25be126fc11bb661dfe5aa39.jpg" alt="k8s入门之pod"></p> <p><strong>8.监控pod状态命令</strong></p> <p>使用k8s的-w参数</p> <pre><code>kubect get pod -n dev -w</code></pre> <p>使用linux命令</p> <pre><code>watch -n 1 kubectl get pod -n dev</code></pre> <p><strong>9.删除pod</strong></p> <pre><code>kubectl delete pod mynginx -n dev</code></pre> <p><strong>二、使用yaml管理</strong></p> <p><strong>1.在pod里部署两个容器</strong></p> <p>一个pod里面不能部署相同镜像的容器，端口冲突</p> <p>（1）创建yaml文件</p> <pre><code>vi pod-nginx-tomcat.yaml</code></pre> <p>（2）编写pod文件内容，定义两个容器，一个为nginx，一个为tomcat</p> <pre><code>apiVersion: v1 kind: Pod metadata:   labels:     web: server   name: web-server   namespace: dev spec:   containers:   - image: nginx     name: nginx   - image: tomcat:9.0</code></pre> <p>（3）使用kubectl apply创建pod</p> <pre><code>kubectl apply -f pod-nginx-tomcat.yaml</code></pre> <p>（4）自动监控创建过程</p> <pre><code>kubectl get pod -n dev -w</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/13c77c3401b63b4fe7e9dbc8be954772.jpg" alt="k8s入门之pod"></p> <p><strong>2.查看pod描述</strong></p> <pre><code>kubectl describe pod web-server -n dev</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c56d9ca044b69c5ad16bc12d429ac215.jpg" alt="k8s入门之pod"></p> <p><strong>3.在节点上访问pod</strong></p> <p>（1）查看pod的ip</p> <pre><code>kubectl get pod -n dev -owide</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9460954d38fe1a057c88f1025a75710a.jpg" alt="k8s入门之pod"></p> <p>（2）通过此ip访问pod中的nginx容器</p> <pre><code>curl 10.244.218.2</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cc3c5a9561a3ac7e8c13481764c32dae.jpg" alt="k8s入门之pod"></p> <p>（3）通过此ip访问pod中的tomcat容器</p> <pre><code>curl 10.244.218.2:8080</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e05f9739b7d4d6259fb45b9b357f6c0c.jpg" alt="k8s入门之pod"></p> <p><strong>4.进入pod里面访问服务</strong></p> <p>（1）进入pod里面的nginx容器</p> <pre><code>kubectl exec web-server --container nginx -it /bin/bash -n dev</code></pre> <p>（2）在容器内，以下命令均可访问，证明了pod里网络共享</p> <pre><code>curl localhost curl localhost:8080 curl 10.244.218.2 curl 10.244.218.2:8080</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52556.htm">go异常/错误机制（panic和error）</a></p>
+                                        <p>下一个：<a href="/news/article-53097.htm">动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49940.htm" title="仓鼠丢了千万别去找（仓鼠的寿命有多长）">仓鼠丢了千万别去找（仓鼠的寿命有多长）</a></li>
+                        <li class="py-2"><a href="/news/article-50984.htm" title="想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）">想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-node-subscribe.htm" title="2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-49939.htm" title="宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）">宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-clash-stash.htm" title="2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-linux-clash-stash.htm" title="2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享">2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-52040.htm" title="中国宠物粮市场排名 中国宠物粮市场排名前十">中国宠物粮市场排名 中国宠物粮市场排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-53097.htm" title="动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口">动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口</a></li>
+                        <li class="py-2"><a href="/news/article-52557.htm" title="k8s入门之pod">k8s入门之pod</a></li>
+                        <li class="py-2"><a href="/news/article-50469.htm" title="狗狗领养平台推荐哪个（狗狗领养app平台免费）">狗狗领养平台推荐哪个（狗狗领养app平台免费）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-# 2月6日最新Free Stash订阅 | 19M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享  更新时间 2025-02-06 05:33:16
+# 2月9日最新Free Stash订阅 | 19.2M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点地址链接分享  更新时间 2025-02-09 10:12:33
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://free-stash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://free-stash.github.io/uploads/2025/02/0-20250206.yaml
-- https://free-stash.github.io/uploads/2025/02/1-20250206.yaml
-- https://free-stash.github.io/uploads/2025/02/2-20250206.yaml
-- https://free-stash.github.io/uploads/2025/02/3-20250206.yaml
-- https://free-stash.github.io/uploads/2025/02/4-20250206.yaml
+- https://free-stash.github.io/uploads/2025/02/0-20250209.yaml
+- https://free-stash.github.io/uploads/2025/02/1-20250209.yaml
+- https://free-stash.github.io/uploads/2025/02/2-20250209.yaml
+- https://free-stash.github.io/uploads/2025/02/3-20250209.yaml
+- https://free-stash.github.io/uploads/2025/02/4-20250209.yaml
 
 ### V2ray订阅链接
 
-- https://free-stash.github.io/uploads/2025/02/0-20250206.txt
-- https://free-stash.github.io/uploads/2025/02/1-20250206.txt
-- https://free-stash.github.io/uploads/2025/02/2-20250206.txt
-- https://free-stash.github.io/uploads/2025/02/3-20250206.txt
-- https://free-stash.github.io/uploads/2025/02/4-20250206.txt
+- https://free-stash.github.io/uploads/2025/02/0-20250209.txt
+- https://free-stash.github.io/uploads/2025/02/1-20250209.txt
+- https://free-stash.github.io/uploads/2025/02/2-20250209.txt
+- https://free-stash.github.io/uploads/2025/02/3-20250209.txt
+- https://free-stash.github.io/uploads/2025/02/4-20250209.txt
 
 ### Sing-box订阅链接
 
-- https://free-stash.github.io/uploads/2025/02/20250206.json
+- https://free-stash.github.io/uploads/2025/02/20250209.json
 
 ## 更多clash节点订阅 ：
 
