@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-56380.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>java初始时间_java日期时间详解</title>
+        <meta name="description" content="java.util包提供了Date类来封装当前的日期和时间，Date类提供两个构造函数来实例化Date对象.第一个构造函数使用当前日期和时间来初始化对象. Date(),第二个构造函数接收一个参数，该" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-56380.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="java初始时间_java日期时间详解" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/4de68e53ab890e8e04bf13415528ebd2.webp" />
+        <meta property="og:release_date" content="2025-02-14T10:02:01" />
+    <meta property="og:updated_time" content="2025-02-14T10:02:01" />
+        <meta property="og:description" content="java.util包提供了Date类来封装当前的日期和时间，Date类提供两个构造函数来实例化Date对象.第一个构造函数使用当前日期和时间来初始化对象. Date(),第二个构造函数接收一个参数，该" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java初始时间_java日期时间详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>java初始时间_java日期时间详解</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>java.util包提供了Date类来封装当前的日期和时间，Date类提供两个构造函数来实例化Date对象.第一个构造函数使用当前日期和时间来初始化对象.</p> <p>Date(),第二个构造函数接收一个参数，该参数是从1970年1月1日起的毫秒数,</p> <p>Date(long milliser)</p> <p>Date对象创建以后，可以调用下面的方法，</p> <p>boolean after(Date date)</p> <p>若当调用此方法的Date对象在指定日期之后返回true,否则返回false.</p> <p>boolean before(Date date)</p> <p>若当调用此方法的Date对象在指定日期之前返回true,否则返回false.</p> <p>Object clone(),返回此对象的副本,</p> <p>int compareTo(Date date)</p> <p>比较当调用此方法的Date对象和指定日期，两者相等时候返回0,调用对象在指定日期之前</p> <p>则返回负数，调用对象在指定日期之后则返回正数.</p> <p>int compareTo(Object obj)</p> <p>若obj是Date类型则操作等同于compareTo(Date),否则它抛出ClassCastException.</p> <p>boolean equals(Object date)</p> <p>当调用此方法的Date对象和指定日期相等时候返回true,否则返回false.</p> <p>long getTime(),返回自1970年1月1日00:00:00 GMT以来此Date对象表示的毫秒数,</p> <p>int hashCode(),</p> <p>返回此对象的哈希码值,</p> <p>void setTime(long time)</p> <p>用自1970年1月1日00:00:00 GMT以后time毫秒数设置时候和日期,</p> <p>String toString(),</p> <p>把此Date对象转换为以下形式的String:dow mon dd hh:mm:ss zzz yyyy其中:dow是一周中的某一天</p> <p>(Sun,Mon,Tue,Web,Thu,Fri,Sat)</p> <p>获取当前日期时候,</p> <p>java中获取当前日期和时间很简单，使用Date对象的toString()方法来打印当前日期和时候，</p> <pre><code class="Bash"><xmp>public class DateDemo{ public static void main(String args[]){ //初始化Date对象  Date date=new Date();  //使用toString() 函数显示日期时间  System.out.println(date.toString());  }  }</xmp></code></pre> <p>日期比较,</p> <pre><code class="Bash"><xmp>java使用以下三种方法来比较两个日期:  使用getTime()方法获取两个日期(自1970年1月1日经历的毫秒数值),然后比较这两个值.  使用方法before(),after()和equals(),例如，  使用compareTo()方法，它是由Comparable接口定义的，Date类实现了这个接口。  使用simpleDateFormat格式化日期，  SimpleDateFormat是一个以语言环境敏感的方式格式化和分析日期的类，  SimpleDateFormat允许你选择任何用户自定义日期时间格式化运行,  import java.util.*;  import java.text.*;  public class DateDemo{ public static void main(String args[]){ Date dNow=new Date();  SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");  System.out.println("时间:"+ft.format(dNow));  }  }</xmp></code></pre> <p>日期和时间的格式化编码,</p> <p>G,纪元标记AD,</p> <p>y,四位年份，2001,</p> <p>M,月份，July or 07,</p> <p>d,一个月的日期,10,</p> <p>h,A.M/P.M(1-12)格式小时12</p> <p>H,一天中的小时(0-23),22</p> <p>m,分钟数,30,</p> <p>s,秒数，55</p> <p>S,毫秒数，234，</p> <p>E,星期几,Tuesday.</p> <p>D,一年中的日子，360,</p> <p>F,一个月中第几周的周几，2(second Web in July)</p> <p>w,一年中第几周，40，</p> <p>W,一月中第几周，1</p> <p>a,A.M/P.M标记，PM</p> <p>k,一天中的小时(1--24) 24,</p> <p>K,AM/PM(0-11)格式小时，10</p> <p>z,时区,</p> <p>',文字定界符，"，单引号.</p> <p>使用printf格式化日期:</p> <p>printf方法可以很轻松地格式化时间和日期，使用两个字母格式，</p> <p>它以%t开头并且以下面表格中的一个字母结尾,</p> <p>c,包括全部日期和时间信息，F,"年-月-日"格式,</p> <p>D,"月/日/年"格式,r,"HH:MM:SS PM"格式(12时制)</p> <p>T,"HH:MM:SS"格式(24时制),R,"HH:MM"格式(24时制)</p> <p>解析字符串为时间，</p> <p>SimpleDateFormat类有一些附加的方法，特别是parse(),它试图按照给定的</p> <p>SimpleDateFormat对象的格式化存储来解析字符串,</p> <p>java休眠(sleep)</p> <p>sleep()使当前线程进入停滞状态(阻塞当前线程),让出cpu的使用，</p> <p>目的是不让当前线程独自霸占该进程所获的cpu资源，以留一定时间给他线程执行的机会 ，</p> <pre><code class="Bash"><xmp>import java.util.*;  public class SleepDemo{ public static void main(String args[]){ try{ System.out.println(new Date()+"\n");  Thread.sleep(1000*5);  System.out.println(new Date()+"\n");  }catch(Exception e){ System.out.println("Got an exception!");  }  }  }  测量时间,  import java.util.*;  public class DiffDemo{ public static void main(String args[]){ try{ long start=System.currentTimeMillis();  System.out.println(new Date()+"\n");  Thread.sleep(5*10);  System.out.println(new Date()+"\n");  long end=System.currentTimeMillis();  long diff=end-start;  System.out.println("Difference is:"+diff);  }catch(Exception e){ System.out.println("Got an exception!");  }  }  } </xmp></code></pre> <p><span style="font-size: 1em;">Calendar类，</span></p> <p>Calendar类是一个抽象类，</p> <p>创建一个代表系统当前日期的Calendar对象,</p> <p>Calendar c=Calendar.getInstance();//默认是当前日期.</p> <p>创建一个指定日期的Calendar对象,</p> <p>使用Calendar类代表特定的时间，需要首先创建一个Calendar的对象，</p> <p>calendar c1=Calendar.getInstance();</p> <p>c1.set(2002,3-1,12);</p> <p>Calendar类对象字段类型,</p> <p>Calendar.YEAR 年份</p> <p>Calendar.MONTH ,月份</p> <p>Calendar.DAY_OF_MONTH, 日期，和上面的字段,</p> <p>Calendar.HOUR,12小时制的小时</p> <p>Calendar.HOUR_OF_DAY 24小时制的小时</p> <p>Calendar.MINUTE 分钟,</p> <p>Calendar.SECOND 秒</p> <p>Calendar.DAY_OF_WEEK 星期几</p> <p>Calendar类对象信息的设置,</p> <p>Calendar c1=Calendar.getInstance();</p> <p>public final void set(int year,int month,int date)</p> <p>c1.set(2009,6-1,12);</p> <p>利用字段类型设置</p> <p>如果只设定某个字段，</p> <p>public void set(int field,int value)</p> <p>把c1对象代表的日期设置为10号，</p> <p>把c1对象代表的年份设置为2008年，其他的所有数值会被重新计算</p> <p>c1.set(Calendar.YEAR,2000);</p> <p>Add设置,</p> <p>Calendar c1=Calendar.getInstance();</p> <p>把c1对象的日期加上10，也就是c1也就表示为10天后的日期，其他所有的数值会被重新计算</p> <p>把c1对象的日期减去10，也就是c1也就是表示为10天前的日期,其它所有的数值会被重新计算,</p> <p>c1.add(Calendar.DATE,-10);</p> </div> </div> <p></p> <p></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-55836.htm">动物防疫工作年终总结（动物防疫工作年终总结怎么写）</a></p>
+                                        <p>下一个：<a href="/news/article-56381.htm">合肥宠物急救电话（合肥市宠物）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-52556.htm" title="go异常/错误机制（panic和error）">go异常/错误机制（panic和error）</a></li>
+                        <li class="py-2"><a href="/news/article-55284.htm" title="vue如何将对象中所有的key赋为空值_vue.js">vue如何将对象中所有的key赋为空值_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-53098.htm" title="疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）">疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）</a></li>
+                        <li class="py-2"><a href="/news/article-56950.htm" title="宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续">宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-high-speed-nodes.htm" title="2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享">2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-ssr-node.htm" title="2月1日最新Clash-X订阅 | 19.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享">2月1日最新Clash-X订阅 | 19.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-52040.htm" title="中国宠物粮市场排名 中国宠物粮市场排名前十">中国宠物粮市场排名 中国宠物粮市场排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-53097.htm" title="动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口">动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口</a></li>
+                        <li class="py-2"><a href="/news/article-50469.htm" title="狗狗领养平台推荐哪个（狗狗领养app平台免费）">狗狗领养平台推荐哪个（狗狗领养app平台免费）</a></li>
+                        <li class="py-2"><a href="/news/article-50984.htm" title="想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）">想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
