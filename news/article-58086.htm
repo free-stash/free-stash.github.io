@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-58086.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>python3 元组 tuple&#8211;讲义</title>
+        <meta name="description" content="4.元组 tuple   Tuple元组概念  元组可以存储多个数据,数据不允许修改 元组里可以存放任何类型的数据 比如嵌套,元组,列表    元组tuple是小括号( )  tup1=(元素data" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-58086.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="python3 元组 tuple&#8211;讲义" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/39911310f8ff85d2ade25582864b86a6.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:57:17" />
+    <meta property="og:updated_time" content="2025-02-17T09:57:17" />
+        <meta property="og:description" content="4.元组 tuple   Tuple元组概念  元组可以存储多个数据,数据不允许修改 元组里可以存放任何类型的数据 比如嵌套,元组,列表    元组tuple是小括号( )  tup1=(元素data" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python3 元组 tuple&#8211;讲义">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>python3 元组 tuple&#8211;讲义</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3> <a id="4_tuple_0" rel="nofollow"></a>4.元组 tuple</h3> <ul> <li> <p>Tuple元组概念</p> <ul> <li>元组可以存储多个数据,数据不允许修改</li> <li>元组里可以存放任何类型的数据</li> <li>比如嵌套,元组,列表</li> </ul> </li> <li> <p>元组tuple是小括号( )</p> <ul> <li>tup1=(元素data,)</li> <li>tup1=tuple(元素data,)</li> </ul> </li> <li> <p>特性：不可修改</p> <ul> <li>str和tuple是不可变类型，修改需要重新赋值</li> </ul> </li> <li> <p>1）与列表的区别<br /> 类似列表，但列表用[ ]标识，元组用()标识，并且列表元素可二次赋值，但元组元素不能。</p> </li> <li> <p>2）元组的创建<br /> 创建空元组：tuple（） 。</p> <ul> <li>元组特点：定义元组使⽤⼩括号，且逗号隔开各个数据，数据可以是不同的数据类型。</li> <li>创建只有一个元素的元组：tuple（a，）必须要在元素后加逗号</li> <li>注意：如果定义的元组只有⼀个数据，那么这个数据后⾯也要添加逗号</li> </ul> </li> <li> <p>3）元素的访问</p> <ul> <li> <p>元组也是用下标索引</p> </li> <li> <p>虽然创建时用（）包含，但是在访问单个元素时，与列表一样，通过[ 索引号 ]来访问。</p> <ul> <li> <p>示例</p> <ul> <li> <p>print(tu[0:2])</p> <ul> <li>打印下标0-2的元素,不含2</li> </ul> </li> <li> <p>print(tu[1])</p> <ul> <li>访问下标为1的元素</li> </ul> </li> </ul> </li> </ul> </li> </ul> </li> <li> <p>元组的常见操作</p> <ul> <li> <p>查找：index()、count()</p> <ul> <li> <p>index()</p> <ul> <li>查找某个数据，如果数据存在返回对应的下标，否则报错，语法和列表、字符串串的index<br /> 方法相同。</li> <li>print(tuple1.index(‘aa’))</li> </ul> </li> <li> <p>count(0</p> <ul> <li>统计某个数据在当前元组出现的次数。</li> <li>print(tunple1.count(‘bb’))</li> </ul> </li> <li> <p>len(tuple)</p> <ul> <li>计算元组元素个数。</li> </ul> </li> </ul> </li> <li> <p>注意</p> <ul> <li>注意：元组内的直接数据如果修改则立即报错</li> <li>但是如果元组里面有列表，修改列表里面的数据则是支持的，故自觉很重要。</li> </ul> </li> </ul> </li> <li> <p>元组函数</p> <ul> <li> <p>cmp(tuple1, tuple2)</p> <ul> <li>比较两个元组元素。</li> </ul> </li> <li> <p>max(tuple)</p> <ul> <li>返回元组中元素最大值。</li> </ul> </li> <li> <p>min(tuple)</p> <ul> <li>返回元组中元素最小值。</li> </ul> </li> <li> <p>tuple(seq)</p> <ul> <li>将列表转换为元组。</li> </ul> </li> </ul> </li> <li> <p>4）删除元组</p> <ul> <li>元组中的单个元素不能被删除，但是元组可以通过del语句整个删除。</li> </ul> </li> <li> <p>5）元组运算符（同列表）</p> </li> <li> <p>6）任意无符号的对象，以逗号隔开，默认为元组（无关闭分隔符）</p> </li> <li> <p>7）元组内置函数</p> </li> <li> <p>访问里面的元素</p> <ul> <li> <p>示例</p> <ul> <li> <p>print(tu[0:2])</p> <ul> <li>打印下标0-2的元素,不含2</li> </ul> </li> <li> <p>print(tu[1])</p> <ul> <li>访问下标为1的元素</li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57518.htm">实现mysql主从复制、读写分离</a></p>
+                                        <p>下一个：<a href="/news/article-58087.htm">Centos7服务器上RabbitMQ单机安装_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-52557.htm" title="k8s入门之pod">k8s入门之pod</a></li>
+                        <li class="py-2"><a href="/news/article-53098.htm" title="疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）">疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-high-speed-nodes.htm" title="2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享">2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-clash-stash.htm" title="2月17日最新Free Stash订阅 | 22.7M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享">2月17日最新Free Stash订阅 | 22.7M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-58087.htm" title="Centos7服务器上RabbitMQ单机安装_在线工具">Centos7服务器上RabbitMQ单机安装_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-56380.htm" title="java初始时间_java日期时间详解">java初始时间_java日期时间详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-stash-node.htm" title="2月3日最新Free Stash订阅 | 21.9M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">2月3日最新Free Stash订阅 | 21.9M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-linux-clash-stash.htm" title="2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享">2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-node-subscribe-links.htm" title="2月12日最新Free Stash订阅 | 20M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点地址链接分享">2月12日最新Free Stash订阅 | 20M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-55283.htm" title="linux 硬盘满了如何处理">linux 硬盘满了如何处理</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

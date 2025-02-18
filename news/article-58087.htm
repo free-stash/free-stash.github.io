@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-58087.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Centos7服务器上RabbitMQ单机安装_在线工具</title>
+        <meta name="description" content="最近项目中用到了RabbitMQ，但是发现自己本地没有安装，此文记录一下本地RabbitMQ的安装过程。注意不同的系统安装方式略有不同，此处我们记录的是Centos7的安装方式。  此处我们通过rpm" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-58087.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Centos7服务器上RabbitMQ单机安装_在线工具" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/1b61b7b0dd2b979012d696a5eec19f01.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:57:17" />
+    <meta property="og:updated_time" content="2025-02-17T09:57:17" />
+        <meta property="og:description" content="最近项目中用到了RabbitMQ，但是发现自己本地没有安装，此文记录一下本地RabbitMQ的安装过程。注意不同的系统安装方式略有不同，此处我们记录的是Centos7的安装方式。  此处我们通过rpm" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Centos7服务器上RabbitMQ单机安装_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Centos7服务器上RabbitMQ单机安装_在线工具</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				</h1> <p>最近项目中用到了<code>RabbitMQ</code>，但是发现自己本地没有安装，此文记录一下本地RabbitMQ的安装过程。注意不同的系统安装方式略有不同，此处我们记录的是Centos7的安装方式。</p> </h1> <p>此处我们通过<code>rpm</code>的方式来安装，官方介绍了2种方式来安装这些rpm。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/d93402054ed10c97ef171409db26a88a.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h2 id="1第二种安装方式需要的依赖">1、第二种安装方式需要的依赖</h2> <p>第二种方式安装<code>RabbitMQ</code>需要的依赖为：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/b844a34764446006aedeba277b9b2e67.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h2 id="2安装rabbitmq需要的用户权限">2、安装RabbitMQ需要的用户权限</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/43854666b7cdfe716f9bb211ab8efdcc.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> </h1> <h2 id="1安装erlang">1、安装erlang</h2> <h3 id="1rabbitmq需要的erlang的版本">1、RabbitMQ需要的erlang的版本</h3> <p>不同的RabbitMQ需要不同的erlang版本，那么这个版本在哪个地方可以下载到了？<br /> 可以通过下方这个链接看到 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.rabbitmq.com/which-erlang.html"  target="_blank"  rel="nofollow">https://www.rabbitmq.com/which-erlang.html</a><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/7fa5bb6cd19154cc8f223d320351f9ce.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h3 id="2erlang来源选择">2、erlang来源选择</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/ad8a2fa366240f19ce227b3c053cad83.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"><br /><code>erlang</code>的来源可能有多个地方，比如来自erlang官方，来自rabbitmq提供的。<strong>而在RabbitMQ的安装指南中，推荐使用RabbitMQ提供的erlang安装包</strong>，这个安装包只提供了RabbitMQ需要的erlang组件。</p> <h3 id="3下载erlang">3、下载erlang</h3> <p>此处下载的erlang，我们选择RabbitMQ提供的。<strong>但是此处我们也需要注意erlang的版本</strong>，因为不同的版本的erlang，可能支持不同的系统。</p> <h4 id="1注意系统openssl的版本">1、注意系统openssl的版本</h4> <p>不同版本的erlang需要不同的openssl版本，我的系统是centos7，电脑上的openssl版本是1.0x，因此选择erlang 23。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/80164c444a65064728126966d1853d91.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h4 id="2安装erlang23版本">2、安装erlang23版本</h4> <h5 id="1导入rabbitmq的签名key">1、导入RabbitMQ的签名key</h5> <pre><code class="language-bash">## primary RabbitMQ signing key rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc </code></pre> <h5 id="2配置本地yum源">2、配置本地yum源</h5> <pre><code class="language-bash"># In /etc/yum.repos.d/rabbitmq_erlang.repo [rabbitmq_erlang] name=rabbitmq-rabbitmq-erlang baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/rpm/el/7/$basearch repo_gpgcheck=1 enabled=1 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/gpg.E495BB49CC4BBE5B.key        https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc gpgcheck=1 sslverify=1 sslcacert=/etc/pki/tls/certs/ca-bundle.crt metadata_expire=300 pkg_gpgcheck=1 autorefresh=1 type=rpm-md  [rabbitmq_erlang-noarch] name=rabbitmq-rabbitmq-erlang-noarch baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/rpm/el/7/noarch repo_gpgcheck=1 enabled=1 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/gpg.E495BB49CC4BBE5B.key        https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc gpgcheck=1 sslverify=1 sslcacert=/etc/pki/tls/certs/ca-bundle.crt metadata_expire=300 pkg_gpgcheck=1 autorefresh=1 type=rpm-md  [rabbitmq_erlang-source] name=rabbitmq-rabbitmq-erlang-source baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/rpm/el/7/SRPMS repo_gpgcheck=1 enabled=1 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-erlang/gpg.E495BB49CC4BBE5B.key        https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc gpgcheck=1 sslverify=1 sslcacert=/etc/pki/tls/certs/ca-bundle.crt metadata_expire=300 pkg_gpgcheck=1 autorefresh=1 type=rpm-md  </code></pre> <h5 id="3安装erlang">3、安装erlang</h5> <pre><code class="language-bash">yum update -y # 安装erlang yum install -y erlang-23.3.4 # 验证erlang是否安装成功 erl --version </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/71dece1e9c58c9a36cd123c9c1895eb5.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h2 id="2安装rabbitmq">2、安装RabbitMQ</h2> <pre><code class="language-bash"># 下载rabbitmq server wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.11/rabbitmq-server-3.9.11-1.el7.noarch.rpm  # 安装需要的依赖  yum install socat logrotate -y  # 安装rabbitmq server yum install rabbitmq-server-3.9.11-1.el7.noarch.rpm  </code></pre> <h2 id="3启动rabbitmq">3、启动RabbitMQ</h2> <pre><code class="language-bash"># 启动rabbitmq service rabbitmq-server start </code></pre> <h2 id="4查看rabbitmq的状态">4、查看RabbitMQ的状态</h2> <pre><code class="language-bash">service rabbitmq-server status </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/c424899e5aa6e856b9eaa34000270c1f.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h2 id="5关闭rabbitmq">5、关闭RabbitMQ</h2> <pre><code class="language-bash">service rabbitmq-server stop </code></pre> </h1> <h2 id="1执行启用命令">1、执行启用命令</h2> <pre><code class="language-bash">rabbitmq-plugins enable rabbitmq_management </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/81e898a5d682289c387a226e76dbda8a.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> <h2 id="2放行15672端口">2、放行15672端口</h2> <p>默认情况下，<code>rabbitmq_management</code>插件是运行在<code>15672</code>端口的，此时我们需要在防火墙中放行15672端口外界才可以访问。</p> <pre><code class="language-bash"># 查看防火墙放行的端口 [root@centos01 rabbitmq]# firewall-cmd --zone=public --list-ports 8091/tcp # 放行15672端口 [root@centos01 rabbitmq]# firewall-cmd --zone=public --add-port=15672/tcp --permanent success # 使刚刚配置的防火墙生效 [root@centos01 rabbitmq]# firewall-cmd --reload success [root@centos01 rabbitmq]# firewall-cmd --zone=public --list-ports 8091/tcp 15672/tcp [root@centos01 rabbitmq]# </code></pre> <h2 id="3登录管控台">3、登录管控台</h2> <h3 id="1使用默认的guest用户登录">1、使用默认的guest用户登录</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/21d69a8634a3e945b1b54165dc9312b2.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"><br /> 默认的<code>guest</code>账户的密码是<code>guest</code>，可以看到这个账户只能通过<code>localhost</code>来访问。这个限制可以通过修改RabbitMQ的配置来解决，此处我们不解决，采用重新创建一个用户来解决这个问题。</p> <h3 id="2创建一个admin用户">2、创建一个admin用户</h3> <p>1、创建admin用户,密码也是admin</p> <pre><code class="language-bash">[root@centos01 rabbitmq]# rabbitmqctl add_user admin admin </code></pre> <p>2、给用户赋予administrator角色</p> <pre><code class="language-bash">[root@centos01 rabbitmq]# rabbitmqctl set_user_tags admin administrator </code></pre> <p>3、给用户在虚拟主机/上赋予所有权限</p> <pre><code class="language-bash">[root@centos01 rabbitmq]# rabbitmqctl  set_permissions -p / admin '.*' '.*' '.*' </code></pre> <h3 id="3使用刚刚创建的admin用户登录">3、使用刚刚创建的admin用户登录</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/a2de9a908b0541e5d4a7afe0f31ebb26.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/e49aa2a7bf0d85ce555ebd23aedcce7d.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"></p> </h1> <p>1、RabbitMQ和与之对应的erlang的版本号对应对应上。可以通过此链接查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.rabbitmq.com/which-erlang.html"  target="_blank"  rel="nofollow">https://www.rabbitmq.com/which-erlang.html</a><br /> 2、RabbitMQ自己提供了一个erlang虚拟机，建议使用这个。网址为<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/rabbitmq/erlang-rpm"  target="_blank"  rel="nofollow">https://github.com/rabbitmq/erlang-rpm</a><br /> 3、需要注意不同版本的RabbitMQ需要系统上openssl的版本问题。RabbitMQ的安装指南中有。<br /> 4、RabbitMQ的node name默认请求下是<code>rabbit@hostname</code>，因此我们不要随便修改主机名，否则可能出现问题。<br /> 5、RabbitMQ启动后，如何查看日志文件、RabbitMQ目录、配置文件、erlang cookie的值？<br /> 默认请求下日志文件的路径是 <code>/var/log/rabbitmq</code>目录下，我们可以打开这个目录下的日志文件查看。</p> <pre><code class="language-bash">less /var/log/rabbitmq/rabbit\@centos01.log </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/2b53ddfd1e21eda76335bc11b2dd8a98.jpg" alt="Centos7服务器上RabbitMQ单机安装_在线工具"><br /> 6、修改用户可以打开的最大文件数<code>ulimit -n</code>，大部分系统默认是<code>1024</code>，推荐修改成<code>65536</code><br /> 7、RabbitMQ的配置文件路径</p> <pre><code class="language-bash">/etc/rabbitmq/rabbitmq.conf </code></pre> <p>上面只是RabbitMQ其中的一个配置文件路径，也可以放置在别的目录下。</p> </h1> <p>1、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.rabbitmq.com/which-erlang.html"  target="_blank"  rel="nofollow">RabbitMQ需要的erlang版本</a><br /> 2、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/rabbitmq/erlang-rpm"  target="_blank"  rel="nofollow">RabbitMQ提供的erlang地址</a><br /> 3、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.rabbitmq.com/install-rpm.html"  target="_blank"  rel="nofollow">RabbitMQ的rpm安装指南</a><br /> 4、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.rabbitmq.com/configure.html"  target="_blank"  rel="nofollow">RabbitMQ的配置</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58086.htm">python3 元组 tuple&#8211;讲义</a></p>
+                                        <p>下一个：<a href="/news/article-58746.htm">符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49940.htm" title="仓鼠丢了千万别去找（仓鼠的寿命有多长）">仓鼠丢了千万别去找（仓鼠的寿命有多长）</a></li>
+                        <li class="py-2"><a href="/news/article-56951.htm" title="动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片">动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-57518.htm" title="实现mysql主从复制、读写分离">实现mysql主从复制、读写分离</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-linux-clash-stash.htm" title="2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享">2月8日最新Free Stash订阅 | 19.8M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-53098.htm" title="疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）">疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）</a></li>
+                        <li class="py-2"><a href="/news/article-50470.htm" title="当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)">当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)</a></li>
+                        <li class="py-2"><a href="/news/article-54732.htm" title="动物医院等级分类有哪些（动物医院等级分类有哪些标准）">动物医院等级分类有哪些（动物医院等级分类有哪些标准）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-node-subscribe.htm" title="2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-56381.htm" title="合肥宠物急救电话（合肥市宠物）">合肥宠物急救电话（合肥市宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-52556.htm" title="go异常/错误机制（panic和error）">go异常/错误机制（panic和error）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
