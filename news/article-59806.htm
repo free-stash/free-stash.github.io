@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-59806.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</title>
+        <meta name="description" content="程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法 一.首先保证主配置文件是放在resources目录之下     二.看pom.x" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-59806.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/00b38739bb136483621fe32d15b682ee.webp" />
+        <meta property="og:release_date" content="2025-02-20T09:56:20" />
+    <meta property="og:updated_time" content="2025-02-20T09:56:20" />
+        <meta property="og:description" content="程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法 一.首先保证主配置文件是放在resources目录之下     二.看pom.x" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="targetclassessqlsql_mapper_0" rel="nofollow"></a>程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法</h2> <p>一.首先保证主配置文件是放在resources目录之下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/f91f3a5eb4b6d15ba466816bb696fd56.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>二.看pom.xml文件中是否有resources标签</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--所在的目录--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--包括目录下的.properties,.xml 文件都会扫描到--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">&gt;</span></span></code></pre> <ul> <li></li> </ul> <p>三.以上都有的情况下，仍然在classes目录下找不到文件时，<br /> 在maven操作下：点击clean----再点击compile，进行重新编译</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/b4d56fe72584fba50ed673d8e86e6587.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>四.点击Bulid----再点击Rebulid Project。强制重新编译该项目。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/e46d9579f7e8f73e7ec31024a4a6b9ce.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>五.清除idea之前的缓存再重启idea</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/c4c2bf381e61c23ec0be4f5d8f5bead8.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"><br /> 然后再点击：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/fb05d81ee325dd65c40c740cd63d2102.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <p><strong>在这里对这三个选项进行说明</strong>：</p> <ul> <li> <p><code>Clear file system cache and Local History</code>：<br /> 清除文件系统缓存和本地历史记录：删除虚拟文件系统缓存以及存储在本地历史记录中的信息</p> </li> <li> <p><code>Clear downloaded shared indexes</code>：<br /> 下载新的共享索引之前进行确认：显示通知，提示下载新的共享索引。</p> </li> <li> <p><code>Ask before downloading new shared indexes</code>：<br /> 删除下载的共享索引。</p> </li> </ul> <p>六.以上方法都无法解决时，可以直接手动复制主配置文件或sql映射文件到target/classes目录之下</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59805.htm">feign实现微服务之间的远程调用</a></p>
+                                        <p>下一个：<a href="/news/article-60376.htm">Python实现双X轴双Y轴绘图</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53098.htm" title="疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）">疫苗动物实验要多久（动物实验在疫苗研发过程中的重要性及必要性论文）</a></li>
+                        <li class="py-2"><a href="/news/article-51529.htm" title="动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）">动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-54733.htm" title="猫咪打疫苗要打几针（猫咪打疫苗要打几针才有效）">猫咪打疫苗要打几针（猫咪打疫苗要打几针才有效）</a></li>
+                        <li class="py-2"><a href="/news/article-49688.htm" title="宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）">宠物美容师宠物美容（宠物美容师宠物美容培训学校天津）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-clash-stash.htm" title="2月11日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享">2月11日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-49689.htm" title="宠物医院需要资质吗（宠物医院需要几个证）">宠物医院需要资质吗（宠物医院需要几个证）</a></li>
+                        <li class="py-2"><a href="/news/article-57517.htm" title="SpringBoot 配置Druid监控页面">SpringBoot 配置Druid监控页面</a></li>
+                        <li class="py-2"><a href="/news/article-56950.htm" title="宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续">宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续</a></li>
+                        <li class="py-2"><a href="/news/article-58087.htm" title="Centos7服务器上RabbitMQ单机安装_在线工具">Centos7服务器上RabbitMQ单机安装_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-58086.htm" title="python3 元组 tuple&#8211;讲义">python3 元组 tuple&#8211;讲义</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

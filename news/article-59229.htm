@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-59229.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>OpenSSL编译过程和报错解决</title>
+        <meta name="description" content="OpenSSL编译过程和遇到的问题  因为需要用到OpenSSL库所以折腾了好久记录一下如何编译和遇到的一些问题。一环境准备： win764位系统。vs2017，先安装perl，下载OpenSSL。 " />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-59229.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="OpenSSL编译过程和报错解决" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/b65d2827919fb2fb5d3e2297c0b55e3b.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:36:38" />
+    <meta property="og:updated_time" content="2025-02-19T06:36:38" />
+        <meta property="og:description" content="OpenSSL编译过程和遇到的问题  因为需要用到OpenSSL库所以折腾了好久记录一下如何编译和遇到的一些问题。一环境准备： win764位系统。vs2017，先安装perl，下载OpenSSL。 " />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="OpenSSL编译过程和报错解决">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>OpenSSL编译过程和报错解决</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>OpenSSL编译过程和遇到的问题</p> </h1> <p>因为需要用到OpenSSL库所以折腾了好久记录一下如何编译和遇到的一些问题。<br /><strong>一环境准备：</strong><br /> win764位系统。vs2017，先安装perl，下载OpenSSL。</p> <p><strong>二编译</strong><br /> 打开VS2017的编译工具<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/6a831c94017c9d60f806bcc8320e3a0c.jpg" alt="OpenSSL编译过程和报错解决">我用的是X64</p> <p>不要使用 x86 和 x64 的交叉命令行工具，<br /> 要编译 x86 版本的 openssl，就使用 x86 版本的命令行工具；<br /> 要编译 x64 版本的 openssl，就使用 x64 版本的命令行工具。</p> <p>（1）进入 openssl 源码路径：cd /d （openssl 1.0.2u 路径）<br /> 编译生成64debug版：<br /> perl Configure debug-VC-WIN64A no-asm --prefix=“D:\openssl-1.0.2l\bin\x64\debug”<br /> 编译生成64release版：<br /> perl Configure VC-WIN64A no-asm --prefix=“D:\openssl-1.0.2l\bin\x64\release”<br /> 再依次执行下面语句：<br /> 1、ms\do_win64a<br /> 2、nmake -f ms\ntdll.mak （如果失败先进入目录D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build 目录输入vcvars32.bat 回车。执行完再回到原来的目录继续执行其他命令）<br /> 3、nmake -f ms\ntdll.mak test （成功会看到passed all tests）<br /> 4、nmake -f ms\ntdll.mak install<br /> 5、nmake -f ms\ntdll.mak clean<br /> 都成功了就会在"D:\openssl-1.0.2l\bin\x64\release"下看到编译好的文件了。</p> <p>三错误解决<br /> 1、无法解析的外部符号 sha256_block_data_order，该符号在。。。。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/d6d8591ee7bc5ceffd4446f8c9d43380.jpg" alt="OpenSSL编译过程和报错解决"><br /> 这个问题在网上看到别说是因为之前编译过了。再次执行nmake -f ms\ntdll.mak clean，再nmake -f ms\ntdll.mak 编译一下就可以了。</p> <p>记录一下，也给其他人参考一下。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58747.htm">动物疫苗哪里买的到 动物疫苗哪里买的到啊</a></p>
+                                        <p>下一个：<a href="/news/article-59230.htm">JAVA8 日期和时间(LocalDate、LocalDateTime、ZoneId、Duration、Period、Instant)API 用法详解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54184.htm" title="全国兽药品牌排行 全国兽药品牌排行榜前十名">全国兽药品牌排行 全国兽药品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/news/article-49940.htm" title="仓鼠丢了千万别去找（仓鼠的寿命有多长）">仓鼠丢了千万别去找（仓鼠的寿命有多长）</a></li>
+                        <li class="py-2"><a href="/news/article-59806.htm" title="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）">Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-clash-stash.htm" title="2月20日最新Free Stash订阅 | 23M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享">2月20日最新Free Stash订阅 | 23M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-53097.htm" title="动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口">动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口</a></li>
+                        <li class="py-2"><a href="/news/article-56950.htm" title="宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续">宠物食品加工需要什么证件 宠物食品加工需要什么证件和手续</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-node-share.htm" title="2月10日最新Free Stash订阅 | 22.5M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享">2月10日最新Free Stash订阅 | 22.5M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-52040.htm" title="中国宠物粮市场排名 中国宠物粮市场排名前十">中国宠物粮市场排名 中国宠物粮市场排名前十</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-ssr-node.htm" title="2月1日最新Clash-X订阅 | 19.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享">2月1日最新Clash-X订阅 | 19.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-node-subscribe.htm" title="2月14日最新Free Stash订阅 | 22.3M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享">2月14日最新Free Stash订阅 | 22.3M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

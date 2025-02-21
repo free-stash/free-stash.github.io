@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-59805.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>feign实现微服务之间的远程调用</title>
+        <meta name="description" content="原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下： 1.在需要远程调用的" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-59805.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="feign实现微服务之间的远程调用" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/f34f9a31c6c8f19dac1372cbfe476b11.webp" />
+        <meta property="og:release_date" content="2025-02-20T09:56:20" />
+    <meta property="og:updated_time" content="2025-02-20T09:56:20" />
+        <meta property="og:description" content="原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下： 1.在需要远程调用的" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="feign实现微服务之间的远程调用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>feign实现微服务之间的远程调用</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下：</p> <p>1.在需要远程调用的微服务的pom文件中增加feign的依赖。</p> <pre><code class="language-java">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>2.在启动类上添加注解开启Feign的功能。@EnableFeignClients//开启feign的功能</p> <p>3.编写Feign的客户端（注意是接口）例子如下</p> <pre><code class="language-java">@FeignClient("userservice") //被调用服务名 public interface UserClient {     @GetMapping("/user/{id}")     User findById(@PathVariable("id") Long id);//被调用的方法 }</code></pre> <p>4.测试在测试类中自动注入编写的接口</p> <pre><code class="language-java">@Service public class OrderService {      @Autowired     private OrderMapper orderMapper;     @Autowired     private RestTemplate restTemplate;     @Autowired     private UserClient userClient;//编写的Feign接口      public Order queryOrderById(Long orderId) {         // 1.查询订单         Order order = orderMapper.findById(orderId);         //第一种方式：用restTemplate实现，代码编写不规范 /*        String url="http://localhost:8081/user/"+order.getUserId();         User user = restTemplate.getForObject(url, User.class);*/         //第二种方式：用feign实现远程调用是常用的方式         User user = userClient.findById(order.getUserId());         order.setUser(user);         // 4.返回         return order;     }</code></pre> <p>5.Feign的简单调用已经完成。总结一下：先引入依赖、启动类加上注解添加@EnableFeignClients注解 ，编写FeignClient接口 ，使用FeignClient中定义的方法代替RestTemplate。</p> <h2>注意点：feign支持自定义配置</h2> <p>1.修改配置文件yml文件可以更改feign的日志级别。例如：</p> <pre><code class="language-java">feign:     client:     config:        default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置         loggerLevel: FULL #  日志级别</code></pre> <p>也可以用代码方式更改日志级别此处省略。</p> <p>以上是feign的简单使用，底层发起的http请求时默认的URLConnection，不支持连接池，为了提高性能应该用连接池代替默认的URLConnection。本文用Apache的HttpClient来演示。以下是步骤</p> <p>1.调用者的pom文件中引入依赖</p> <pre><code class="language-java">        &lt;!--httpClient的依赖 --&gt;         &lt;dependency&gt;             &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;             &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> <p>2.yml文件中修改feign的配置</p> <pre><code class="language-java"># 修改feign的日志级别 feign:   client:     config:       default: # default全局的配置         loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息 # 开启feign对HttpClient的支持           httpclient:     enabled: true # 开启feign对HttpClient的支持     max-connections: 200 # 最大的连接数     max-connections-per-route: 50 # 每个路径的最大连接数</code></pre> <p>3.结束，feign的最佳实践此处略。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59230.htm">JAVA8 日期和时间(LocalDate、LocalDateTime、ZoneId、Duration、Period、Instant)API 用法详解</a></p>
+                                        <p>下一个：<a href="/news/article-59806.htm">Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53629.htm" title="宠物领养协议文案怎么写啊（宠物领养协议免费下载）">宠物领养协议文案怎么写啊（宠物领养协议免费下载）</a></li>
+                        <li class="py-2"><a href="/news/article-60376.htm" title="Python实现双X轴双Y轴绘图">Python实现双X轴双Y轴绘图</a></li>
+                        <li class="py-2"><a href="/news/article-58747.htm" title="动物疫苗哪里买的到 动物疫苗哪里买的到啊">动物疫苗哪里买的到 动物疫苗哪里买的到啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-share-clash-stash.htm" title="2月16日最新Free Stash订阅 | 21.3M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享">2月16日最新Free Stash订阅 | 21.3M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-55283.htm" title="linux 硬盘满了如何处理">linux 硬盘满了如何处理</a></li>
+                        <li class="py-2"><a href="/news/article-53097.htm" title="动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口">动物疫苗批号查询系统官方网站 动物疫苗批号查询系统官方网站入口</a></li>
+                        <li class="py-2"><a href="/news/article-56381.htm" title="合肥宠物急救电话（合肥市宠物）">合肥宠物急救电话（合肥市宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-50984.htm" title="想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）">想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-clash-stash.htm" title="2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-57518.htm" title="实现mysql主从复制、读写分离">实现mysql主从复制、读写分离</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
