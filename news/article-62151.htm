@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-62151.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>小程序转h5步骤(利用uniapp)</title>
+        <meta name="description" content="1.介绍个好用的工具，那便是miniprogram-to-uniapp自动转换工具。 2.全局安装此工具，命令行如下 npm install miniprogram-to-uniapp -g 3.查看" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-62151.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="小程序转h5步骤(利用uniapp)" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/00b38739bb136483621fe32d15b682ee.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:16:05" />
+    <meta property="og:updated_time" content="2025-02-24T09:16:05" />
+        <meta property="og:description" content="1.介绍个好用的工具，那便是miniprogram-to-uniapp自动转换工具。 2.全局安装此工具，命令行如下 npm install miniprogram-to-uniapp -g 3.查看" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="小程序转h5步骤(利用uniapp)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>小程序转h5步骤(利用uniapp)</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>1.介绍个好用的工具，那便是<span style="color:#e579b6;">miniprogram-to-uniapp</span>自动转换工具。</h3> <h3>2.全局安装此工具，命令行如下</h3> <pre><code>npm install miniprogram-to-uniapp -g</code></pre> <h3>3.查看工具版本号，命令行如下</h3> <pre><code>wtu -V</code></pre> <p>回车若显示该工具版本号，则证明安装成功</p> <h3>4.开始进行转换，命令行如下</h3> <pre><code>//冒号里面是小程序的项目路径  wtu -i "E:\其他\patient-wechat\miniprogram"</code></pre> <p>回车后即可以在源项目同及目录得到一个后缀为_uni的目录，即转换成功。</p> <p><img fetchpriority="high" decoding="async" alt="" height="172" src="http://img.555519.xyz/uploads3/20220707/9639d095a35757035e61ee00b9018696.jpg"></p> <p><span style="color:#f33b45;">注意，此工具转换后是适用HBuilderX 工程。如果想要用vscode开发，转成vue-cli工程，继续一下操作。</span></p> <h2>HBuilderX 工程转换为 vue-cli 工程</h2> <h3>步骤</h3> <ol> <li>使用 vue-cli 新建空工程</li> </ol> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;不知怎么创建可参考文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/qq_39167934/article/details/106021002"  rel="nofollow">https://blog.csdn.net/qq_39167934/article/details/106021002</a></p> <ol> <li>将 HBuilderX 工程内的文件（除 unpackage、node_modules 目录）拷贝至 vue-cli 工程内 src 目录</li> <li>在 vue-cli 工程内重新安装 npm 依赖（如果之前使用了 npm 依赖的话）</li> </ol> <h2>vue-cli 工程转换为 HBuilderX 工程</h2> <p>当需要开发 App 端时，可以转换为 HBuilderX 工程（不转换直接在HBuilderX 2.0+中也可以运行）</p> <h3>步骤</h3> <ol> <li>将 vue-cli 工程（需为uni-app项目）内的 src 目录复制一份，导入 HBuilderX 作为新工程。</li> <li>在新工程目录内重新安装 npm 依赖（如果之前使用了 npm 依赖的话，记得先 npm init 初始化）</li> </ol> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62150.htm">数据库四大特性及数据库隔离级别（*）</a></p>
+                                        <p>下一个：<a href="/news/article-62735.htm">义乌领养宠物的地方在哪里（义乌领养宠物的地方在哪里有）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54733.htm" title="猫咪打疫苗要打几针（猫咪打疫苗要打几针才有效）">猫咪打疫苗要打几针（猫咪打疫苗要打几针才有效）</a></li>
+                        <li class="py-2"><a href="/news/article-58747.htm" title="动物疫苗哪里买的到 动物疫苗哪里买的到啊">动物疫苗哪里买的到 动物疫苗哪里买的到啊</a></li>
+                        <li class="py-2"><a href="/news/article-56951.htm" title="动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片">动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-50984.htm" title="想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）">想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）</a></li>
+                        <li class="py-2"><a href="/news/article-57517.htm" title="SpringBoot 配置Druid监控页面">SpringBoot 配置Druid监控页面</a></li>
+                        <li class="py-2"><a href="/news/article-50470.htm" title="当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)">当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)</a></li>
+                        <li class="py-2"><a href="/news/article-59230.htm" title="JAVA8 日期和时间(LocalDate、LocalDateTime、ZoneId、Duration、Period、Instant)API 用法详解">JAVA8 日期和时间(LocalDate、LocalDateTime、ZoneId、Duration、Period、Instant)API 用法详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-node-subscribe.htm" title="2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-63334.htm" title="动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）">动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）</a></li>
+                        <li class="py-2"><a href="/news/article-59806.htm" title="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）">Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

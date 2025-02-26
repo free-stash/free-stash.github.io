@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-62150.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>数据库四大特性及数据库隔离级别（*）</title>
+        <meta name="description" content="如果想要说明一个数据库或者一个框架支持事务性操作，则必须要满足下面的四大特性 1. 原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚。失败回滚的操作事务，将不能" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-62150.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="数据库四大特性及数据库隔离级别（*）" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/381c399be352931a8973bfa1a4aa900f.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:16:05" />
+    <meta property="og:updated_time" content="2025-02-24T09:16:05" />
+        <meta property="og:description" content="如果想要说明一个数据库或者一个框架支持事务性操作，则必须要满足下面的四大特性 1. 原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚。失败回滚的操作事务，将不能" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="数据库四大特性及数据库隔离级别（*）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>数据库四大特性及数据库隔离级别（*）</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>如果想要说明一个数据库或者一个框架支持事务性操作，则必须要满足下面的四大特性</p> <p><strong>1. 原子性（Atomicity）</strong><br /> 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚。失败回滚的操作事务，将不能对事务有任何影响。</p> <p><strong>2. 一致性（Consistency）</strong><br /> 一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。<br /> 数据库状态如何变化？每一次数据变更就会导致数据库的状态迁移。如果数据库的初始状态是C0，第一次事务T1的提交就会导致系统生成一个SYSTEM CHANGE NUMBER（SCN），这是数据库状态从C0转变成C1。执行第二个事务T2的时候数据库状态从C1变成C2，以此类推，执行第Tn次事务的时候数据库状态由C(n-1)变成Cn。<br /> 一致性可以从一致读和一致写两个方面来理解。<br /><strong>一致读</strong> 事务读取数据只能从一个状态中读取，不能从2个或者2个以上状态读取。也就是T(n)只能从C(n-1），C(n-2)… C(1)中的一个状态读取数据，不能一部分数据读取自C(n-1)，而另一部分数据读取自C(n-2)。<br /><strong>一致写</strong>事务执行的数据变更只能基于上一个一致的状态，且只能体现在一个状态中。T(n)的变更结果只能基于C(n-1)，C(n-2), …C(1)状态，且只能体现在C(n)状态中。也就是说，一个状态只能有一个事务变更数据，不允许有2个或者2个以上事务在一个状态中变更数据。至于具体一致写基于哪个状态，需要判断T(n)事务是否和T(n-1)，T(n-2),…T(1)有依赖关系。<br /><strong>3. 隔离性（Isolation）</strong><br /> 隔离性是指当多个用户并发访问数据库时，比如同时访问一张表，数据库每一个用户开启的事务，不能被其他事务所做的操作干扰，多个并发事务之间，应当相互隔离。<br /> 例如同时有T1和T2两个并发事务，从T1角度来看，T2要不在T1执行之前就已经结束，要么在T1执行完成后才开始。将多个事务隔离开，每个事务都不能访问到其他事务操作过程中的状态。<br /> 关于事务的隔离性，数据库也提供了多种方案，后面我们将会进行详细介绍</p> <p><strong>4. 持久性（Durability）</strong><br /> 持久性是指事务的操作，一旦提交，对于数据库中数据的改变是永久性的，即使数据库发生故障也不能丢失已提交事务所完成的改变。<br /> 在了解完数据库的四大特性之后，我们来讨论一下数据库的隔离级别的问题。在此之前，我们考虑在没有数据库隔离性的情况下，多用户并发操作可能会发生的问题。</p> <p><strong>1. 脏读</strong><br /> 脏读是指一个事务读取了未提交事务执行过程中的数据。<br /> 当一个事务的操作正在多次修改数据，而在事务还未提交的时候，另外一个并发事务来读取了数据，就会导致读取到的数据并非是最终持久化之后的数据，这个数据就是脏读的数据。<br /> 最典型的例子就是银行转账，从A账户转账100到B账户，脚本命令为</p> <pre><code class="prism language-java">update account set money<span class="token operator">=</span> money<span class="token operator">+</span><span class="token number">100</span> where username<span class="token operator">=</span><span class="token char">'B'</span><span class="token punctuation">;</span> update account set money<span class="token operator">=</span> money<span class="token operator">-</span><span class="token number">100</span> where username<span class="token operator">=</span><span class="token char">'A'</span><span class="token punctuation">;</span></code></pre> <p>在这个事务执行过程中，另外一个事务读取结果发现B账户中的钱已经到账，提示B钱已到账，B就进行了下一步的操作。但是最终转账事务失败，导致操作回滚。实际上B并未收到钱，但是进行了下一步的操作，造成了损失，这就是脏读。</p> <p><strong>2. 不可重复读</strong><br /> 不可重复读是指对于数据库中的某个数据，一个事务执行过程中多次查询返回不同查询结果，这就是在事务执行过程中，数据被其他事务提交修改了。<br /> 不可重复读同脏读的区别在于，脏读是一个事务读取了另一未完成的事务执行过程中的数据，而不可重复读是一个事务执行过程中，另一事务提交并修改了当前事务正在读取的数据。</p> <p><strong>3. 虚读(幻读)</strong><br /> 幻读是事务非独立执行时发生的一种现象，例如事务T1批量对一个表中某一列列值为1的数据修改为2的变更，但是在这时，事务T2对这张表插入了一条列值为1的数据，并完成提交。此时，如果事务T1查看刚刚完成操作的数据，发现还有一条列值为1的数据没有进行修改，而这条数据其实是T2刚刚提交插入的，这就是幻读。<br /> 幻读和不可重复读都是读取了另一条已经提交的事务（这点同脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</p> <h2><a id="_38" rel="nofollow"></a>隔离级别说明</h2> <p>MySQL定义了四种隔离级别，包括一些具体规则，用于限定事务内外哪些改变是可见的，哪些改变是不可见的。低级别的隔离一般支持更高的并发处理，并且拥有更低的系统开销。<br /><strong>REPEATABLE READ Repeatable Read 可重复读</strong><br /> MySQL数据库默认的隔离级别。该级别解决了READ UNCOMMITTED隔离级别导致的问题。它保证同一事务的多个实例在并发读取事务时，会“看到同样的”数据行。不过，这会导致另外一个棘手问题“幻读”。InnoDB和Falcon存储引擎通过多版本并发控制机制解决了幻读问题。<br /><strong>READ COMMITTED Read Committed 读取提交内容</strong><br /> 大多数数据库系统的默认隔离级别（但是不是MySQL的默认隔离级别），满足了隔离的早先简单定义：一个事务开始时，只能“看见”已经提交事务所做的改变，一个事务从开始到提交前，所做的任何数据改变都是不可见的，除非已经提交。这种隔离级别也支持所谓的“不可重复读”。这意味着用户运行同一个语句两次，看到的结果是不同的。<br /><strong>READ UNCOMMITTED Read UnCommitted 读取未提交内容</strong><br /> 在这个隔离级别，所有事务都可以“看到”未提交事务的执行结果。在这种级别上，可能会产生很多问题，除非用户真的知道自己在做什么，并有很好的理由选择这样做。本隔离级别很少用于实际应用，因为它的性能也不比其他性能好多少，而别的级别还有其他更多的优点。读取未提交数据，也被称为“脏读”<br /><strong>SERIALIZABLE Serializable 可串行化</strong><br /> 该级别是最高级别的隔离级。它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简而言之，SERIALIZABLE是在每个读的数据行上加锁。在这个级别，可能导致大量的超时Timeout和锁竞争Lock Contention现象，实际应用中很少使用到这个级别，但如果用户的应用为了数据的稳定性，需要强制减少并发的话，也可以选择这种隔离级<br /> 下面的表格总结了各种隔离级别和各自的缺点<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220822/13683dc3da9d19e1e5c1959588f4a560.jpg" alt="数据库四大特性及数据库隔离级别（*）"></p> <h2><a id="_51" rel="nofollow"></a>修改隔离级别的方法</h2> <p>全局修改<br /> 全局修改需要修改MySql的全局文件mysql.ini，修改内容如下</p> <pre><code class="prism language-java"><span class="token number">1</span> #可选参数有：READ<span class="token operator">-</span>UNCOMMITTED<span class="token punctuation">,</span> READ<span class="token operator">-</span>COMMITTED<span class="token punctuation">,</span> REPEATABLE<span class="token operator">-</span>READ<span class="token punctuation">,</span> SERIALIZABLE<span class="token punctuation">.</span><span class="token number">2</span><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span><span class="token number">3</span> transaction<span class="token operator">-</span>isolation<span class="token operator">=</span> REPEATABLE<span class="token operator">-</span>READ</code></pre> <p>语句修改<br /> 在命令行模式下连上MySql后，可以使用下列语句查看MySql当前隔离级别</p> <pre><code class="prism language-java">mysql<span class="token operator">&gt;</span> select @<span class="token annotation punctuation">@tx_isolation</span><span class="token punctuation">;</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">|</span> @<span class="token annotation punctuation">@tx_isolation</span><span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">|</span> REPEATABLE<span class="token operator">-</span>READ<span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token number">1</span> row in set<span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span></code></pre> <p>可以使用下面的命令修改当前会话Session的隔离级</p> <pre><code class="prism language-java">mysql<span class="token operator">&gt;</span> set session transaction isolation level read committed<span class="token punctuation">;</span><span class="token class-name">Query</span> OK<span class="token punctuation">,</span><span class="token number">0</span> rows affected<span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>   mysql<span class="token operator">&gt;</span> select @<span class="token annotation punctuation">@tx_isolation</span><span class="token punctuation">;</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">+</span><span class="token operator">|</span> @<span class="token annotation punctuation">@tx_isolation</span><span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">+</span><span class="token operator">|</span> READ<span class="token operator">-</span>COMMITTED<span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">+</span><span class="token number">1</span> row in set<span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span></code></pre> <p>AutoCommit 事务自动提交<br /> MySql中有AutoCommit参数，默认为on，也就是开启状态。它的作用是每一条单独的查询都是一个事务，自动开始，自动提交（语句执行完成就提交。如果你要适用select for update，而不手动调用 start transaction，这个for update的行锁机制等于没用，因为行锁在自动提交后就释放了）。所以事务隔离级别和锁机制即使你不显式调用start transaction，这种机制在单独一条语句查询中也是适用的。<br /> 在命令行模式下可以使用下面的命令查看当前MySql的autocommit是否开启</p> <pre><code class="prism language-java">mysql<span class="token operator">&gt;</span> show variables like 'autocommit'<span class="token punctuation">;</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">|</span><span class="token class-name">Variable_name</span><span class="token operator">|</span><span class="token class-name">Value</span><span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">|</span> autocommit<span class="token operator">|</span> ON<span class="token operator">|</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">+</span><span class="token number">1</span> row in set<span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span></code></pre> <p>如果需要关闭autocommit，我们可以使用下面语句设置</p> <pre><code class="prism language-java">mysql<span class="token operator">&gt;</span> set autocommit<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span></code></pre> <p>0就是OFF，1就是ON。设置为OFF之后，则用户执行语句之后，将一直处于一个事务中，直到执行commit或者rollback，才会结束当前事务，重新开始新的事务。</p> <h2><a id="_105" rel="nofollow"></a>锁机制</h2> <p><strong>共享锁</strong><br /> 由读表操作加上的锁，加锁后其他用户只能获取该表或行的共享锁，不能获取排它锁，也就是说只能读不能写<br /><strong>排它锁</strong><br /> 由写表操作加上的锁，加锁后其他用户不能获取该表或行的任何锁，典型是mysql事务<br /> 根据锁的范围，可以分为表锁（给整张表加锁）行锁（给行数据加锁）<br /> 因此锁可以分为表级共享锁、行级共享锁、表级排它锁、行级排它锁。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61544.htm">小型狗粮加工设备视频教程 小型狗粮加工设备视频教程大全</a></p>
+                                        <p>下一个：<a href="/news/article-62151.htm">小程序转h5步骤(利用uniapp)</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-61544.htm" title="小型狗粮加工设备视频教程 小型狗粮加工设备视频教程大全">小型狗粮加工设备视频教程 小型狗粮加工设备视频教程大全</a></li>
+                        <li class="py-2"><a href="/news/article-51528.htm" title="防止重复提交拦截器 spring boot">防止重复提交拦截器 spring boot</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-node-subscribe.htm" title="2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">2月4日最新Free Stash订阅 | 22.9M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-52557.htm" title="k8s入门之pod">k8s入门之pod</a></li>
+                        <li class="py-2"><a href="/news/article-62150.htm" title="数据库四大特性及数据库隔离级别（*）">数据库四大特性及数据库隔离级别（*）</a></li>
+                        <li class="py-2"><a href="/news/article-56380.htm" title="java初始时间_java日期时间详解">java初始时间_java日期时间详解</a></li>
+                        <li class="py-2"><a href="/news/article-60948.htm" title="青岛周口路宠物店电话（青岛宠物店青岛宠物服务信息）">青岛周口路宠物店电话（青岛宠物店青岛宠物服务信息）</a></li>
+                        <li class="py-2"><a href="/news/article-49939.htm" title="宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）">宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-clash-stash.htm" title="2月17日最新Free Stash订阅 | 22.7M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享">2月17日最新Free Stash订阅 | 22.7M/S|2025年Clash/V2ray/Shadowrocket/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-clash-stash-node.htm" title="2月21日最新Free Stash订阅 | 20.1M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">2月21日最新Free Stash订阅 | 20.1M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
