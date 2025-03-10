@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-69633.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Spring Boot 整合 Apache Dubbo</title>
+        <meta name="description" content="org.apache.dubbo dubbo-spring-boot-starter 2.7.5 Spring Boot 版本 org.springframework.boot spring-boot" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-69633.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Spring Boot 整合 Apache Dubbo" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/00b38739bb136483621fe32d15b682ee.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:06:10" />
+    <meta property="og:updated_time" content="2025-03-08T05:06:10" />
+        <meta property="og:description" content="org.apache.dubbo dubbo-spring-boot-starter 2.7.5 Spring Boot 版本 org.springframework.boot spring-boot" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Boot 整合 Apache Dubbo">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Spring Boot 整合 Apache Dubbo</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>                    org.apache.dubbo dubbo-spring-boot-starter 2.7.5 Spring Boot 版本 org.springframework.boot spring-boot-starter-parent 2.1.1.RELEASE 1.2 模块关系 根工程 order：管理工程信息； 子工程 order-api：定义RPC服务的接口、参数以及响应结果的结果集； 子工程 order-provider：RPC服务的提供端； 子工程 order-consumer：RPC服务的消费端，实际开发过程中实际情况是其它服务的调用该订单RPC服务 二、根工程 2.1 创建项目 order 我这里为了和之前老版本的alibaba的dubbo项目区分，文件名取为apache-dubbo-demo，maven 项目名称为order。 </p> <p>该项目主要作用是定义工程信息、管理整个项目依赖版本等等，所以src目录不需要。</p> <p>2.2 pom.xml<br /> 根工程中使用了和进行依赖管理。</p> <p>：声明全局依赖，当子项目指定引用才会继承依赖；<br /> ：声明全局依赖，子项目直接自动继承依赖。</p> <p> &lt;?xml version="1.0" encoding="UTF-8"?&gt; </p> <p> 4.0.0</p> <pre><code>&lt;!-- 父级引用 --&gt; &lt;parent&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;     &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;     &lt;relativePath/&gt; &lt;/parent&gt;  &lt;!-- 基本信息 --&gt; &lt;groupId&gt;cn.van.order&lt;/groupId&gt; &lt;artifactId&gt;order&lt;/artifactId&gt; &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt; &lt;name&gt;${project.artifactId}&lt;/name&gt; &lt;description&gt;Apache Dubbo 根项目&lt;/description&gt;  &lt;!--配置--&gt; &lt;properties&gt;     &lt;java.version&gt;1.8&lt;/java.version&gt;     &lt;dubbo.version&gt;2.7.5&lt;/dubbo.version&gt;     &lt;zookeeper.version&gt;3.4.14&lt;/zookeeper.version&gt; &lt;/properties&gt;  &lt;!-- 子项目 --&gt; &lt;modules&gt;     &lt;module&gt;order-api&lt;/module&gt;     &lt;module&gt;order-provider&lt;/module&gt;     &lt;module&gt;order-consumer&lt;/module&gt; &lt;/modules&gt;  &lt;!--声明全局依赖（子项目需要显示的引用才会继承依赖）--&gt; &lt;dependencyManagement&gt;     &lt;dependencies&gt;         &lt;!-- dubbo-start依赖 --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;             &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;             &lt;version&gt;${dubbo.version}&lt;/version&gt;         &lt;/dependency&gt;         &lt;!--zookeeper 注册中心客户端引入 使用的是curator客户端 --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;             &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;             &lt;version&gt;${dubbo.version}&lt;/version&gt;             &lt;type&gt;pom&lt;/type&gt;             &lt;exclusions&gt;                 &lt;exclusion&gt;                     &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;                     &lt;groupId&gt;org.slf4j&lt;/groupId&gt;                 &lt;/exclusion&gt;             &lt;/exclusions&gt;         &lt;/dependency&gt;     &lt;/dependencies&gt; &lt;/dependencyManagement&gt;  &lt;!--声明全局依赖（子项目不需要显示的引用，自动继承依赖）--&gt; &lt;dependencies&gt;     &lt;!-- spring boot 依赖 --&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;     &lt;/dependency&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;         &lt;scope&gt;test&lt;/scope&gt;         &lt;exclusions&gt;             &lt;exclusion&gt;                 &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;                 &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;             &lt;/exclusion&gt;         &lt;/exclusions&gt;     &lt;/dependency&gt; &lt;/dependencies&gt;  &lt;!-- 打包插件 --&gt; &lt;build&gt;     &lt;plugins&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;         &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt; </code></pre> <p> 三、order-api 3.1 项目依赖 无需更多依赖，所以很简单。 &lt;?xml version="1.0" encoding="UTF-8"?&gt; </p> <p> 4.0.0</p> <pre><code>&lt;parent&gt;     &lt;groupId&gt;cn.van.order&lt;/groupId&gt;     &lt;artifactId&gt;order&lt;/artifactId&gt;     &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt; &lt;/parent&gt;  &lt;groupId&gt;cn.van.order&lt;/groupId&gt; &lt;artifactId&gt;order-api&lt;/artifactId&gt; &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt; &lt;name&gt;${project.artifactId}&lt;/name&gt; &lt;description&gt;dubbo公共项目&lt;/description&gt;   &lt;build&gt;     &lt;plugins&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;         &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt; </code></pre> <p> 3.2 封装 RPC 结果集 先封装一个返回码枚举类ResultCodeEnum.java public enum ResultCodeEnum { /*** 通用部分 100 - 599***/ // 成功请求 SUCCESS(200, "successful"), </p> <pre><code>/*** 这里可以根据不同模块用不同的区级分开错误码，例如:  ***/  // 1000～1999 区间表示用户模块错误 // 2000～2999 区间表示订单模块错误 // 3000～3999 区间表示商品模块错误 // 。。。  ORDER_NOT_FOUND(2000, "order not found"), ; /**  * 响应状态码  */ private Integer code; /**  * 响应信息  */ private String message;  ResultCodeEnum(Integer code, String msg) {     this.code = code;     this.message = msg; }  public Integer getCode() {     return code; }  public String getMessage() {     return message; }  public void setMessage(String message) {     this.message = message; } </code></pre> <p>}<br /> 先封装一个RPC 响应结果集RpcResult.java<br /> public class RpcResult implements Serializable {<!-- --></p> <pre><code>/**  * 是否响应成功  */ private Boolean success; /**  * 响应状态码  */ private Integer code; /**  * 响应数据  */ private T data; /**  * 错误信息  */ private String message;  // 构造器开始 /**  * 无参构造器(构造器私有，外部不可以直接创建)  */ private RpcResult() {     this.code = 200;     this.success = true; } /**  * 有参构造器  * @param obj  */ private RpcResult(T obj) {     this.code = 200;     this.data = obj;     this.success = true; }  /**  * 有参构造器  * @param resultCode  */ private RpcResult(ResultCodeEnum resultCode) {     this.success = false;     this.code = resultCode.getCode();     this.message = resultCode.getMessage(); } // 构造器结束  /**  * 通用返回成功（没有返回结果）  * @param &lt;T&gt;  * @return  */ public static&lt;T&gt; RpcResult&lt;T&gt; success(){     return new RpcResult(); }  /**  * 返回成功（有返回结果）  * @param data  * @param &lt;T&gt;  * @return  */ public static&lt;T&gt; RpcResult&lt;T&gt; success(T data){     return new RpcResult&lt;T&gt;(data); }  /**  * 通用返回失败  * @param resultCode  * @param &lt;T&gt;  * @return  */ public static&lt;T&gt; RpcResult&lt;T&gt; failure(ResultCodeEnum resultCode){     return  new RpcResult&lt;T&gt;(resultCode); }  public Boolean getSuccess() {     return success; }  public void setSuccess(Boolean success) {     this.success = success; }  public Integer getCode() {     return code; }  public void setCode(Integer code) {     this.code = code; }  public T getData() {     return data; }  public void setData(T data) {     this.data = data; }  public String getMessage() {     return message; }  public void setMessage(String message) {     this.message = message; }  @Override public String toString() {     return "RpcResult{" +             "success=" + success +             ", code=" + code +             ", data=" + data +             ", message='" + message + '\'' +             '}'; } </code></pre> <p>}<br /> 3.3 编写一个 RPC 接口<br /> public interface OrderDubboService {<!-- --><br /> RpcResult getOrder();<br /> }<br /> 实体OrderDomain.java挺简单的，详见 Github 仓库。</p> <p>四、order-provider<br /> 此子项目是一个服务类项目，也就是将接口服务注册到zookeeper注册中心供消费端调取使用。</p> <p>4.1 项目依赖</p> <p> &lt;?xml version="1.0" encoding="UTF-8"?&gt; </p> <p> 4.0.0</p> <p> cn.van.order<br /> order<br /> 1.0.0-SNAPSHOT</p> <pre><code>&lt;groupId&gt;cn.van.order&lt;/groupId&gt; &lt;artifactId&gt;order-provider&lt;/artifactId&gt; &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt; &lt;name&gt;${project.artifactId}&lt;/name&gt; &lt;description&gt;Dubbo 服务提供者&lt;/description&gt;  &lt;dependencies&gt;     &lt;dependency&gt;         &lt;groupId&gt;cn.van.order&lt;/groupId&gt;         &lt;artifactId&gt;order-api&lt;/artifactId&gt;         &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;     &lt;/dependency&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;         &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;     &lt;/dependency&gt;     &lt;!-- zookeeper依赖 --&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;         &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;         &lt;version&gt;${dubbo.version}&lt;/version&gt;         &lt;type&gt;pom&lt;/type&gt;         &lt;exclusions&gt;             &lt;exclusion&gt;                 &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;                 &lt;groupId&gt;org.slf4j&lt;/groupId&gt;             &lt;/exclusion&gt;         &lt;/exclusions&gt;     &lt;/dependency&gt; &lt;/dependencies&gt;  &lt;build&gt;     &lt;plugins&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;         &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt; </code></pre> <p> 4.2 服务实现接口 @Service public class OrderDubboServiceImpl implements OrderDubboService { </p> <pre><code>@Override public RpcResult&lt;OrderDomain&gt; getOrder() {     return RpcResult.success(new OrderDomain(1, 10086, LocalDateTime.now())); } </code></pre> <p>}<br /> 注意：<br /> @Service 是 dubbo 包下面的注解不是 Spring 里面的注解。</p> <p>4.3 项目配置<br /> dubbo 的配置直接用 dubbo，不再以 Spring 开头;<br /> base-packages：指定接口实现所在路径。<br /> server:</p> </h1> <p>port: 7777<br /> spring:<br /> application:<br /> name: order-provider</p> </h1> <p>dubbo:<br /> application:<br /> # 应用名称<br /> name: order-provider<br /> scan:<br /> # 接口实现者（服务实现）包<br /> base-packages: cn.van.order.service.impl</p> </h1> <p>registry:<br /> address: zookeeper://127.0.0.1:2181<br /> protocol:<br /> # 协议名称<br /> name: dubbo<br /> # 协议端口<br /> port: 20880<br /> 五、order-consumer<br /> 此子项目就是一个消费项目，比如商品模块、财务模块等等。</p> <p>5.1 项目依赖</p> <p> &lt;?xml version="1.0" encoding="UTF-8"?&gt; </p> <p> 4.0.0</p> <pre><code>&lt;parent&gt;     &lt;groupId&gt;cn.van.order&lt;/groupId&gt;     &lt;artifactId&gt;order&lt;/artifactId&gt;     &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt; &lt;/parent&gt;  &lt;groupId&gt;cn.van.order&lt;/groupId&gt; &lt;artifactId&gt;order-consumer&lt;/artifactId&gt; &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt; &lt;name&gt;${project.artifactId}&lt;/name&gt; &lt;description&gt;Dubbo 消费者&lt;/description&gt;   &lt;dependencies&gt;     &lt;dependency&gt;         &lt;groupId&gt;cn.van.order&lt;/groupId&gt;         &lt;artifactId&gt;order-api&lt;/artifactId&gt;         &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;     &lt;/dependency&gt;      &lt;!-- web项目依赖 --&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;     &lt;/dependency&gt;      &lt;!-- dubbo依赖 --&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;         &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;     &lt;/dependency&gt;      &lt;!-- dubbo的zookeeper依赖 --&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;         &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;         &lt;version&gt;${dubbo.version}&lt;/version&gt;         &lt;type&gt;pom&lt;/type&gt;         &lt;exclusions&gt;             &lt;exclusion&gt;                 &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;                 &lt;groupId&gt;org.slf4j&lt;/groupId&gt;             &lt;/exclusion&gt;         &lt;/exclusions&gt;     &lt;/dependency&gt; &lt;/dependencies&gt;  &lt;build&gt;     &lt;plugins&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;         &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt; </code></pre> <p> 5.2 测试接口 模拟一个接口获取订单详情。 </p> <p>@RestController<br /> @RequestMapping("/order")<br /> public class OrderConsumerController {<!-- --><br /> @Reference<br /> OrderDubboService orderDubboService;</p> <pre><code>@GetMapping("getOrder") public RpcResult getOrder() {     return orderDubboService.getOrder(); } </code></pre> <p>}<br /> 注意：@Reference引入的是 Dubbo 接口，所以是 Dubbo 的注解。</p> <p>5.3 配置文件<br /> server:<br /> port: 7000<br /> spring:<br /> application:<br /> name: order-consumer</p> </h1> <p>dubbo:<br /> application:<br /> name: order-consumer<br /> registry:<br /> address: zookeeper://127.0.0.1:2181<br /> 六、测试<br /> 一切就绪，如果在order-consumer 的测试接口能成功请求到数据，则证明 Dubbo 服务搭建成功。</p> <p>6.1 启动 zookeeper<br /> 我们选用zookeeper作为注册中心，因此启动项目之前需要先启动它。</p> <p>6.2 dubbo-admin<br /> dubbo-admin 便于观察 order-provider 是否成功将接口注册，具体安装步骤详见apache/dubbo-admin</p> <p>默认端口：8080。</p> <p>6.3 启动 dubbo-provider<br /> 成功启动后可以在dubbo-admin：已经成功将接口 OrderService 注册到 zookeeper 上如下：</p> <p>风尘博客</p> <p>成功将借口注册到注册中心，说明dubbo-provider 注册成功。</p> <p>6.4 启动 order-cosumer<br /> 启动消费者项目，在浏览器请求消费接口：http://localhost:7000/order/getOrder，成功返回数据如下：</p> <p>{<!-- --><br /> “success”:true,<br /> “code”:200,<br /> “data”:{<!-- --><br /> “id”:1,<br /> “orderNum”:10086,<br /> “gmtCreate”:“2020-05-06T11:59:45.535”<br /> },<br /> “message”:null<br /> }<br /> 亚马逊测评 www.yisuping.com</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68979.htm">开个宠物粮加工厂怎么样啊视频教学（开个宠物粮加工厂怎么样啊视频教学大全）</a></p>
+                                        <p>下一个：<a href="/news/article-69634.htm">python实现自动整理文件_python_</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-node-share-links.htm" title="2月27日最新Free Stash订阅 | 22.3M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享">2月27日最新Free Stash订阅 | 22.3M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-58746.htm" title="符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）">符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-56380.htm" title="java初始时间_java日期时间详解">java初始时间_java日期时间详解</a></li>
+                        <li class="py-2"><a href="/news/article-70941.htm" title="沧州宠物医院招聘信息（沧州宠物医院电话）">沧州宠物医院招聘信息（沧州宠物医院电话）</a></li>
+                        <li class="py-2"><a href="/news/article-55836.htm" title="动物防疫工作年终总结（动物防疫工作年终总结怎么写）">动物防疫工作年终总结（动物防疫工作年终总结怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-53628.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-clash-stash.htm" title="2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">2月6日最新Free Stash订阅 | 22.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-56951.htm" title="动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片">动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-clash-stash.htm" title="2月11日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享">2月11日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-clash-stash-node.htm" title="3月1日最新Free Stash订阅 | 21.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">3月1日最新Free Stash订阅 | 21.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
