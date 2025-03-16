@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-73591.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>在CentOS安装CMake</title>
+        <meta name="description" content="你或许听过好几种 Make 工具，例如GNU Make&nbsp;，QT 的qmake&nbsp;，微软的MS nmake，BSD Make（pmake），Makepp，等等。这些 Make 工具遵循" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-73591.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="在CentOS安装CMake" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/68ec491d502ac25d24f918589431014d.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:00" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:00" />
+        <meta property="og:description" content="你或许听过好几种 Make 工具，例如GNU Make&nbsp;，QT 的qmake&nbsp;，微软的MS nmake，BSD Make（pmake），Makepp，等等。这些 Make 工具遵循" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="在CentOS安装CMake">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>在CentOS安装CMake</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>你或许听过好几种 Make 工具，例如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/wiki/tools-makefile.html"  rel="nofollow">GNU Make</a>&nbsp;，QT 的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://qt-project.org/doc/qt-4.8/qmake-manual.html"  rel="nofollow">qmake</a>&nbsp;，微软的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://msdn.microsoft.com/en-us/library/ms930369.aspx"  rel="nofollow">MS nmake</a>，BSD Make（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.freebsd.org/doc/en/books/pmake/"  rel="nofollow">pmake</a>），<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://makepp.sourceforge.net/"  rel="nofollow">Makepp</a>，等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。这样就带来了一个严峻的问题：如果软件想跨平台，必须要保证能够在不同平台编译。而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile ，这将是一件让人抓狂的工作。<a id="more" rel="nofollow"></a></p> <p>CMake就是针对上面问题所设计的工具：它首先允许开发者编写一种平台无关的 CMakeLists.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。显然，CMake 是一个比上述几种 make 更高级的编译配置工具。一些使用 CMake 作为项目架构系统的知名开源项目有<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.vtk.org/"  rel="nofollow">VTK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.itk.org/"  rel="nofollow">ITK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://kde.org/"  rel="nofollow">KDE</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.opencv.org.cn/opencvdoc/2.3.2/html/modules/core/doc/intro.html"  rel="nofollow">OpenCV</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.openscenegraph.org/"  rel="nofollow">OSG</a>&nbsp;等<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/codes/cmake/#fn1"  id="fnref1" rel="nofollow">[1]</a>。</p> <p>CMake是一个跨平台的安装(编译)工具，cmake命令生成相应的makefile（在Unix like系统下）或者 project文件（指定用window下的相应编程工具编译时）。</p> <p>&nbsp;CMake 是一个比 automake 更加容易使用的工具，能够使程序员从复杂的编译连接过程中解脱出来</p> <p>CMake 提供了比 autoconfig 更简洁的语法。在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://linux.chinaitlab.com/"  rel="nofollow">linux</a>&nbsp;平台下使用 CMake 生成 Makefile 并编译的流程如下:</p> <p>&nbsp;&nbsp;&nbsp; 1.编写 CMakeLists.txt。<br /> &nbsp;&nbsp;&nbsp; 2.执行命令 “cmake PATH” 或者 “ccmake PATH” 生成 Makefile ( PATH 是 CMakeLists.txt 所在的目录 )。<br /> &nbsp;&nbsp;&nbsp; 3.使用 make 命令进行编译。</p> <p>&nbsp;ccmake 与命令 cmake 的不同之处在于 ccmake 提供了一个图形化的操作界面</p> <p><strong>一、环境描述</strong></p> <p>1、系统：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=14"  rel="nofollow">CentOS</a>&nbsp;6.4 i386 (min)</p> <p>2、登录用户：root</p> <p>3、版本：CMake 2.8.10.2</p> <p>4、虚拟机：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=12"  rel="nofollow">Oracle</a>&nbsp;VM VirtualBox</p> <p><strong>二、安装步骤</strong></p> <p>步骤一、安装gcc等必备程序包（已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y gcc gcc-c++ make automake</code></pre> <p>步骤二、安装wget （已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y wget</code></pre> <p>步骤三、获取CMake源码包</p> <pre class="has"><code class="language-html">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</code></pre> <p>步骤四、解压CMake源码包</p> <pre class="has"><code class="language-html">tar -zxvf cmake-2.8.10.2.tar.gz</code></pre> <p>步骤五、进入目录</p> <pre class="has"><code class="language-html">cd cmake-2.8.10.2</code></pre> <p>步骤六</p> <pre class="has"><code class="language-html">./bootstrap</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/194aa040d10f206dac8134123313dc55.jpg"></p> <p>步骤七</p> <pre class="has"><code class="language-html">gmake</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/097cb4f5bfdbf13b8feef735c2ad9a0e.jpg"></p> <p>步骤八</p> <pre class="has"><code class="language-html">gmake install</code></pre> <p>安装完成，可阅读install_manifest.txt查看具体都安装了什么。</p> <p><strong>三、异常情况</strong></p> <p>如果步骤六报错，可能原因是关联的程序包未安装。解决方法：安装所需的程序包后，将cmake-2.8.10.2/目录下的CMakeCache.txt删掉，再从步骤六开始。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/430213a17f1b01bf5371ee32e912dd4a.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72923.htm">孕妇被猫抓了一下出了点血要打疫苗吗有影响吗（孕妇被猫抓伤出了一点血有危险么）</a></p>
+                                        <p>下一个：<a href="/news/article-73592.htm">南京哪里有宠物领养中心啊多少钱（南京宠物狗领养中心）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55284.htm" title="vue如何将对象中所有的key赋为空值_vue.js">vue如何将对象中所有的key赋为空值_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-66427.htm" title="动物疫苗可以快递吗安全吗现在（宠物疫苗可以寄快递吗）">动物疫苗可以快递吗安全吗现在（宠物疫苗可以寄快递吗）</a></li>
+                        <li class="py-2"><a href="/news/article-68976.htm" title="动物疫苗打一次管多长时间有效（动物疫苗注射后多久产生抗体）">动物疫苗打一次管多长时间有效（动物疫苗注射后多久产生抗体）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-clash-stash-node.htm" title="2月3日最新Free Stash订阅 | 21.9M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">2月3日最新Free Stash订阅 | 21.9M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-clash-stash-node.htm" title="3月13日最新Free Stash订阅 | 22.5M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点地址链接分享">3月13日最新Free Stash订阅 | 22.5M/S|2025年SSR/V2ray/Shadowrocket/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-60376.htm" title="Python实现双X轴双Y轴绘图">Python实现双X轴双Y轴绘图</a></li>
+                        <li class="py-2"><a href="/news/article-56951.htm" title="动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片">动物医院实践心得5000字内容摘抄大全 动物医院实践心得5000字内容摘抄大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-68326.htm" title="兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）">兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-67063.htm" title="想做狗粮生意刚开始怎么入手（做狗粮挣钱吗）">想做狗粮生意刚开始怎么入手（做狗粮挣钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-high-speed-nodes.htm" title="2月15日最新Free Stash订阅 | 19.3M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享">2月15日最新Free Stash订阅 | 19.3M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
