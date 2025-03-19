@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-75612.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Git恢复之前版本的两种方法reset、revert（图文详解）</title>
+        <meta name="description" content="2019/7/27 修改更新  一、问题描述  在利用github实现多人合作程序开发的过程中，我们有时会出现错误提交的情况，此时我们希望能撤销提交操作，让程序回到提交前的样子，本文总结了两种解决方法" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-75612.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Git恢复之前版本的两种方法reset、revert（图文详解）" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/4de68e53ab890e8e04bf13415528ebd2.webp" />
+        <meta property="og:release_date" content="2025-03-17T09:40:24" />
+    <meta property="og:updated_time" content="2025-03-17T09:40:24" />
+        <meta property="og:description" content="2019/7/27 修改更新  一、问题描述  在利用github实现多人合作程序开发的过程中，我们有时会出现错误提交的情况，此时我们希望能撤销提交操作，让程序回到提交前的样子，本文总结了两种解决方法" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Git恢复之前版本的两种方法reset、revert（图文详解）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Git恢复之前版本的两种方法reset、revert（图文详解）</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>2019/7/27 修改更新</p> </blockquote> <h2><a id="_2" rel="nofollow"></a><strong>一、问题描述</strong></h2> <blockquote> <p>在利用github实现多人合作程序开发的过程中，我们有时会出现<strong>错误提交</strong>的情况，此时我们希望能撤销提交操作，让程序回到提交前的样子，本文总结了两种解决方法：回退（reset）、反做（revert）。</p> </blockquote> <h2><a id="_5" rel="nofollow"></a><strong>二、背景知识</strong></h2> <blockquote> <h4><a id="gitHEAD_6" rel="nofollow"></a><strong>git的版本管理，及HEAD的理解</strong></h4> <p>使用git的每次提交，Git都会自动把它们串成一条时间线，这条时间线就是一个分支。如果没有新建分支，那么只有一条时间线，即只有一个分支，在Git里，这个分支叫主分支，即master分支。有一个HEAD指针指向当前分支（只有一个分支的情况下会指向master，而master是指向最新提交）。每个版本都会有自己的版本信息，如特有的版本号、版本名等。如下图，假设只有一个分支：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/425f6ae49755cf2ea1b2bb87efefec90.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"></p> </blockquote> <h2><a id="_10" rel="nofollow"></a><strong>三、解决方法</strong></h2> <h3><a id="git_reset_11" rel="nofollow"></a><strong>方法一：git reset</strong></h3> <p><strong>原理：</strong> git reset的作用是修改HEAD的位置，即将HEAD指向的位置改变为之前存在的某个版本，如下图所示，假设我们要回退到版本一：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/4b4b9b048eccbb87490982686d3b3a6a.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>适用场景：</strong> 如果想恢复到之前某个提交的版本，且那个版本之后提交的版本我们都不要了，就可以用这种方法。</p> <h4><a id="_15" rel="nofollow"></a><strong>具体操作：</strong></h4> <p><strong>1. 查看版本号：</strong><br /> 可以使用命令“git log”查看：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/f3e3560d28836c1b7bd06586186f4e0b.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 也可以在github网站上查看：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/28bac5a5e5266849aef7764a912f1928.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>2. 使用“git reset --hard 目标版本号”命令将版本回退：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/aea876c930cafab864fde89d37020e72.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 再用“git log”查看版本信息，此时本地的HEAD已经指向之前的版本：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/452eed4003d3171fce0f0b56a5b5f4c8.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>3. 使用“git push -f”提交更改：</strong><br /> 此时如果用“git push”会报错，因为我们本地库HEAD指向的版本比远程库的要旧：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/3e8d9c96fd67a5f31437f3cd6e7beb2a.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 所以我们要用“git push -f”强制推上去，就可以了：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/dddf76a3f679acba1ab4048960d66f64.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 在github图形化界面上看，远程库的HEAD也已经指向目标版本：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/fa4df6310c2477e1840afe671db78efc.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"></p> <h4><a id="_33" rel="nofollow"></a><strong>回退成功！</strong></h4> <h3><a id="git_revert_34" rel="nofollow"></a><strong>方法二：git revert</strong></h3> <p><strong>原理：</strong> git revert是用于“反做”某一个版本，以达到撤销该版本的修改的目的。比如，我们commit了三个版本（版本一、版本二、 版本三），突然发现版本二不行（如：有bug），想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西。如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/57791136c6a218f6c202a843e51d525e.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>适用场景：</strong> 如果我们想撤销之前的某一版本，但是又想保留该目标版本后面的版本，记录下这整个版本变动流程，就可以用这种方法。</p> <h4><a id="_38" rel="nofollow"></a><strong>具体操作：</strong></h4> <p>举个例子，现在库里面有三个文件：READ.md、text.txt、text2.txt。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/865c088cfddda171cfdceafc612bc261.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>1. 查看版本号：</strong><br /> 可以通过命令行查看（输入git log）：<br /> 如图，最近的两个版本分别叫：“add text.txt”（即新增了文件text.txt）、“add text2.txt”（新增了文件text2.txt）。这个时候我们不需要text.txt这个文件了，那就是说不想要“add text.txt”那个版本的操作，那可以通过反做“add text.txt”这个版本来实现。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/027d4b2062e317493d845bfe0880425d.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 也可以通过github网站图形化界面查看版本号：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/d7028400198c55f9df20b0a31bfcf689.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>2.使用“git revert -n 版本号”反做，并使用“git commit -m 版本名”提交：</strong><br /> （1）反做，使用“git revert -n 版本号”命令。如下命令，我们反做版本号为8b89621的版本：</p> <pre><code class="prism language-sh">git revert -n 8b89621019c9adc6fc4d242cd41daeb13aeb9861</code></pre> <p><strong>注意：</strong> 这里可能会出现冲突，那么需要手动修改冲突的文件。而且要git add 文件名。<br /> （2）提交，使用“git commit -m 版本名”，如：</p> <pre><code class="prism language-sh">git commit -m "revert add text.txt"</code></pre> <p>此时可以用“git log”查看本地的版本信息，可见多生成了一个新的版本，该版本反做了“add text.txt”版本，但是保留了“add text2.txt”版本：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/609031c95332d64f1861b563e038d93d.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /><strong>3.使用“git push”推上远程库：</strong></p> <pre><code class="prism language-sh">git push</code></pre> <p>查看github上显示的远程库版本信息：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/03538b6b7b1e6058c312064072a733df.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"><br /> 此时查看仓库的文件，剩下两个：READ.md、text2.txt<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/79d9c5adaafec719d19ba24845cd65a9.jpg" alt="Git恢复之前版本的两种方法reset、revert（图文详解）"></p> <h4><a id="_73" rel="nofollow"></a><strong>反做成功！</strong></h4> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74943.htm">宠颐生动物医院投诉电话（宠颐生动物医院方庄店）</a></p>
+                                        <p>下一个：<a href="/news/article-75613.htm">妙三多猫疫苗是几针（妙三多猫疫苗的不良反应）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49939.htm" title="宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）">宠物寄养合同协议书范本通用（寄养宠物协议合同怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-62150.htm" title="数据库四大特性及数据库隔离级别（*）">数据库四大特性及数据库隔离级别（*）</a></li>
+                        <li class="py-2"><a href="/news/article-53629.htm" title="宠物领养协议文案怎么写啊（宠物领养协议免费下载）">宠物领养协议文案怎么写啊（宠物领养协议免费下载）</a></li>
+                        <li class="py-2"><a href="/news/article-72922.htm" title="宠物粮食名字大全集 宠物粮食名字大全集图片">宠物粮食名字大全集 宠物粮食名字大全集图片</a></li>
+                        <li class="py-2"><a href="/news/article-68326.htm" title="兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）">兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-share-clash-stash.htm" title="2月23日最新Free Stash订阅 | 20.4M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">2月23日最新Free Stash订阅 | 20.4M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-71605.htm" title="宠物粮食批发厂家价格多少钱一斤（宠物粮批发市场在哪）">宠物粮食批发厂家价格多少钱一斤（宠物粮批发市场在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-54732.htm" title="动物医院等级分类有哪些（动物医院等级分类有哪些标准）">动物医院等级分类有哪些（动物医院等级分类有哪些标准）</a></li>
+                        <li class="py-2"><a href="/news/article-74942.htm" title="动物疫苗品牌排行前十（动物疫苗品牌排行前十名有哪些）">动物疫苗品牌排行前十（动物疫苗品牌排行前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-53628.htm" title="eclipse &#8211;  maven &#8211; 打war包的几种方式:">eclipse &#8211;  maven &#8211; 打war包的几种方式:</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

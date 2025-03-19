@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-76948.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Python Module_subprocess子进程(程序调用)</title>
+        <meta name="description" content="调用程序  调用Shell指令  实时获取子程序输出  一次获取子程序的全部输出  将标准错误和标准输出一起输出  输入交互  连续的输入输出交互 目录  			       目录 前言 软件环境 认" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-76948.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Python Module_subprocess子进程(程序调用)" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/ddf4c2c6eb97e4605385c0a32ded9ce6.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:09:51" />
+    <meta property="og:updated_time" content="2025-03-19T09:09:51" />
+        <meta property="og:description" content="调用程序  调用Shell指令  实时获取子程序输出  一次获取子程序的全部输出  将标准错误和标准输出一起输出  输入交互  连续的输入输出交互 目录  			       目录 前言 软件环境 认" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python Module_subprocess子进程(程序调用)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Python Module_subprocess子进程(程序调用)</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="调用程序">调用程序</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="调用Shell指令">调用Shell指令</a></li> <li><i class="be be-arrowright"></i> <a href="#title-2" title="实时获取子程序输出">实时获取子程序输出</a></li> <li><i class="be be-arrowright"></i> <a href="#title-3" title="一次获取子程序的全部输出">一次获取子程序的全部输出</a></li> <li><i class="be be-arrowright"></i> <a href="#title-4" title="将标准错误和标准输出一起输出">将标准错误和标准输出一起输出</a></li> <li><i class="be be-arrowright"></i> <a href="#title-5" title="输入交互">输入交互</a></li> <li><i class="be be-arrowright"></i> <a href="#title-6" title="连续的输入输出交互">连续的输入输出交互</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div class="content-detail markdown-body"> <div class="markdown_views"> </h1> <div class="toc"> <ul> <li><a href="#%E7%9B%AE%E5%BD%95" rel="nofollow">目录</a></li> <li><a href="#%E5%89%8D%E8%A8%80" rel="nofollow">前言</a></li> <li><a href="#%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83" rel="nofollow">软件环境</a></li> <li><a href="#%E8%AE%A4%E8%AF%86subprocess" rel="nofollow">认识subprocess</a></li> <li><a href="#popen-constructor%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" rel="nofollow">Popen Constructor构造函数</a> <ul> <li><a href="#class-popen%E7%9A%84%E5%8F%82%E6%95%B0" rel="nofollow">Class Popen的参数</a> <ul> <li><a href="#args" rel="nofollow">args</a> <ul> <li><a href="#%E8%B0%83%E7%94%A8%E7%A8%8B%E5%BA%8F" rel="nofollow">调用程序</a></li> <li><a href="#%E8%B0%83%E7%94%A8shell%E6%8C%87%E4%BB%A4" rel="nofollow">调用Shell指令</a></li> </ul> </li> <li><a href="#stdinstdoutstderr" rel="nofollow">stdinstdoutstderr</a> <ul> <li><a href="#%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BA" rel="nofollow">实时获取子程序输出</a></li> <li><a href="#%E4%B8%80%E6%AC%A1%E8%8E%B7%E5%8F%96%E5%AD%90%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%A8%E9%83%A8%E8%BE%93%E5%87%BA" rel="nofollow">一次获取子程序的全部输出</a></li> <li><a href="#%E5%B0%86%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E5%92%8C%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E4%B8%80%E8%B5%B7%E8%BE%93%E5%87%BA" rel="nofollow">将标准错误和标准输出一起输出</a></li> </ul> </li> <li><a href="#shell" rel="nofollow">shell</a></li> <li><a href="#bufsize" rel="nofollow">bufsize</a></li> <li><a href="#closefds" rel="nofollow">close_fds</a></li> <li><a href="#%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0%E5%90%AB%E4%B9%89" rel="nofollow">其他参数含义</a></li> </ul> </li> <li><a href="#popen%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0" rel="nofollow">Popen成员函数</a> <ul> <li><a href="#popenpoll" rel="nofollow">Popenpoll</a></li> <li><a href="#popenwaittimeoutnone" rel="nofollow">PopenwaittimeoutNone</a></li> <li><a href="#popencommunicateinputnonetimeoutnone" rel="nofollow">PopencommunicateinputNonetimeoutNone</a></li> <li><a href="#popensendsignalsignal" rel="nofollow">Popensend_signalsignal</a></li> <li><a href="#popenterminate" rel="nofollow">Popenterminate</a></li> <li><a href="#popenkill" rel="nofollow">Popenkill</a></li> </ul> </li> <li><a href="#popen%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7" rel="nofollow">Popen成员属性</a> <ul> <li><a href="#popenpid" rel="nofollow">Popenpid</a></li> <li><a href="#popenreturncode" rel="nofollow">Popenreturncode</a></li> <li><a href="#popenstdin" rel="nofollow">Popenstdin</a> <ul> <li><a href="#%E8%BE%93%E5%85%A5%E4%BA%A4%E4%BA%92" rel="nofollow">输入交互</a></li> </ul> </li> <li><a href="#popenstdout" rel="nofollow">Popenstdout</a> <ul> <li><a href="#%E8%BF%9E%E7%BB%AD%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%BA%A4%E4%BA%92" rel="nofollow">连续的输入输出交互</a></li> </ul> </li> <li><a href="#popenstderr" rel="nofollow">Popenstderr</a></li> </ul> </li> </ul> </li> <li><a href="#subprocess%E5%87%BD%E6%95%B0" rel="nofollow">subprocess函数</a> <ul> <li><a href="#subprocesscall" rel="nofollow">subprocesscall</a></li> <li><a href="#subprocesscheckcall" rel="nofollow">subprocesscheck_call</a></li> <li><a href="#subprocesscheckoutput" rel="nofollow">subprocesscheck_output</a></li> </ul> </li> <li><a href="#%E6%9C%80%E5%90%8E" rel="nofollow">最后</a></li> </ul> </div> </h1> <p>subpocess用于在父进程中创建子进程，如果你希望在Python程序中调用外部程序，如：Powershell、shell、cmd、bat。subprocess将会是一个非常好的选择。</p> </h1> <ul> <li>系统 <ul> <li>Win 10</li> </ul> </li> <li>软件 <ul> <li>Python 3.4.4</li> <li>IPython 4.0.0</li> </ul> </li> </ul> </h1> <p>还是那句话，最高效的方法不过看官方文档，传送门：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.python.org/3.4/library/subprocess.html?highlight=subprocess#module-subprocess%20%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"  rel="nofollow">这里</a><br /><strong>subprocess</strong>：The subprocess module allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes. This module intends to replace several older modules and functions:</p> <pre class="prettyprint"><code class="hljs lua"><span class="hljs-built_in">os</span>.system<span class="hljs-built_in">os</span>.spawn*<span class="hljs-built_in">os</span>.popen* popen2.*  commands.*</code></pre> <p>subprocess的诞生是为了替代、整合以前几种旧的创建子进程的方法，能够实现以管道的形式连接子进程的<strong>stdin</strong>、<strong>stdout</strong>、<strong>stderr</strong>，并且子进程会返回一个returncode给父进程。与C语言中的fock实现类似的功能。<br /> Execute a child program in a new process. On POSIX, the class uses os.execvp() like behavior to execute the child program. On Windows, the class uses the Windows<strong>CreateProcess()</strong> function<br /> 在POSIX类型系统中会使用<code>os.execvp()</code>来执行子程序，而在windows环境中会使用<code>CreateProcess()</code>函数来执行，这篇博文主要记录在windows环境下的使用。</p> </h1> <p>subprocess拥有数个通过不同的方式来创建子进程的函数，但是subprocess只有一个Popen类，同样是用于创建子进程。使用Class Popen创建的对象拥有Popen的成员属性和方法。</p> <pre class="prettyprint"><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> subprocess.<span class="hljs-type">Popen</span><span class="hljs-container">(<span class="hljs-title">args</span>,<span class="hljs-title">bufsize</span>=-1,<span class="hljs-title">executable</span>=<span class="hljs-type">None</span>,<span class="hljs-title">stdin</span>=<span class="hljs-type">None</span>,<span class="hljs-title">stdout</span>=<span class="hljs-type">None</span>,<span class="hljs-title">stderr</span>=<span class="hljs-type">None</span>,<span class="hljs-title">preexec_fn</span>=<span class="hljs-type">None</span>,<span class="hljs-title">close_fds</span>=<span class="hljs-type">True</span>,<span class="hljs-title">shell</span>=<span class="hljs-type">False</span>,<span class="hljs-title">cwd</span>=<span class="hljs-type">None</span>,<span class="hljs-title">env</span>=<span class="hljs-type">None</span>,<span class="hljs-title">universal_newlines</span>=<span class="hljs-type">False</span>,<span class="hljs-title">startupinfo</span>=<span class="hljs-type">None</span>,<span class="hljs-title">creationflags</span>=0,<span class="hljs-title">restore_signals</span>=<span class="hljs-type">True</span>,<span class="hljs-title">start_new_session</span>=<span class="hljs-type">False</span>,<span class="hljs-title">pass_fds</span>=()</span>)</span></code></pre> <p>在Python 3.2之后的版本Popen对象添加了下面这种写法：<br /><strong>on exit, standard file descriptors are closed, and the process is waited for.</strong></p> <pre class="prettyprint"><code class="hljs livecodeserver"><span class="hljs-operator">with</span> Popen([<span class="hljs-string">"ifconfig"</span>],<span class="hljs-keyword">stdout</span>=PIPE)<span class="hljs-keyword">as</span> proc:<span class="hljs-built_in">log</span>.<span class="hljs-built_in">write</span>(proc.<span class="hljs-keyword">stdout</span>.<span class="hljs-built_in">read</span>())</code></pre> <p>下面介绍Popen类的参数含义。</p> <h2>Class Popen的参数</h2> <h3>args</h3> <p><strong>args</strong> ：should be a sequence of program arguments or else a single string.<br /> args参数可以是String类型或者sequence类型，作为子程序的声明。在Windows中调用的子进程API是CreateProcess([String])，所以可以接受诸如<code>notepad.exe test.txt</code>这样的字符串来执行。但是在Linux的环境下需要接受List类型对象来分隔程序名和参数。如果是序列类型，序列的第一个参数一般也作为子程序的路径，之后的元素作为传入子程序的参数。<strong>官方建议args参数使用List类型对象</strong>。</p> <span class="directory"></span><h4 id="title-0">调用程序</h4> <p><strong>调用一个Powershell脚本程序：</strong></p> <pre class="prettyprint"><code class="hljs python">args = [<span class="hljs-string">r"C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe"</span>,<span class="hljs-string">"-ExecutionPolicy"</span>,<span class="hljs-string">"Unrestricted"</span>,<span class="hljs-string">r"E:\Users\oe-fanguiju\Desktop\SendMail.ps1"</span>,str(bodyStr)] ps = subprocess.Popen(args,stdout=subprocess.PIPE)</code></pre> <p><strong>注意</strong>：在String前加入<code>r</code>是为了避免出现<code>SyntaxError: (unicode error)</code></p> <span class="directory"></span><h4 id="title-1">调用Shell指令</h4> <p><strong>序列化传入参数 shlex.split()</strong>：<br /> 我们还可以使用shlex.split()函数来将我们所需要执行的指令序列化后再赋值给args参数。</p> <pre class="prettyprint"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt;</span><span class="hljs-keyword">import</span> shlex, subprocess<span class="hljs-prompt">&gt;&gt;&gt;</span>command_line = input() /bin/vikings -input eggs.txt -output<span class="hljs-string">"spam spam.txt"</span> -cmd<span class="hljs-string">"echo '$MONEY'"</span><span class="hljs-prompt">&gt;&gt;&gt;</span>args = shlex.split(command_line)<span class="hljs-prompt">&gt;&gt;&gt;</span>print(args) [<span class="hljs-string">'/bin/vikings'</span>,<span class="hljs-string">'-input'</span>,<span class="hljs-string">'eggs.txt'</span>,<span class="hljs-string">'-output'</span>,<span class="hljs-string">'spam spam.txt'</span>,<span class="hljs-string">'-cmd'</span>,<span class="hljs-string">"echo '$MONEY'"</span>]<span class="hljs-prompt">&gt;&gt;&gt;</span>p = subprocess.Popen(args)<span class="hljs-comment"># Success!</span></code></pre> <h3>stdin\stdout\stderr</h3> <p>stdin\stdout\stderr指定了子程序的标准输入、输出、错误的文件句柄(file handles)。他们可以是PIPE管道、DEVNULL(DEVNULL indicates that the special file os.devnull will be used.)、文件描述符(existing file descriptor 一个正整数)或已存在的文件对象(file object)。当他的值是None时，不会发生重定向，子进程的文件句柄将会继承父进程。而且<strong>stderr=subprocess.STDOUT</strong>能够将标准错误的文件句柄设成标准输出(子程序的标准错误汇合到标准输出)。将stdout/stderr指定为<strong>subprocess.PIPE</strong>，这样在Popen被调用的时候会在父进程和子进程之间建立管道，子进程的标准输出和错误输出都重定向到管道，可以被父进程获取。</p> <span class="directory"></span><h4 id="title-2">实时获取子程序输出</h4> <pre class="prettyprint"><code class="hljs livecodeserver">p = subprocess.Popen(<span class="hljs-string">"/etc/service/tops-cmos/module/hadoop/test.sh"</span>,<span class="hljs-built_in">shell</span>=True,<span class="hljs-keyword">stdout</span>=subprocess.PIPE,<span class="hljs-keyword">stderr</span>=subprocess.STDOUT) returncode = p.poll()<span class="hljs-keyword">while</span> returncode is None:<span class="hljs-comment">#检查子程序是否结束</span><span class="hljs-built_in">line</span> = p.<span class="hljs-keyword">stdout</span>.readline()<span class="hljs-comment">#若没有，则获取子程序的输出</span>         returncode = p.poll()<span class="hljs-built_in">line</span> =<span class="hljs-built_in">line</span>.strip()         print<span class="hljs-built_in">line</span> print returncode</code></pre> <p>这样就可以实时的获取子进程的输出。</p> <span class="directory"></span><h4 id="title-3">一次获取子程序的全部输出</h4> <p>当你希望在子程序执行完后一次性获取所有子进程输出时，子进程对象可以调用<strong>communicate()</strong>，他会一直阻塞，等待子进程结束后获取子进程返回的输出。</p> <pre class="prettyprint"><code class="hljs vala">ps = subprocess.Popen(args,<span class="hljs-keyword">stdout</span>=subprocess.PIPE) psAllReturn = ps.communicate()<span class="hljs-preprocessor">#Or: psReturn = ps.stdout.read()</span><span class="hljs-keyword">return</span> psReturn</code></pre> <p>只有当子程序执行结束的后才会返回执行结果。<br /><strong>注意</strong>：communicate()会在通信一次之后即关闭了管道。如果希望进程之间频繁的通信，并不建议这种方法。<br /> 可以尝试下面的方法：</p> <pre class="prettyprint"><code class="hljs livecodeserver">p= subprocess.Popen([<span class="hljs-string">"wc"</span>],<span class="hljs-keyword">stdin</span>=subprocess.PIPE,<span class="hljs-keyword">stdout</span>=subprocess.PIPE,<span class="hljs-built_in">shell</span>=True)   p.<span class="hljs-keyword">stdin</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">'your command'</span>)<span class="hljs-comment">#传递数据给子进程</span> p.<span class="hljs-keyword">stdin</span>.flush()<span class="hljs-comment">#清空子进程管道缓存</span><span class="hljs-comment">#......do something</span><span class="hljs-keyword">try</span>:<span class="hljs-comment">#......do something</span>     p.<span class="hljs-keyword">stdout</span>.readline()<span class="hljs-comment">#获取子进程输出</span><span class="hljs-comment">#......do something</span> except:       print(<span class="hljs-string">'IOError'</span>)<span class="hljs-comment">#......do something more</span>  p.<span class="hljs-keyword">stdin</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">'your other command'</span>)   p.<span class="hljs-keyword">stdin</span>.flush()<span class="hljs-comment">#......do something more</span></code></pre> <span class="directory"></span><h4 id="title-4">将标准错误和标准输出一起输出</h4> <pre class="prettyprint"><code class="hljs avrasm">ps = subprocess<span class="hljs-preprocessor">.Popen</span>(args,stdout=subprocess<span class="hljs-preprocessor">.PIPE</span>,stderr=subprocess<span class="hljs-preprocessor">.STDOUT</span>)</code></pre> <p>这样无论是标准输出还是标准错误输出都会经过stdout管道返回给父进程。</p> <h3>shell</h3> <p>The shell argument (which defaults to False) specifies whether to use the shell as the program to execute. If shell is True, it is recommended to pass args as a string rather than as a sequence.<br /> shell指定是否使用shell程序来执行子进程，当<strong>shell = True</strong>时，子进程将会由shell来执行，并且建议args参数使用String对象。<br /> If args is a string, the string specifies the command to execute through the shell.</p> <pre class="prettyprint"><code class="hljs vbscript"><span class="hljs-keyword">In</span> [<span class="hljs-number">19</span>]: p = subprocess.Popen(<span class="hljs-string">"ipconfig /all"</span>,stdout = subprocess.PIPE,shell=<span class="hljs-literal">True</span>)  #args =<span class="hljs-string">"ipconfig /all"</span><span class="hljs-keyword">In</span> [<span class="hljs-number">20</span>]: pRet = p.stdout.read()  #父进程获得执行结果  #<span class="hljs-keyword">On</span> Windows<span class="hljs-keyword">with</span> shell=<span class="hljs-literal">True</span>, the COMSPEC environment variable specifies the<span class="hljs-keyword">default</span> shell. #Win下相当于```args = [<span class="hljs-string">"cmd.exe"</span>,<span class="hljs-string">"ipconfig"</span>,<span class="hljs-string">"/all"</span>]</code></pre> <p>On POSIX with shell=True, the shell defaults to /bin/sh.<br /> Linux下相当于<code>args = ["/bin/sh"," -c",args[0], args[1], ...]</code></p> <h3>bufsize</h3> <p>bufsize will be supplied as the corresponding argument to the open() function when creating the stdin/stdout/stderr pipe file objects.<br /><strong>0</strong> means unbuffered (read and write are one system call and can return short)<br /><strong>1</strong> means line buffered (only usable if universal_newlines=True i.e., in a text mode)<br /><strong>any other positive value</strong> means use a buffer of approximately that size<br /><strong>negative bufsize (the default)</strong> means the system default of io.DEFAULT_BUFFER_SIZE will be used.<br /> 当你将stdin/stdout/stderr重定向到PIPE或文件对象时，bufsize能够传递指定缓冲的方式给open()函数，并以此来创建文件对象：<br /> 0 表示无缓冲；<br /> 1 表示行缓冲；<br /> otherNumber 表示缓冲区大小,<br /> -1 是bufsize参数的缺省值表示使用系统缓冲(全缓冲)<br /><strong>注意</strong>：当子进程返回的数据达到缓存的Size时，子程序会等待付进程读取缓存数据。</p> <h3>close_fds</h3> <p>If close_fds is true, all file descriptors except 0, 1 and 2 will be closed before the child process is executed. (POSIX only). The default varies by platform: Always true on POSIX. On Windows it is true when stdin/stdout/stderr are None, false otherwise. On Windows, if close_fds is true then no handles will be inherited by the child process. Note that on Windows, you cannot set close_fds to true and also redirect the standard handles by setting stdin, stdout or stderr.<br /> 在Unix中，如果<em>close_fds</em> = True，除了0、1、2之外的文件描述符都会被关闭。如果在Windows中stdin/stdout/stderr = None，即继承父进程时，<em>close_fds</em> = True ，相反为False。在Windows下也不会继承其他文件描述符。<br /><strong>注意</strong>：在Windows中不能够在<code>close_fds = True</code>的前提下对stdin, stdout or stderr做重定向(redirect )，锁定子进程的stdin/stdout/stderr。</p> <pre class="prettyprint"><code class="hljs vbnet"><span class="hljs-keyword">In</span> [<span class="hljs-number">24</span>]: p = subprocess.Popen(<span class="hljs-string">"ipconfig"</span>,shell=<span class="hljs-literal">True</span>,close_fds=<span class="hljs-literal">True</span>,stdout=subprocess.PIPE)  ValueError: close_fds<span class="hljs-keyword">is</span><span class="hljs-keyword">not</span> supported<span class="hljs-keyword">on</span> Windows platforms<span class="hljs-keyword">if</span> you redirect stdin/stdout/stderr</code></pre> <h3>其他参数含义</h3> <p><strong>given, startupinfo</strong>：If given, startupinfo will be a STARTUPINFO object, which is passed to the underlying CreateProcess function. creationflags, if given, can be CREATE_NEW_CONSOLE or CREATE_NEW_PROCESS_GROUP. (Windows only)<br /> 在Windows中，调用CreateProcess()函数创建子进程时，startupinfo参数会传递STARTUPINFO对象，来设置子进程的外观等等属性。</p> <p><strong>executable</strong>：指定要执行的程序名，很少使用，一般用args参数来指定需要执行的子程序。可以指定执行子进程的shell(e.g. bash、csh、zsh)。Unix下，默认是/bin/sh。Windows下，就是环境变量%COMSPEC%的值。windows下，只有当你要执行的命令确实是shell内建命令(比如dir ，copy)时，你才需要指定shell=True<br /> ，而当你要执行一个基于命令行的批处理脚本的时候，不需要指定此项。</p> <pre class="prettyprint"><code class="hljs tex">C:<span class="hljs-command">\Users</span><span class="hljs-command">\Username</span>&gt;echo<span class="hljs-comment">%COMSPEC%</span> C:<span class="hljs-command">\WINDOWS</span><span class="hljs-command">\system</span>32<span class="hljs-command">\cmd</span>.exe</code></pre> <p><strong>preexec_fn</strong>：If preexec_fn is set to a callable object, this object will be called in the child process just before the child is executed. (POSIX only)<br /> 钩子函数，只在Unix平台下有效，用于指定一个可执行对象(callable object)，它将在子进程运行之前被调用。容易造成死锁，慎用。</p> <p><strong>cmd</strong>：指定了子进程的工作目录<br /><strong>注意</strong>：并不会把该目录做为可执行文件的搜索目录，所以不要把子程序文件所在目录设置为cwd 。</p> <p><strong>env</strong>：是一个字典类型，用于执行子进程的执行环节变量，而不使用默认继承父进程的环境变量</p> <p><strong>universal_newlines</strong>：为True时，子进程的stdout和stderr被视为文本对象，不管是Unix的行结束符’/n’，还是Mac格式的行结束符’/r’，还是Windows格式的行结束符’/r/n’都将被视为 ‘/n’处理 。</p> <p><strong>pass_fds</strong>：is an optional sequence of file descriptors to keep open between the parent and child. Providing any pass_fds forces close_fds to be True. (POSIX only)</p> <p><strong>restore_signals</strong>：If restore_signals is true (the default) all signals that Python has set to SIG_IGN are restored to SIG_DFL in the child process before the exec. Currently this includes the SIGPIPE, SIGXFZ and SIGXFSZ signals. (POSIX only)</p> <p><strong>start_new_session</strong>：If start_new_session is true the setsid() system call will be made in the child process prior to the execution of the subprocess. (POSIX only)</p> <h2>Popen成员函数</h2> <h3>Popen.poll()</h3> <p>Check if child process has terminated. Set and return returncode attribute.<br /> 用于检查子进程是否已经结束。设置并返回returncode属性</p> <h3>Popen.wait(timeout=None)</h3> <p>Wait for child process to terminate. Set and return returncode attribute.<br /> 等待子进程结束。设置并返回returncode属性。使用Popen类创建的子进程时，父进程默认不会等待子进程结束，需要Call wait()函数来实现等待子进程结束后父进程继续执行。<br /><strong>timeout</strong>：If the process does not terminate after timeout seconds, raise a TimeoutExpired exception. It is safe to catch this exception and retry the wait.<br /> 注意： 如果子进程输出了大量数据到stdout或者stderr的管道，并达到了系统PIPE的缓存大小时，子进程会等待父进程读取管道内的数据，若此时父进程正在wait()的话，将不会读取管道内的数据，从而造成死锁，建议使用Pepon.communicate()来避免这种情况。</p> <h3>Popen.communicate(input=None，timeout=None)</h3> <p>与子进程进行交互。向stdin发送数据，可选参数input指定发送到子进程的数据。<br /> Communicate()时从stdout和stderr中读取数据，直到文本末尾的EOF(进程之间采用文本通信)，等待子进程结束。返回一个元组：(stdout_data, stderr_data)，<strong>The data will be bytes or, if universal_newlines was True, strings.</strong>如果<code>universal_newlines = True</code>则返回一个String。<br /><strong>注意</strong>：如果希望通过stdin向子进程发送数据，需要通过<code>stdin=PIPE</code>创建管道对象。同样，如果希望从stdout和stderr获取数据，必须将stdout和stderr设置为PIPE。</p> <pre class="prettyprint"><code class="hljs avrasm">p=subprocess<span class="hljs-preprocessor">.Popen</span>(cmd, shell=True, stdout=subprocess<span class="hljs-preprocessor">.PIPE</span>, stderr=subprocess<span class="hljs-preprocessor">.STDOUT</span>) (stdout_data, stderr_data) = p<span class="hljs-preprocessor">.communicate</span>()</code></pre> <p><strong>Note</strong>：If the process does not terminate after timeout seconds, a TimeoutExpired exception will be raised. Catching this exception and retrying communication will not lose any output.<br /> 如果timeout还没有结束进程的话，需要捕捉触发的<code>TimeoutExpired</code>异常，并且使用Popen.communicate()来保留子程序的输出。</p> <pre class="prettyprint"><code class="hljs r">proc = subprocess.Popen(<span class="hljs-keyword">...</span>)<span class="hljs-keyword">try</span>:     outs, errs = proc.communicate(timeout=<span class="hljs-number">15</span>) except TimeoutExpired:     proc.kill()     outs, errs = proc.communicate()</code></pre> <h3>Popen.send_signal(signal)</h3> <p>向子进程发送信号。</p> <h3>Popen.terminate()</h3> <p>停止子进程。在windows平台下，该方法将调用Windows API TerminateProcess()来结束子进程。</p> <h3>Popen.kill()</h3> <p>杀死子进程，在Windows上调用了TerminateProcess() API。在Unix上相当于发送了信号SIGTERM和SIGKILL。</p> <h2>Popen成员属性</h2> <h3>Popen.pid</h3> <p>获取子进程的进程ID。</p> <h3>Popen.returncode</h3> <p>获取进程的返回值。如果进程还没有结束，返回None。</p> <h3>Popen.stdin</h3> <p>If the stdin argument was PIPE, this attribute is a writeable stream object as returned by open()</p> <span class="directory"></span><h4 id="title-5">输入交互</h4> <pre class="prettyprint"><code class="hljs livecodeserver"><span class="hljs-comment">#test.py</span> import sys<span class="hljs-built_in">line</span> = sys.<span class="hljs-keyword">stdin</span>.readline()   print<span class="hljs-string">'test'</span>,<span class="hljs-built_in">line</span><span class="hljs-comment">#run.py</span><span class="hljs-built_in">from</span> subprocess import *   p = Popen(<span class="hljs-string">'./test.py'</span>,<span class="hljs-keyword">stdin</span>=PIPE,<span class="hljs-keyword">stdout</span>=PIPE)   p.<span class="hljs-keyword">stdin</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">'say hi/n'</span>)   print p.<span class="hljs-keyword">stdout</span>.readline()</code></pre> <h3>Popen.stdout</h3> <p>If the stdout argument was PIPE, this attribute is a readable stream object as returned by open().</p> <span class="directory"></span><h4 id="title-6">连续的输入输出交互</h4> <pre class="prettyprint"><code class="hljs livecodeserver"><span class="hljs-comment"># test.py</span> import sys<span class="hljs-keyword">while</span> True:<span class="hljs-built_in">line</span> = sys.<span class="hljs-keyword">stdin</span>.readline()<span class="hljs-keyword">if</span><span class="hljs-operator">not</span><span class="hljs-built_in">line</span>:break       sys.<span class="hljs-keyword">stdout</span>.<span class="hljs-built_in">write</span>(<span class="hljs-built_in">line</span>)       sys.<span class="hljs-keyword">stdout</span>.flush()<span class="hljs-comment"># run.py</span> import sys<span class="hljs-built_in">from</span> subprocess import *   proc = Popen(<span class="hljs-string">'./test.py'</span>,<span class="hljs-keyword">stdin</span>=PIPE,<span class="hljs-keyword">stdout</span>=PIPE,<span class="hljs-built_in">shell</span>=True)<span class="hljs-keyword">for</span><span class="hljs-built_in">line</span><span class="hljs-operator">in</span> sys.<span class="hljs-keyword">stdin</span>:       proc.<span class="hljs-keyword">stdin</span>.<span class="hljs-built_in">write</span>(<span class="hljs-built_in">line</span>)<span class="hljs-comment">#子进程的输入</span>     proc.<span class="hljs-keyword">stdin</span>.flush()           output = proc.<span class="hljs-keyword">stdout</span>.readline()<span class="hljs-comment">#子进程的输出</span>     sys.<span class="hljs-keyword">stdout</span>.<span class="hljs-built_in">write</span>(output)<span class="hljs-comment">#父进程的打印</span></code></pre> <p><strong>注意</strong>: run.py的flush和test.py中的flush，要记得清空缓冲区，否则程序得不到正确的输入和输出</p> <h3>Popen.stderr</h3> <p>If the stderr argument was PIPE, this attribute is a readable stream object as returned by open().</p> </h1> <p>subprocess函数本质上是对subprocess.Popen的封装，能够简便的创建子进程。当需要创建更加复杂的子进程时，建议使用Popen类，该类会生成子进程对象，且拥有多样化的成员方法和属性。</p> <h2>subprocess.call()</h2> <pre class="prettyprint"><code class="hljs mathematica">subprocess.call(args, *, stdin=<span class="hljs-keyword">None</span>, stdout=<span class="hljs-keyword">None</span>, stderr=<span class="hljs-keyword">None</span>, shell=<span class="hljs-keyword">False</span>, timeout=<span class="hljs-keyword">None</span>)</code></pre> <p>父进程等待子进程完成<br /> 返回退出信息(returncode，相当于Linux exit code)</p> <pre class="prettyprint"><code class="hljs avrasm"><span class="hljs-keyword">In</span> [<span class="hljs-number">20</span>]: subprocess<span class="hljs-preprocessor">.call</span>(<span class="hljs-string">"ipconfig"</span>) . .<span class="hljs-keyword">Out</span>[<span class="hljs-number">20</span>]:<span class="hljs-number">0</span></code></pre> <h2>subprocess.check_call()</h2> <pre class="prettyprint"><code class="hljs mathematica"> subprocess.check_call(args, *, stdin=<span class="hljs-keyword">None</span>, stdout=<span class="hljs-keyword">None</span>, stderr=<span class="hljs-keyword">None</span>, shell=<span class="hljs-keyword">False</span>, timeout=<span class="hljs-keyword">None</span>)</code></pre> <p>父进程等待子进程完成<br /> 返回0<br /> 检查退出信息，如果returncode不为0，则举出错误subprocess.CalledProcessError，该对象包含有returncode属性，可用try…except…来检查</p> <pre class="prettyprint"><code class="hljs mathematica"><span class="hljs-keyword">In</span> [<span class="hljs-number">25</span>]: subprocess.check_call(<span class="hljs-string">"config"</span>,shell=<span class="hljs-keyword">True</span>)  CalledProcessError: Command<span class="hljs-string">'config'</span> returned non-zero exit status<span class="hljs-number">1</span></code></pre> <p><strong>call()和check_call()的区别</strong>：两者的区别在于遇到错误的时候处理不一样，call()返回returncode ，check_call()再返回returncode后还会抛出异常。check_call实际上会调用call函数，然后加入了异常处理的情况。两者在本质上都会调用Popen().wait()来等待进程结束并返回returncode</p> <h2>subprocess.check_output()</h2> <pre class="prettyprint"><code class="hljs mathematica">subprocess.check_output(args, *, stdin=<span class="hljs-keyword">None</span>, stderr=<span class="hljs-keyword">None</span>, shell=<span class="hljs-keyword">False</span>, universal_newlines=<span class="hljs-keyword">False</span>, timeout=<span class="hljs-keyword">None</span>)</code></pre> <p>父进程等待子进程完成<br /> 返回子进程向标准输出的输出结果<br /> 检查退出信息，如果returncode不为0，则举出错误subprocess.CalledProcessError，该对象包含有returncode属性和output属性，output属性为标准输出的输出结果，可用try…except…来检查。</p> </h1> <p>在使用subprocess模块的时候很容易卡死的情况出现，一些避免卡死的思路，我们之后再聊。 : -)</p> </div> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76285.htm">宠物零食加工厂要投资多少钱呢（宠物零食加工厂要投资多少钱呢视频）</a></p>
+                                        <p>下一个：<a href="/news/article-76949.htm">Java 18为什么要指定UTF-8为默认字符集_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-56381.htm" title="合肥宠物急救电话（合肥市宠物）">合肥宠物急救电话（合肥市宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-node-share-links.htm" title="3月12日最新Free Stash订阅 | 18.2M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享">3月12日最新Free Stash订阅 | 18.2M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-clash-stash.htm" title="2月18日最新Free Stash订阅 | 20M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点地址链接分享">2月18日最新Free Stash订阅 | 20M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-72256.htm" title="Spring事件监听机制源码解析">Spring事件监听机制源码解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-clash-stash-node.htm" title="3月1日最新Free Stash订阅 | 21.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">3月1日最新Free Stash订阅 | 21.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-63335.htm" title="厦门同安宠物领养中心地址（同安哪里有宠物店的地方）">厦门同安宠物领养中心地址（同安哪里有宠物店的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-54183.htm" title="Docker基础DockerFile文件详解">Docker基础DockerFile文件详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-stash-node.htm" title="3月9日最新Free Stash订阅 | 20.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享">3月9日最新Free Stash订阅 | 20.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-63949.htm" title="宠物领养协议是什么法律 宠物领养协议是什么法律规定">宠物领养协议是什么法律 宠物领养协议是什么法律规定</a></li>
+                        <li class="py-2"><a href="/news/article-55835.htm" title="宠物狗粮网店名字怎么起（宠物狗粮厂）">宠物狗粮网店名字怎么起（宠物狗粮厂）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+            <p>
+                <a href="/">首页</a> |
+                <a href="/free-node/">免费节点</a> |
+                <a href="/news/">新闻资讯</a> |
+                <a href="/about-us.htm">关于我们</a> |
+                <a href="/disclaimer.htm">免责申明</a> |
+                <a href="/privacy.htm">隐私申明</a> |
+                <a href="/sitemap.xml">网站地图</a>
+            </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
