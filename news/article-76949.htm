@@ -146,6 +146,7 @@
                   				  				  				<p>在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。</p> <p>做这一更改的主要目标：</p> <ul> <li>当Java程序的代码依赖于默认字符集时，使其更具可预测性和可移植性。</li> <li>阐明标准Java API在哪里使用默认字符集。</li> <li>在整个标准Java API中对UTF-8进行标准化，但控制台I/O除外。</li> </ul> <p>需要注意的是，这一更改的目标并不是定义新的标准Java API或受支持的JDK API，尽管这项工作可能会发现新的便利方法可能会使现有的API更易于使用，这一更改并不是要弃用或删除依赖默认字符集的标准Java API。</p> <p>用于读写文件和处理文本的标准Java API允许将字符集作为参数传递。字符集控制Java编程语言的原始字节和16位字符值之间的转换。例如，支持的字符集包括US-ASCII、UTF-8和ISO-8859-1。</p> <p>如果没有传递字符集参数，则标准的Java API通常使用默认的字符集。JDK在启动时根据运行时环境选择默认的字符集：操作系统、用户的区域设置和其他因素。</p> <p>因为默认字符集在每个地方都不一样，所以使用默认字符集的API会带来许多不明显的危险，甚至对经验丰富的开发人员也是如此。</p> <p>考虑这样一个应用程序，它在不传递字符集的情况下创建一个<code>java.io.FileWriter</code>，然后使用它将一些文本写入文件。结果文件将包含一个使用运行应用程序的JDK的默认字符集编码的字节序列。第二个应用程序在不同的机器上运行，或者由同一台机器上的不同用户运行，在不传递字符集的情况下创建一个<code>java.io.FileReader</code>，并使用它来读取该文件中的字节。生成的文本包含使用运行第二个应用程序的JDK的默认字符集解码的字符序列。如果第一个应用程序的JDK和第二个应用程序的JDK之间的默认字符集不同，则生成的文本可能会被损坏或不完整，因为<code>FileReader</code>无法判断它使用了相对于<code>FileWriter</code>的错误字符集来解码文本。</p> <p>比如这就是一个典型的例子，在MacOS上以UTF-8编码的日语文本文件在Windows上以美英或日语区域设置读取时被损坏：</p> <pre><code class="language-java">java.io.FileReader(“hello.txt”) -&gt; “こんにちは” (macOS) java.io.FileReader(“hello.txt”) -&gt; “ã?“ã‚“ã?«ã?¡ã? ” (Windows (en-US)) java.io.FileReader(“hello.txt”) -&gt; “縺ォ縺。縺ッ” (Windows (ja-JP)</code></pre> <p>在JDK 17及更早版本中，默认字符集是在Java运行时才确定的。在MacOS上，除POSIX C语言环境外，它是UTF-8。在其他操作系统上，取决于用户的区域设置，比如：Windows上，它是基于代码页的字符集，如Windows-1252或Windows-31j。如果不清楚Java应用运行环境的默认编码，可以使用这个命令查看当前JDK的默认字符集：</p> <pre><code class="language-text">java -XshowSettings:properties -version 2&gt;&amp;1 | grep file.encoding</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://didispace.com/"  target="_blank" rel="nofollow">程序猿DD Tips</a>：在过去的版本中，当读写文件时，没有指明字符集的话，所选择的字符集与操作系统、用户区域等因素相关，而不同的操作系统的默认编码不同，所以很可能会出现读写编码不一致的情况，从而导致程序在不同系统下运行出现乱码问题。所以这一更改可以让Java开发的应用具备更好的移植性。同时，从这一点的改进，也提醒我们，在读写文件的时候，为了你的应用有更好的可移植性，在涉及读写操作的时候，一定要加上编码参数。这样即使在Java 18之前的版本，也能拥有更好的可移植性，同时为将来升级Java 21提供更好的兼容前提。</p> <p>本文配套视频：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1YY4y1a7vG"  target="_blank" rel="nofollow">https://www.bilibili.com/video/BV1YY4y1a7vGopen in new window</a></p> <p>如果您学习过程中如遇困难？可以加入我们超高质量的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.didispace.com/join-group-spring/index.html"  target="_blank" rel="nofollow">技术交流群</a>，参与交流与讨论，更好的学习与进步！另外，不要走开，关注我！持续更新<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.didispace.com/java-features/"  target="_blank" rel="nofollow">Java新特性教程</a>！</p> <blockquote> <p>欢迎关注我的公众号：程序猿DD。第一时间了解前沿行业消息、分享深度技术干货、获取优质学习资源</p> </blockquote> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-76948.htm">Python Module_subprocess子进程(程序调用)</a></p>
+                                        <p>下一个：<a href="/news/article-77635.htm">微信小程序自定义顶部导航栏防止出现内容显示不全和出现空白</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -155,16 +156,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-70941.htm" title="沧州宠物医院招聘信息（沧州宠物医院电话）">沧州宠物医院招聘信息（沧州宠物医院电话）</a></li>
-                        <li class="py-2"><a href="/news/article-50470.htm" title="当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)">当归红糖煮蛋的做法与功效(当归红糖煮蛋的做法与功效窍门)</a></li>
-                        <li class="py-2"><a href="/news/article-66425.htm" title="mysql timestamp_MySQL中的时间字段的几种数据类型比较">mysql timestamp_MySQL中的时间字段的几种数据类型比较</a></li>
-                        <li class="py-2"><a href="/news/article-72923.htm" title="孕妇被猫抓了一下出了点血要打疫苗吗有影响吗（孕妇被猫抓伤出了一点血有危险么）">孕妇被猫抓了一下出了点血要打疫苗吗有影响吗（孕妇被猫抓伤出了一点血有危险么）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-27-node-share-links.htm" title="2月27日最新Free Stash订阅 | 22.3M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享">2月27日最新Free Stash订阅 | 22.3M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/news/article-61543.htm" title="Spring Security核心组件详解">Spring Security核心组件详解</a></li>
-                        <li class="py-2"><a href="/news/article-72255.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
-                        <li class="py-2"><a href="/news/article-58747.htm" title="动物疫苗哪里买的到 动物疫苗哪里买的到啊">动物疫苗哪里买的到 动物疫苗哪里买的到啊</a></li>
-                        <li class="py-2"><a href="/news/article-70942.htm" title="被猫抓一小点出血了不打针没事吧（被猫爪子勾了一下出了一点血）">被猫抓一小点出血了不打针没事吧（被猫爪子勾了一下出了一点血）</a></li>
-                        <li class="py-2"><a href="/news/article-70304.htm" title="兰州哪里有卖狗粮的地方呀（兰州狗粮批发市场在哪）">兰州哪里有卖狗粮的地方呀（兰州狗粮批发市场在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-73591.htm" title="在CentOS安装CMake">在CentOS安装CMake</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share.htm" title="3月2日最新Free Stash订阅 | 19M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点地址链接分享">3月2日最新Free Stash订阅 | 19M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-63335.htm" title="厦门同安宠物领养中心地址（同安哪里有宠物店的地方）">厦门同安宠物领养中心地址（同安哪里有宠物店的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-53629.htm" title="宠物领养协议文案怎么写啊（宠物领养协议免费下载）">宠物领养协议文案怎么写啊（宠物领养协议免费下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-node-subscribe-links.htm" title="2月13日最新Free Stash订阅 | 19.6M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享">2月13日最新Free Stash订阅 | 19.6M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-share-clash-stash.htm" title="2月23日最新Free Stash订阅 | 20.4M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">2月23日最新Free Stash订阅 | 20.4M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-clash-stash.htm" title="2月20日最新Free Stash订阅 | 23M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享">2月20日最新Free Stash订阅 | 23M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-76948.htm" title="Python Module_subprocess子进程(程序调用)">Python Module_subprocess子进程(程序调用)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-free-high-speed-nodes.htm" title="2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享">2月5日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-50984.htm" title="想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）">想开一个宠物美容店怎么开（想开一个宠物美容需要什么条件）</a></li>
                     </ul>
     </div>
 </div>
@@ -176,7 +177,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
