@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-91191.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Vue中引入静态资源的几种方式</title>
+        <meta name="description" content="最近修改一些老项目，好多组件里面引入图片的方式不太一样，总感觉自己没有好好总结过，今天有时间参考了几篇帖子，就总结一下； 在总结之前看了一下vue-cli的文档，突然感觉之前可能是我忽略它了基本没有看" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-91191.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="Vue中引入静态资源的几种方式" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/ba4d7c63e8bb82f0799de491682efd03.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:54:52" />
+    <meta property="og:updated_time" content="2025-04-08T09:54:52" />
+        <meta property="og:description" content="最近修改一些老项目，好多组件里面引入图片的方式不太一样，总感觉自己没有好好总结过，今天有时间参考了几篇帖子，就总结一下； 在总结之前看了一下vue-cli的文档，突然感觉之前可能是我忽略它了基本没有看" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue中引入静态资源的几种方式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>Vue中引入静态资源的几种方式</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>最近修改一些老项目，好多组件里面引入图片的方式不太一样，总感觉自己没有好好总结过，今天有时间参考了几篇帖子，就总结一下；</p> <p>在总结之前看了一下vue-cli的文档，突然感觉之前可能是我忽略它了基本没有看过，官方文档这块写的清清楚楚，还是应该多看文档，天天看掘金、简书这些碎片化知识也不太好；</p> <h2><a id="Vue_3" rel="nofollow"></a>Vue中静态资源引入机制</h2> <hr/> <blockquote> <p>Vue.js关于静态资源的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cli.vuejs.org/zh/guide/html-and-static-assets.html#%E5%A4%84%E7%90%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"  rel="nofollow">官方文档</a></p> </blockquote> <h3><a id="_7" rel="nofollow"></a>静态资源可以通过两种方式进行处理：</h3> <ol> <li> <p><strong>在 JavaScript 被导入或在 template/CSS 中被引用。</strong><br /> 这类引用会被 webpack 处理。诸如<code>&lt;img src="..."&gt;</code>、<code>background: url(...)</code>和<code>CSS @import</code>的资源, 都会被解析为一个模块依赖。<br /> 例如，url(./image.png)会被翻译为require(’./image.png’)</p> </li> <li> <p><strong>放置在public目录下或通过绝对路径被引用。</strong><br /> 这类资源将会直接被拷贝，而不会经过 webpack 的处理，你需要通过绝对路径来引用它们。</p> </li> </ol> <h3><a id="webpackrequire_14" rel="nofollow"></a>webpack中的require解析</h3> <p>首先明确一点，在项目中的webpack.config.js等项目配置文件中使用的require属于nodejs范畴，而进入index.js后，加载的组件中的require都属于webpack的解析范畴。</p> <blockquote> <p>先聊聊webpack中require的用法。</p> </blockquote> <pre><code class="prism language-javascript"><span class="token comment">// 代码1 报错</span><span class="token keyword">let</span> url<span class="token operator">=</span><span class="token string">"@/assets/images/carousel/logo.svg"</span><span class="token function">require</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token comment">// require单纯传了一个变量</span><span class="token comment">// 代码2 正确</span><span class="token keyword">let</span> url<span class="token operator">=</span><span class="token string">"logo.svg"</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/images/carousel/"</span><span class="token operator">+</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// require里面虽然是变量但是增加了前缀，让计算机更快找到</span></code></pre> <p>页面修改webpack流程：</p> <div class="mermaid"></div> <p>如果require中传入的是个变量，它有可能是计算机系统中的任何目录下的任何文件，那么在打包静态资源时它有可能会将你的电脑整个磁盘遍历一遍(它很傻)； 如上代码1只传了个变量。<br /> 因此需要给出在大致路径（如上代码2），这样才能精确的将那个路径下的对应文件打包，然后在代码运行时，直接用对应文件名生成正则匹配(因为打包后的文件，可能有hash值。不能直接查文件名)，找到后，加载到代码中。所以，尽可能详细的指定require中的路径，然后拼接变量。</p> <p>webpack将项目中的静态资源编译打包后，生成的路径已经不是原来的那个路径了。</p> <pre><code class="prism language-javascript">src<span class="token operator">/</span>assets<span class="token operator">/</span>image<span class="token operator">/</span>logo<span class="token punctuation">.</span>png<span class="token comment">// 编译后可能变成</span> dist<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>image<span class="token operator">/</span>logo<span class="token punctuation">.</span><span class="token number">1</span>d997ea3<span class="token punctuation">.</span>png<span class="token function">通过require</span><span class="token punctuation">(</span><span class="token string">"src/assets/image/logo.png"</span><span class="token punctuation">)</span>， 会自动找到并加载 dist<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>image<span class="token operator">/</span>logo<span class="token punctuation">.</span><span class="token number">1</span>d997ea3<span class="token punctuation">.</span>png文件</code></pre> <p>关于打包完不是原来的路径那是 file-loader 的作用，这里不细说可以看一下，file-loader和url-loader的讲解。</p> <h2><a id="_53" rel="nofollow"></a>解析介绍</h2> <p>这里主要用到 vue-loader，vue-loader 在编译单文件组件中的 块时，它也会将所有遇到的资源 URL 转换为 webpack 模块请求。(<strong>这样我们就没必要手动调用require了，而是交给vue-loader处理了</strong>)<br /> vue-loader默认可以处理的标签/特性的组合如下: (不包括style)</p> <pre><code class="prism language-javascript"><span class="token comment">// 面对下面的标签组合，vue-loader会自动进行资源url的转换。</span><span class="token punctuation">{<!-- --></span>   video<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'src'</span><span class="token punctuation">,</span><span class="token string">'poster'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   img<span class="token punctuation">:</span><span class="token string">'src'</span><span class="token punctuation">,</span><span class="token comment">//即img元素上的src属性</span>   source<span class="token punctuation">:</span><span class="token string">'src'</span><span class="token punctuation">,</span><span class="token comment">//source元素上的src属性</span>   image<span class="token punctuation">:</span><span class="token string">'xlink:href'</span><span class="token punctuation">}</span></code></pre> <h2><a id="_67" rel="nofollow"></a>转换规则（官方文档有介绍）</h2> <h3><a id="template_68" rel="nofollow"></a>部分的路径处理</h3> <ol> <li>如果路径是绝对路径，会被原样保留。如<code>/src/assets/image/login/title.png</code></li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/src/assets/image/login/title.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token comment">//渲染后html页面</span><span class="token operator">&lt;</span>img data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token operator">=</span><span class="token string">""</span> src<span class="token operator">=</span><span class="token string">"/src/assets/image/login/title.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// 当然这个图片是无法展示的，因为编译后title.png已不在src/assets/image/login下了</span></code></pre> <p>这个图片是无法展示的，因为编译后title.png已不在<code>src/assets/image/login</code>下了 ，关于public文件夹在下文会有介绍</p> <ol start="2"> <li>如果路径以 . 开头，将会被看作相对的模块依赖。如 ./title.png</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"./titlea.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">//渲染后html页面</span><span class="token operator">&lt;</span>img data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token operator">=</span><span class="token string">""</span> src<span class="token operator">=</span><span class="token string">"/static/img/titlea.1e9fa570.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span></code></pre> <p>❌错误的引入方式，使用 :src 调用了 v-bind 指令处理其内容，相对路径不会被webpack的 file-loader 处理。</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"'./assets/images/02.jpg'"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// ×</span><span class="token comment">// 编译后:</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"./assets/images/02.jpg"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span></code></pre> <ol start="3"> <li>如果路径以 @ 开头，也会被看作模块依赖。如果你的 webpack 配置中给 @ 配置了 alias，这就很有用了。所有 vue-cli 创建的项目都默认配置了将 @ 指向 /src</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"@/assets/image/login/title.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">//渲染后html页面</span><span class="token operator">&lt;</span>img data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token operator">=</span><span class="token string">""</span> src<span class="token operator">=</span><span class="token string">"/static/img/title.1e9fa570.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span></code></pre> <ol start="4"> <li>如果路径以 ~ 开头，其后的部分将会被看作模块依赖，既可以加载含有别名的静态资源，又可以加载node-modules中的资源。如</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 如果用别名的静态资源必须加@否则报一下错误。</span><span class="token comment">//代码 必须有@否则报错，@是别名</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"~@/assets/image/login/title.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">//渲染后html页面</span><span class="token operator">&lt;</span>img data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token operator">=</span><span class="token string">""</span> src<span class="token operator">=</span><span class="token string">"/static/img/title.1e9fa570.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">//代码</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"~[npm包名]/xxx/logo.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">//渲染后的html页面</span><span class="token operator">&lt;</span>img data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token operator">=</span><span class="token string">""</span> src<span class="token operator">=</span><span class="token string">"/static/img/logo.2f53e458.png"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span></code></pre> <h3><a id="style_126" rel="nofollow"></a><code>&lt;style&gt;</code>部分的路径处理</h3> <p>由于vue-loader在处理style时，采用的是style-loader，所以可能 和上面部分的转换规则不太一样。在vue-loader的内部使用了如下的配置（不一定配置，也有可能通过js直接给rules赋值）:</p> <pre><code class="prism language-javascript"><span class="token comment">//在vue-loader的内部使用css-loader</span> module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   module<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     rules<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>         test<span class="token punctuation">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span>         loader<span class="token punctuation">:</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span>         options<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>             url<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">//默认选项 url为true时，则意味着可以将url中的字符串通过require()加载进来。</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre> <ol> <li>如果路径是绝对路径，会被原样保留。如<code>/src/assets/image/login/title.png</code></li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>login<span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"/src/assets/image/login/title.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token comment">//渲染后css</span><span class="token punctuation">.</span>login<span class="token punctuation">[</span>data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token operator">/</span>src<span class="token operator">/</span>assets<span class="token operator">/</span>image<span class="token operator">/</span>login<span class="token operator">/</span>title<span class="token punctuation">.</span>png<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 同样不会显示，编译后的路径不是这个(要放在public下面)</span></code></pre> <ol start="2"> <li>如果路径以 . 开头，将会被看作相对的模块依赖。如 ./title.png</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>login<span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"./title.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token comment">//渲染后css</span><span class="token punctuation">.</span>login<span class="token punctuation">[</span>data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token operator">/</span><span class="token keyword">static</span><span class="token operator">/</span>img<span class="token operator">/</span>title<span class="token punctuation">.</span><span class="token number">1e9</span>fa570<span class="token punctuation">.</span>png<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <ol start="3"> <li>如果路径以 ~ 开头，其后的部分将会被看作模块依赖，即可以加载含有别名的静态资源，又可以加载node-modules中的资源。如</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//代码</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>login<span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"~[npm包名]/logo.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token comment">//渲染后css</span><span class="token punctuation">.</span>login<span class="token operator">-</span><span class="token punctuation">[</span>data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token operator">/</span><span class="token keyword">static</span><span class="token operator">/</span>img<span class="token operator">/</span>logo<span class="token punctuation">.</span>e05643fc<span class="token punctuation">.</span>png<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//代码</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token punctuation">.</span>login<span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"~@/assets/image/login/bg.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 和上面的&lt;template&gt;相比，少了直接用@开头的方式url("@/assett/logo.png")</span><span class="token comment">// 错误写法</span><span class="token comment">// background-image: url("@/assets/image/login/bg.png");</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token comment">//渲染后css</span><span class="token punctuation">.</span>login<span class="token punctuation">[</span>data<span class="token operator">-</span>v<span class="token operator">-</span><span class="token number">70</span>c98a68<span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span>   background<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token operator">/</span><span class="token keyword">static</span><span class="token operator">/</span>img<span class="token operator">/</span>bg<span class="token punctuation">.</span><span class="token number">1</span>d997ea3<span class="token punctuation">.</span>png<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h2><a id="_209" rel="nofollow"></a>其他介绍</h2> <h3><a id="_210" rel="nofollow"></a>拼接路径</h3> <ol> <li>当路径的文件名需要拼接变量的时候，可使用<code>require()</code> 引入，在<code>template</code> 的<code>:src</code> 或者<code>script</code> 的<code>data computed</code> 中都可以进行 require 引入或拼接。</li> </ol> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"require('./assets/images/03.jpg')"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// √</span><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"require('./assets/images/'+ this.imgName +'.jpg')"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// √</span><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"img3"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// √</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>           imgName<span class="token punctuation">:</span><span class="token string">'03.jpg'</span><span class="token punctuation">,</span>           img3<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./assets/images/03.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 或者 @是定义的别名,(注意这里可以直接用@，而在style中只能用~@)</span>           img3<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@/assets/images/login-bg.png'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token comment">// 编译后:</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/img/03.ea62525c.jpg"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span></code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"imgUrl"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">import</span> imgUrl<span class="token keyword">from</span><span class="token string">"../assets/test.png"</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>div<span class="token punctuation">:</span>style<span class="token operator">=</span><span class="token string">"{ backgroundImage: `url(${img3})` }"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>           img3<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./assets/images/03.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 或者</span>           img3<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@/assets/images/login-bg.png'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <h3><a id="public_258" rel="nofollow"></a>public文件夹</h3> <ol> <li> <p>任何放置在public文件夹的静态资源都会被简单的复制，而不经过 webpack。你需要通过绝对路径来引用它们。</p> </li> <li> <p>用绝对路径引入时，路径读取的是<code>public</code>文件夹中的资源，任何放置在<code>public</code> 文件夹的静态资源都会被简单的复制到编译后的目录中，而不经过<code>webpack</code>特殊处理。</p> </li> <li> <p>当你的应用被部署在一个域名的根路径上时，比如<code>http://www.abc.com/</code>，此时这种引入方式可以正常显示但是如果你的应用没有部署在域名的根部，那么你需要为你的 URL 配置<code>publicPath</code> 前缀 publicPath 是部署应用包时的基本 URL，在<code>vue.config.js</code> 中进行配置，详情参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cli.vuejs.org/zh/config/#publicpath"  rel="nofollow">官方文档</a></p> </li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// vue.config.js 应用没有部署到域名的根目录</span><span class="token comment">// 引入publicPath并且将其拼接在路径中，实现引入路径的动态变动</span> module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>     publicPath<span class="token punctuation">:</span><span class="token string">'/foo/'</span><span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>img<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"this.publicPath + 'images/05.jpg'"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token comment">// √</span><span class="token comment">// 编译后:</span><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"/foo/images/05.jpg"</span> alt<span class="token operator">=</span><span class="token string">""</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>           publicPath<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">BASE_URL</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <h2><a id="_289" rel="nofollow"></a>总结</h2> <h3><a id="URL__290" rel="nofollow"></a>URL 转换规则</h3> <ul> <li>如果 URL 是一个绝对路径 (例如/images/foo.png)，它将会被保留不变。</li> <li>如果 URL 以 . 开头，它会作为一个相对模块请求被解释且基于你的文件系统中的目录结构进行解析。</li> <li>如果 URL 以 ~ 开头，其后的任何内容都会作为一个模块请求被解析。这意味着你甚至可以引用 Node 模块中的资源：<code>&lt;img src="~some-npm-package/foo.png" alt="Vue中引入静态资源的几种方式"&gt;</code></li> <li>如果 URL 以 @ 开头，它也会作为一个模块请求被解析。它的用处在于 Vue CLI 默认会设置一个指向/src的别名@。(仅作用于模版中)</li> </ul> <h3><a id="_295" rel="nofollow"></a>推荐将资源作为你的模块依赖图的一部分</h3> <p>推荐将资源作为你的模块依赖图的一部分导入，这样它们会通过 webpack 的处理并获得如下好处：</p> <ul> <li>脚本和样式表会被压缩且打包在一起，从而避免额外的网络请求。</li> <li>文件丢失会直接在编译时报错，而不是到了用户端才产生 404 错误。</li> <li>最终生成的文件名包含了内容哈希，因此你不必担心浏览器会缓存它们的老版本。</li> <li>综上静态资源不建议全部放在public文件夹</li> </ul> <h2><a id="_301" rel="nofollow"></a>参考文件</h2> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000018472635"  rel="nofollow">详解vue中静态资源的路径问题</a></li> </ul> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91190.htm">Java8 Instant 时间戳</a></p>
+                                        <p>下一个：<a href="/news/article-91889.htm">动物诊疗许可证哪里办理的（动物诊疗许可证申领准备材料）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-node-share-links.htm" title="3月6日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">3月6日最新Free Stash订阅 | 18.5M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-stash-node.htm" title="3月9日最新Free Stash订阅 | 20.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享">3月9日最新Free Stash订阅 | 20.1M/S|2025年V2ray/SSR/Shadowrocket/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-90420.htm" title="ASP.NET Core高性能服务器HTTP.SYS">ASP.NET Core高性能服务器HTTP.SYS</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-stash-node.htm" title="4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享">4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-71605.htm" title="宠物粮食批发厂家价格多少钱一斤（宠物粮批发市场在哪）">宠物粮食批发厂家价格多少钱一斤（宠物粮批发市场在哪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-stash-node.htm" title="3月14日最新Free Stash订阅 | 18.6M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">3月14日最新Free Stash订阅 | 18.6M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-78316.htm" title="一片枫叶的拼音是什么（一片枫叶猜一首歌）">一片枫叶的拼音是什么（一片枫叶猜一首歌）</a></li>
+                        <li class="py-2"><a href="/news/article-76949.htm" title="Java 18为什么要指定UTF-8为默认字符集_在线工具">Java 18为什么要指定UTF-8为默认字符集_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-73592.htm" title="南京哪里有宠物领养中心啊多少钱（南京宠物狗领养中心）">南京哪里有宠物领养中心啊多少钱（南京宠物狗领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-65792.htm" title="动物疫苗接种时间表图片大全高清视频（动物疫苗接种时间表图片大全高清视频播放）">动物疫苗接种时间表图片大全高清视频（动物疫苗接种时间表图片大全高清视频播放）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
