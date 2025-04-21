@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-100085.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>VUE 实现下拉分页加载更多功能</title>
+        <meta name="description" content="VUE 实现下拉分页加载更多功能~ html  	&lt;div class="con_item" v-for="item in pageArr"&gt; 		&lt;div class="name"" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-100085.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="VUE 实现下拉分页加载更多功能" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/b65d2827919fb2fb5d3e2297c0b55e3b.webp" />
+        <meta property="og:release_date" content="2025-04-20T09:03:13" />
+    <meta property="og:updated_time" content="2025-04-20T09:03:13" />
+        <meta property="og:description" content="VUE 实现下拉分页加载更多功能~ html  	&lt;div class="con_item" v-for="item in pageArr"&gt; 		&lt;div class="name"" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="VUE 实现下拉分页加载更多功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>VUE 实现下拉分页加载更多功能</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>VUE 实现下拉分页加载更多功能~</h3> <p><strong>html</strong> </div> <pre><code class="prism language-javascript">	<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"con_item"</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in pageArr"</span><span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"name"</span> <span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>item<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loading"</span> style<span class="token operator">=</span><span class="token string">"display: none"</span> ref<span class="token operator">=</span><span class="token string">"loading"</span><span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"../assets/loading.gif"</span> <span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>正在加载更多数据<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"text"</span> style<span class="token operator">=</span><span class="token string">"display: none"</span> ref<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>没有更多数据啦<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span> 	<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span> </code></pre> <p><strong>js</strong></p> <pre><code class="prism language-javascript"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>pageNum<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>propertyData<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span>totalnum<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span>pageArr<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">//滚动事件监听处理	</span> <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleScroll<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token comment">//滚动事件监听处理	</span> <span class="token function">handleScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>		 <span class="token comment">//是否滚动到底部判断</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollTop<span class="token operator">+</span>window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">)</span><span class="token operator">==</span>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getpageData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 	<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 	<span class="token punctuation">}</span> 	<span class="token comment">//请求列表数据</span> <span class="token keyword">async</span> <span class="token function">getApiData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">var</span> that<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">;</span> 				<span class="token keyword">let</span> proData<span class="token operator">=</span> <span class="token keyword">await</span> <span class="token constant">API</span><span class="token punctuation">.</span><span class="token function">ajaxGet</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span> 					<span class="token string">'pageNum'</span><span class="token punctuation">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>pageNum<span class="token punctuation">,</span> 					<span class="token string">'pageSize'</span><span class="token punctuation">:</span><span class="token number">10</span> 				<span class="token punctuation">}</span><span class="token punctuation">)</span> 				that<span class="token punctuation">.</span>propertyData<span class="token operator">=</span>proData<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>resultList 				that<span class="token punctuation">.</span>totalnum<span class="token operator">=</span>proData<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>pages 				把每次请求的数据放入一个数组里 				that<span class="token punctuation">.</span>propertyData<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span> 					that<span class="token punctuation">.</span>pageArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> 				<span class="token punctuation">}</span><span class="token punctuation">)</span> 			<span class="token punctuation">}</span><span class="token punctuation">,</span> 		<span class="token comment">//判断pageNum的值，并显示加载符号</span> 	<span class="token function">getpageData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">var</span> that<span class="token operator">=</span><span class="token keyword">this</span>		 				<span class="token keyword">if</span><span class="token punctuation">(</span>that<span class="token punctuation">.</span>pageNum<span class="token operator">&lt;</span><span class="token keyword">this</span><span class="token punctuation">.</span>totalnum<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>					 					that<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loading<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display<span class="token operator">=</span><span class="token string">"block"</span> 					that<span class="token punctuation">.</span>pageNum<span class="token operator">++</span> 					<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 						that<span class="token punctuation">.</span><span class="token function">getApiData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 					<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span> 				<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span> 					<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 						that<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loading<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display<span class="token operator">=</span><span class="token string">"none"</span> 						that<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>text<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display<span class="token operator">=</span><span class="token string">"block"</span> 					<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span>					 				<span class="token punctuation">}</span>				 			<span class="token punctuation">}</span><span class="token punctuation">,</span> </code></pre> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99305.htm">动物疫苗检测（动物疫苗检测找哪个部门）</a></p>
+                                        <p>下一个：<a href="/news/article-100086.htm">宠物粮食生产厂家排名（宠物粮食公司）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-66425.htm" title="mysql timestamp_MySQL中的时间字段的几种数据类型比较">mysql timestamp_MySQL中的时间字段的几种数据类型比较</a></li>
+                        <li class="py-2"><a href="/news/article-65793.htm" title="宠物疫苗能带上飞机吗现在（宠物用疫苗可以带上高铁吗）">宠物疫苗能带上飞机吗现在（宠物用疫苗可以带上高铁吗）</a></li>
+                        <li class="py-2"><a href="/news/article-95623.htm" title="Spring Security核心组件之安全上下文">Spring Security核心组件之安全上下文</a></li>
+                        <li class="py-2"><a href="/news/article-94882.htm" title="被家猫抓了轻微渗血需要打多少针（被家猫抓了轻微渗血需要打多少针狂犬疫苗）">被家猫抓了轻微渗血需要打多少针（被家猫抓了轻微渗血需要打多少针狂犬疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-76285.htm" title="宠物零食加工厂要投资多少钱呢（宠物零食加工厂要投资多少钱呢视频）">宠物零食加工厂要投资多少钱呢（宠物零食加工厂要投资多少钱呢视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share.htm" title="3月2日最新Free Stash订阅 | 19M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点地址链接分享">3月2日最新Free Stash订阅 | 19M/S|2025年SSR/Clash/V2ray/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-72255.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
+                        <li class="py-2"><a href="/news/article-86043.htm" title="动物接种是什么意思（动物接种要点）">动物接种是什么意思（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/news/article-70941.htm" title="沧州宠物医院招聘信息（沧州宠物医院电话）">沧州宠物医院招聘信息（沧州宠物医院电话）</a></li>
+                        <li class="py-2"><a href="/news/article-91191.htm" title="Vue中引入静态资源的几种方式">Vue中引入静态资源的几种方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">61</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
