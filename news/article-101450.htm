@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-101450.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>JS Promise用法</title>
+        <meta name="description" content="Promise概述 promise对象用于异步计算，相比于回调函数，promise对象除了规定的方法都是不可用的，牺牲了一定自由度的同时，可以将复杂的异步处理模式化。 句法 Promise( /* e" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-101450.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="JS Promise用法" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/81b431694fef009fe23c6d8566ea1668.webp" />
+        <meta property="og:release_date" content="2025-04-22T08:23:24" />
+    <meta property="og:updated_time" content="2025-04-22T08:23:24" />
+        <meta property="og:description" content="Promise概述 promise对象用于异步计算，相比于回调函数，promise对象除了规定的方法都是不可用的，牺牲了一定自由度的同时，可以将复杂的异步处理模式化。 句法 Promise( /* e" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JS Promise用法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>JS Promise用法</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <hr/> <p><strong><font size="5">Promise概述</font></strong></p> <p>promise对象用于异步计算，相比于回调函数，promise对象除了规定的方法都是不可用的，牺牲了一定自由度的同时，可以将复杂的异步处理模式化。</p> <p><strong><font size="3">句法</font></strong></p> <pre><code>Promise( /* executor */ function(resolve, reject) { ... } ); </code></pre> <p>new一个Promise构造器进行实例化，返回一个promise对象：</p> <pre><code>var promise = new Promise(function(resolve, reject) {     // 异步处理     // 处理结束后、调用resolve 或 reject }); </code></pre> <p><strong><font size="3">Promise 状态</font></strong></p> <p>一个promise实例有一下几个状态（默认是Promises/A+的描述状态）：</p> <ul> <li>pending:初始化阶段，没有fulfilled或者是rejected</li> <li>fulfilled:操作成功完成（promise resolve）</li> <li>rejected：操作失败（promise reject）</li> </ul> <p>如果promise处于pending状态，处理promise的处理模块（handler）就会处于排队状态pending状态可以变成fulfilled或者rejected状态，不过fulfilled状态和rejected状态是不可相互转换的。promise从pending状态到fulfilled或者rejected状态，.then处理只会被调用一次，比如：</p> <pre><code>var promise = new Promise(function(resolve,reject){ var n = 6 if(n&lt;3) resolve(console.log('yes')); //成功了调用回调函数 else reject(new Error(console.log('this is an error'))); //失败调用reject并抛出异常 })  var promise = new Promise(function(resolve,reject){     var i = 2;     if(i&lt;3)     resolve(setTimeout("alert('hello')",5000));     else     reject(new Error(console.log('no'))); }) promise.then(console.log('ok')); </code></pre> <p><strong><font size="3">Promise 链</font></strong></p> <p>Promise.prototype.then()和Promise.prototype.then()方法返回promise对象，就成为promise链，如图：</p> <p><img decoding="async" src="0" alt="chains" title=""/></p> <p><strong><font size="3">方法</font></strong></p> <ul> <li>Promise.all()</li> </ul> <p>返回promise在迭代声明中是fulfilled还是reject，如果是fulfill，就返回一个数组，值是按照在迭代器中的顺序成功了的promises。如果返回不成功（reject）的promise，返回迭代器中第一个失败对象的原因。这个方法可以使用在有多个promise的情况下。</p> <ul> <li>Promise.race()</li> </ul> <p>如有有一个迭代中的promise被fulfilled或者rejected，这个方法立即返回处理值</p> <ul> <li>Promise.reject()</li> </ul> <p>返回被reject的原因</p> <ul> <li>Promise.resolve()</li> </ul> <p>返回处理成功的promise对象</p> <p><strong><font size="3">例子</font></strong></p> <pre><code>'use strict'; var promiseCount = 0;  function testPromise() {     var thisPromiseCount = ++promiseCount;      var log = document.getElementById('log');     log.insertAdjacentHTML('beforeend', thisPromiseCount +         ') Started (&lt;small&gt;Sync code started&lt;/small&gt;)&lt;br/&gt;');      // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)     var p1 = new Promise(         // The resolver function is called with the ability to resolve or         // reject the promise         function(resolve, reject) {             log.insertAdjacentHTML('beforeend', thisPromiseCount +                 ') Promise started (&lt;small&gt;Async code started&lt;/small&gt;)&lt;br/&gt;');             // This is only an example to create asynchronism             window.setTimeout(                 function() {                     // We fulfill the promise !                     resolve(thisPromiseCount);                 }, Math.random() * 2000 + 1000);         }     );      // We define what to do when the promise is resolved/fulfilled with the then() call,     // and the catch() method defines what to do if the promise is rejected.     p1.then(         // Log the fulfillment value         function(val) {             log.insertAdjacentHTML('beforeend', val +                 ') Promise fulfilled (&lt;small&gt;Async code terminated&lt;/small&gt;)&lt;br/&gt;');         })     .catch(         // Log the rejection reason         function(reason) {             console.log('Handle rejected promise ('+reason+') here.');         });      log.insertAdjacentHTML('beforeend', thisPromiseCount +         ') Promise made (&lt;small&gt;Sync code terminated&lt;/small&gt;)&lt;br/&gt;'); } </code></pre> <p><strong><font size="3">浏览器兼容</font></strong></p> <table> <thead> <tr> <th>Feature</th> <th>Chrome</th> <th>Edge</th> <th>Firefox</th> <th>InternetExplorer</th> <th>Opera</th> <th>Safari</th> <th>Servo</th> </tr> </thead> <tbody> <tr> <td>Promise</td> <td>32.0</td> <td>(Yes)</td> <td>29.0</td> <td>No support</td> <td>19</td> <td>7.1</td> <td>No support</td> </tr> </tbody> </table> <p><strong><font size="3">本文参考</font></strong></p> <p>MDN ： <br />https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise</p> <p>JS Promise迷你书： <br />http://www.kancloud.cn/kancloud/promises-book/44251</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-101449.htm">Java程序查找数字的偶数因数之和</a></p>
+                                        <p>下一个：<a href="/news/article-102246.htm">饲料加盟免费代理鱼饲料 鱼饲料代理需要多少钱</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-69634.htm" title="python实现自动整理文件_python_">python实现自动整理文件_python_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-free-subscribe-node.htm" title="4月17日最新Free Stash订阅 | 19.5M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点地址链接分享">4月17日最新Free Stash订阅 | 19.5M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-70303.htm" title="匿名类（Anonymous Classes）">匿名类（Anonymous Classes）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-clash-stash.htm" title="3月29日最新Free Stash订阅 | 20.9M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享">3月29日最新Free Stash订阅 | 20.9M/S|2025年Shadowrocket/V2ray/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-75613.htm" title="妙三多猫疫苗是几针（妙三多猫疫苗的不良反应）">妙三多猫疫苗是几针（妙三多猫疫苗的不良反应）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-clash-stash.htm" title="4月9日最新Free Stash订阅 | 18.3M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享">4月9日最新Free Stash订阅 | 18.3M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-65792.htm" title="动物疫苗接种时间表图片大全高清视频（动物疫苗接种时间表图片大全高清视频播放）">动物疫苗接种时间表图片大全高清视频（动物疫苗接种时间表图片大全高清视频播放）</a></li>
+                        <li class="py-2"><a href="/news/article-68326.htm" title="兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）">兰州宠物交易市场在哪儿呀（兰州宠物市场在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-19-free-subscribe-node.htm" title="4月19日最新Free Stash订阅 | 21.5M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享">4月19日最新Free Stash订阅 | 21.5M/S|2025年SSR/Shadowrocket/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-92597.htm" title="1970年农历四月二十二日命运好吗（1970年农历4月20日出生命运）">1970年农历四月二十二日命运好吗（1970年农历4月20日出生命运）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">73</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
