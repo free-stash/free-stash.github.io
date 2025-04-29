@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-107212.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>一文了解axios和vue的整合操作_vue.js</title>
+        <meta name="description" content="目录  前言 一、axios是什么？  1.定义 2.原理 3、主要特点  二、axios的应用  三、axios+vue的应用  总结     前言 前面学习了vue的本地应用操作，本文将会学习Vu" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-107212.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="一文了解axios和vue的整合操作_vue.js" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/d919e3f21f595376818c553c02b1a237.webp" />
+        <meta property="og:release_date" content="2025-04-29T08:02:56" />
+    <meta property="og:updated_time" content="2025-04-29T08:02:56" />
+        <meta property="og:description" content="目录  前言 一、axios是什么？  1.定义 2.原理 3、主要特点  二、axios的应用  三、axios+vue的应用  总结     前言 前面学习了vue的本地应用操作，本文将会学习Vu" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一文了解axios和vue的整合操作_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>一文了解axios和vue的整合操作_vue.js</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li>前言</li> <li>一、axios是什么？</li> <ul class="second_class_ul"> <li>1.定义</li> <li>2.原理</li> <li>3、主要特点</li> </ul> <li>二、axios的应用</li> <ul class="second_class_ul"></ul> <li>三、axios+vue的应用</li> <ul class="second_class_ul"></ul> <li>总结</li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"></p> <h2>前言</h2> <p>前面学习了vue的本地应用操作，本文将会学习Vue的网络应用，介绍axios并且学习axios和Vue的结合使用</p> <p class="maodian"></p> <h2>一、axios是什么？</h2> <p class="maodian"></p> <h3>1.定义</h3> <p>Axios是一个基于promise 的 HTTP 库，可以用在浏览器和 node.js中</p> <p class="maodian"></p> <h3>2.原理</h3> <p>axios本质上也是对原生XHR的封装，只不过它是Promise的实现版本，符合最新的ES规范。</p> <p class="maodian"></p> <h3>3、主要特点</h3> <p>1、从 node.js 创建 http 请求</p> <p>2、支持 Promise API</p> <p>3、拦截请求和响应</p> <p>4、转换请求和响应数据</p> <p>5、取消请求</p> <p>6、自动转换JSON数据</p> <p>7、客户端支持防御XSRF要特点</p> <p>8、从浏览器创建 XMLHttpRequests</p> <p class="maodian"></p> <h2>二、axios的应用</h2> <p>1、axios必须先导入才可以使用</p> <p>2、使用get或Post方法即可发送对应的请求</p> <p>3、then方法中的回调函数会在请求成功或失败时触发</p> <p>4、通过回调函数的形参可以获取响应内容，或错误信息</p> <p><strong>代码解析</strong></p> <p>1、axios通过get或者post发送请求</p> <p>2、axios.get()中间填写获取的请求地址，后面跟上请求的参数使用？连接</p> <p>3、.then（）代表的是成功获取到后，如何处理的事件和获取失败，该如何处理的事件</p> <p>两个事件中间用逗号隔开</p> <div class="ay1code"> <pre class="brush:js;">&lt;input type="button" value="get请求" class="get"&gt;      &lt;input type="button" value="post请求" class="post"&gt;      &lt;!--官网提供的axios在线地址--&gt;      &lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;      &lt;script&gt;          /*           接口1:随机笑话           请求地址:https://autumnfish.cn/api/joke/list           请求方法:get           请求参数:num(笑话条数,数字)           响应内容:随机笑话       */          document.querySelector(".get").onclick=function (){              axios.get("https://autumnfish.cn/api/joke/list?num=3")              .then(function (response){                  console.log(response);              },function (err){                  console.log(err);              })          }            /*              接口2:用户注册              请求地址:https://autumnfish.cn/api/user/reg              请求方法:post              请求参数:username(用户名,字符串)              响应内容:注册成功或失败          */          document.querySelector(".post").onclick=function(){              axios.post("https://autumnfish.cn/api/user/reg",{username:"李奕赫"}).then(function (response){                  console.log(response);              },function (err){                  console.log(err);              })          }      &lt;/script&gt;  </pre> </div> <p><strong>效果展示：</strong></p> <p>按下按钮后，会在控制台里，将回应值全部打印出来</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/c00d706af90f65c88112f118b3f9a0cf.jpg"></p> <p class="maodian"></p> <h2>三、axios+vue的应用</h2> <p>1、axios回调函数中的this已经改变，无法访问到data中数据</p> <p>2、把this保存起来，回调函数中直接使用保存的this即可‘</p> <p>3、和本地应用的最大区别就是改变了数据来源</p> <p>代码展示：</p> <p>1、这次将axios和vue相结合，改变了数据来源</p> <p>2、可以将axios在网络上获取的信息，通过vue展示出来</p> <p>3、axios的操作跟上面没区别，就是放在vue的一个事件中。</p> <p>4、因为返回的回应值很多，我们仅仅只想找到我们想要的。我们就可以直接写。<br />例如：response.data 我们可以直接下面套着写</p> <div class="ay1code"> <pre class="brush:js;">    &lt;div id="app"&gt;          &lt;input type="button" value="获取笑话" @click="getJoke"&gt;          &lt;p&gt;{{joke}}&lt;/p&gt;      &lt;/div&gt;        &lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;      &lt;script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"&gt;&lt;/script&gt;      &lt;!--官网提供的axios在线地址--&gt;      &lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;      &lt;script&gt;          /*           接口1:随机笑话           请求地址:https://autumnfish.cn/api/joke/list           请求方法:get           请求参数:num(笑话条数,数字)           响应内容:随机笑话       */          var app=new Vue({              el:"#app",              data:{                  joke:"很好笑的笑话"              },              methods:{                  getJoke:function (){                      var that=this;                      axios.get("https://autumnfish.cn/api/joke").then(function (response){                          console.log(response.data)                          that.joke=response.data;   /*这里不能使用this.joke，因为对象已经发生改变*/                      },function (err){ })                  }              },          })      &lt;/script&gt;</pre> </div> <p><strong>效果展示：</strong></p> <p>1、当按下按钮时,就触发事件。</p> <p>2、因为vue是基于数据开发，数据发生改变，页面上的显示也会随之改变</p> <p>3、当触发事件后，我们将axios获取的数据赋值给vue中的变量，所以当变量改变，页面上的笑话也会改变。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/ef80836d35fb5250f6acb26934b40ee7.jpg"></p> <p class="maodian"></p> <h2>总结</h2> <p>本文介绍了axios和vue的简单整合实验，大家可以亲自实践操作一下！！</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-106247.htm">从JS执行栈角度图解递归以及二叉树的前、中、后遍历的底层差异 _在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-107213.htm">宠物食品一件代发平台的简单介绍</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-clash-stash.htm" title="3月7日最新Free Stash订阅 | 23M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点地址链接分享">3月7日最新Free Stash订阅 | 23M/S|2025年Clash/SSR/Shadowrocket/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-stash-node.htm" title="4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享">4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-subscribe-node.htm" title="4月11日最新Free Stash订阅 | 22.4M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享">4月11日最新Free Stash订阅 | 22.4M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-node-share.htm" title="3月15日最新Free Stash订阅 | 19M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点地址链接分享">3月15日最新Free Stash订阅 | 19M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-101449.htm" title="Java程序查找数字的偶数因数之和">Java程序查找数字的偶数因数之和</a></li>
+                        <li class="py-2"><a href="/news/article-74256.htm" title="生物疫苗和疫苗有区别吗（疫苗生物和生物可以混打吗）">生物疫苗和疫苗有区别吗（疫苗生物和生物可以混打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-103805.htm" title="中牧疫苗好不好（中牧疫苗好不好吸收）">中牧疫苗好不好（中牧疫苗好不好吸收）</a></li>
+                        <li class="py-2"><a href="/news/article-91190.htm" title="Java8 Instant 时间戳">Java8 Instant 时间戳</a></li>
+                        <li class="py-2"><a href="/news/article-89663.htm" title="兰州宠物市场兔子（兰州兔子宠物店）">兰州宠物市场兔子（兰州兔子宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-94293.htm" title="做梦梦见抱着小女孩是什么意思啊（梦里梦见抱着小女孩）">做梦梦见抱着小女孩是什么意思啊（梦里梦见抱着小女孩）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">85</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
