@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://free-stash.github.io/news/article-110519.htm" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>vite+element-plus项目基础搭建</title>
+        <meta name="description" content="vite+element-plus项目基础搭建      1.引言 2.为什么是Vite? 3.为什么是Element-plus? 4.项目搭建 5.参考文献       1.引言     其实本来不" />
+        <link rel="icon" href="/assets/website/img/free_stash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Stash免费节点地址中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://free-stash.github.io/news/article-110519.htm" />
+    <meta property="og:site_name" content="Free Stash免费节点地址中文网" />
+    <meta property="og:title" content="vite+element-plus项目基础搭建" />
+    <meta property="og:image" content="https://free-stash.github.io/uploads/20250201-1/ed3dde32e8b658426cc0c651e9d3e4cc.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:45" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:45" />
+        <meta property="og:description" content="vite+element-plus项目基础搭建      1.引言 2.为什么是Vite? 3.为什么是Element-plus? 4.项目搭建 5.参考文献       1.引言     其实本来不" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vite+element-plus项目基础搭建">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="/assets/website/css/free_stash/css2-DMSansitalopszwght09..40100..100019..40100..1000_swap.css" rel="stylesheet">
+    <link href="/assets/website/css/free_stash/css2-Jostitalwght0100..9001100..900_swap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/themify-icons.css">
+    <!--- owl carousel Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/free_stash/owl.theme.css">
+    <!--jquery-simple-mobilemenu Css-->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/jquery-simple-mobilemenu.css">
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/magnific-popup.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/free_stash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FDYFFN3014"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDYFFN3014');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START NAVBAR -->
+    <div id="navigation" class="navbar-light bg-faded site-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-20 align-self-center">
+                    <div class="site-logo">
+                        <a href="/" class="xcblog-blog-logo">
+                                                        <span>Free Stash</span>
+                                                    </a>
+                    </div>
+                </div>
+                <!--- END Col -->
+                <div class="col-60 d-flex">
+                    <nav id="main-menu">
+                        <ul>
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!--- END Col -->
+                <ul class="mobile_menu">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
+    </div>
+    <!-- END NAVBAR -->
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1>vite+element-plus项目基础搭建</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/"> / 新闻资讯</a></li>
+                        <li> / 正文</li>
+                    </ul>
+                </div><!-- //.HERO-TEXT -->
+            </div>
+            <!--- END COL -->
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END SECTION TOP -->
+    <!-- START ABOUT US -->
+    <section class="ab_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <div class="toc"> <h3>vite+element-plus项目基础搭建</h3> <ul> <li> <ul> <li> <ul> <li>1.引言</li> <li>2.为什么是Vite?</li> <li>3.为什么是Element-plus?</li> <li>4.项目搭建</li> <li>5.参考文献</li> </ul> </li> </ul> </li> </ul> </div> <h3>1.引言</h3> <p>    其实本来不应该写这种CSDN比较多的博文的，主要是因为比较多，然后想解决问题的时候有很多各种各样的文章，然后这些文章有各自的解决思路，甚至拿过来又不能解决问题，本着分享和方便以后使用的目的，记录这次使用过程。</p> <h3>2.为什么是Vite?</h3> <p>    其实我最开始用的是vue-cli，但是使用的时候发现这个每次运行的时候都需要打包，导致运行的比较慢，得等个10几秒。加上看到Element-plus官网在配置教程里面甚至都没有放vue-cli的配置教程。在使用vue-cli引入的时候我又希望不是全部引入，因为很多组件是没必要的，也许正是因为这个Element-plus比较大，所以打包的时间平时使用的时候大更多。基于上述原因，我查了一下vite和vue-cli的区别：<br /> （1）vite打包速度快，能够利用浏览器对JavaScript 模块的原生支持，而vue-cli在打包上更像是webpack的一个超集，本身基于webpack来打包，又在webpack的基础上增加了很多脚手架，由于webpack将项目的各种依赖利用js串联起来，工作量相对较大，时间慢也是正常的；<br /> （2）由于Vite打包之后还是依赖于浏览器，所以对于低版本的浏览器支持的不是很好。</p> <h3>3.为什么是Element-plus?</h3> <p>    因为之前没有使用过这个UI库，自己一个个组件的写太慢了。而且Element-plus热度也比较高。Element-plus本质是Element-UI对Vue3的支持更新，用来配合Vue3开发非常合适，相比之下，有很多UI框架还没能转到Vue3,不得不感叹前端发展实在是太快了，各种UI组件库，各种生态，这种来自于社区的依赖。</p> <h3>4.项目搭建</h3> <p>    好了不多说了，直接开始吧：</p> <pre><code class="prism language-shell"><span class="token function">npm</span> init vite@latest<span class="token operator">&lt;</span>app name<span class="token operator">&gt;</span> -- --template vue-ts</code></pre> <p>安装依赖、测试运行什么的就不说了，配置<code>vite.config.ts</code>（含修改端口方式）：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> defineConfig<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> vue<span class="token keyword">from</span><span class="token string">'@vitejs/plugin-vue'</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   plugins<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   server<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     port<span class="token operator">:</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>    安装<code>element-plus</code>依赖：<code>npm i element-plus</code> (使用-D主要是我们一般只是用生成的dist文件，用于生产环境)；安装 sass和sass-loader，方便之后使用element中提供的颜色主题和自己写sass一些样式。<br />     修改<code>tsconfig.json</code>，关闭打包时候的ts校验（<code>否则打包的时候会因为ts校验不通过而导致打包失败</code>）：<code>"skipLibCheck": true,</code>为了方便编译器提示加上：<code>"types": ["element-plus/global"],</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220820/b780a5e4a62ce731c322927f775a51a2.jpg" alt="vite+element-plus项目基础搭建"><br />     入口文件：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> router<span class="token keyword">from</span><span class="token string">'./router/index'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token string">'element-plus/dist/index.css'</span><span class="token punctuation">;</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">;</span> app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>    按需引入，安装官网提到的<code>unplugin-auto-import</code>和<code>unplugin-vue-components</code>依赖（<code>-D</code>就行），调整<code>vite.config.ts</code>文件：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> defineConfig<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> vue<span class="token keyword">from</span><span class="token string">'@vitejs/plugin-vue'</span><span class="token punctuation">;</span><span class="token keyword">import</span> AutoImport<span class="token keyword">from</span><span class="token string">'unplugin-auto-import/vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span> Components<span class="token keyword">from</span><span class="token string">'unplugin-vue-components/vite'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> ElementPlusResolver<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'unplugin-vue-components/resolvers'</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   plugins<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       resolvers<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       resolvers<span class="token operator">:</span><span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   server<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     port<span class="token operator">:</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>实践测试，如果使用这种方法，那么每次会由这两个自动导入的依赖为我们引入我们自己写的<code>components</code>和<code>组件</code>：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220820/ba932907174535335016fcc0b6c345e4.jpg" alt="vite+element-plus项目基础搭建"><br /> 如果全部引入那么文件大小1.4MB左右，如果按需引入只有400KB，所以还是按需引入比较香。</p> <h3>5.参考文献</h3> <p>    本次项目搭建看了很多文章，对我帮助比较大的是这三篇文章：<br />（1）搭建vite项目并配置路由和element-plus<br />（2）Element官网配置教程<br />（3）Vite和Vue CLI的优劣</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109665.htm">宠物粮加工厂投资多少钱 宠物粮加工厂投资多少钱一个月</a></p>
+                                        <p>下一个：<a href="/news/article-110523.htm">C/C++内存申请函数总结</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-94293.htm" title="做梦梦见抱着小女孩是什么意思啊（梦里梦见抱着小女孩）">做梦梦见抱着小女孩是什么意思啊（梦里梦见抱着小女孩）</a></li>
+                        <li class="py-2"><a href="/news/article-86764.htm" title="Vue3 ESLint Prettier配置方法">Vue3 ESLint Prettier配置方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-node-subscribe-links.htm" title="4月10日最新Free Stash订阅 | 21.5M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点地址链接分享">4月10日最新Free Stash订阅 | 21.5M/S|2025年V2ray/Clash/Shadowrocket/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-107213.htm" title="宠物食品一件代发平台的简单介绍">宠物食品一件代发平台的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-110519.htm" title="vite+element-plus项目基础搭建">vite+element-plus项目基础搭建</a></li>
+                        <li class="py-2"><a href="/news/article-103056.htm" title="动物疫苗周期多久有效（动物疫苗间隔时间）">动物疫苗周期多久有效（动物疫苗间隔时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-stash-node.htm" title="4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享">4月1日最新Free Stash订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-free-node-subscribe-links.htm" title="4月24日最新Free Stash订阅 | 22.7M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享">4月24日最新Free Stash订阅 | 22.7M/S|2025年V2ray/Clash/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-95623.htm" title="Spring Security核心组件之安全上下文">Spring Security核心组件之安全上下文</a></li>
+                        <li class="py-2"><a href="/news/article-111358.htm" title="天津宠物狗领养中心在哪里 天津宠物狗领养中心在哪里啊">天津宠物狗领养中心在哪里 天津宠物狗领养中心在哪里啊</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <!--- END CONTAINER -->
+    </section>
+    <!-- END ABOUT US -->
+        <!-- START FOOTER COPYRIGHT -->
+    <div class="foot_copy">
+        <div class="footer_copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+            <br />Powered by WordPress
+        </div>
+    </div>
+    <!-- END FOOTER COPYRIGHT -->
+    <!-- Latest jQuery -->
+    <script data-cfasync="false" src="/assets/website/js/frontend/free_stash/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/free_stash/jquery-1.12.4.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="/assets/website/js/frontend/free_stash/bootstrap.min.js"></script>
+    <!-- modernizer JS -->
+    <script src="/assets/website/js/frontend/free_stash/modernizr-2.8.3.min.js"></script>
+    <!-- jquery-simple-mobilemenu.min -->
+    <script src="/assets/website/js/frontend/free_stash/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel min js  -->
+    <script src="/assets/website/js/frontend/free_stash/owl.carousel.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.magnific-popup.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/free_stash/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol js -->
+    <script src="/assets/website/js/frontend/free_stash/scrolltopcontrol.js"></script>
+    <!-- WOW - Reveal Animations When You Scroll -->
+    <script src="/assets/website/js/frontend/free_stash/wow.min.js"></script>
+    <!-- scripts js -->
+    <script src="/assets/website/js/frontend/free_stash/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
