@@ -87,7 +87,7 @@
                 <div class="col-20 align-self-center">
                     <div class="site-logo">
                         <a href="/" class="xcblog-blog-logo">
-                                                        <span>Free Stash</span>
+                                                        <span>Free Stash 节点订阅平台</span>
                                                     </a>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <h2>引言：当科技便利遭遇连接壁垒</h2>  <p>在数字化浪潮中，科学上网工具已成为现代网民的重要刚需。Clash作为一款轻量高效的代理工具，凭借其灵活的规则配置和跨平台支持，赢得了大量技术爱好者的青睐。然而，许多用户在满怀期待地安装Clash后，却遭遇了令人沮丧的"网络连接失败"问题——这就像拿到一把万能钥匙，却发现打不开任何门锁。本文将深入剖析这一现象的成因，并提供一套系统化的解决方案，帮助您突破连接障碍，畅游无界网络。  </p>  <h2>第一章：理解Clash的工作原理</h2>  <p>要解决问题，首先需要理解工具的运行机制。Clash本质上是一个本地代理中间件，它通过在您的设备上建立虚拟网关，将所有网络流量重新路由到配置的代理服务器。这种设计带来了两个关键依赖：  </p>  <ol> <li><strong>本地代理服务</strong>必须持续稳定运行  </li> <li><strong>底层网络连接</strong>需要支持代理通信  </li> </ol>  <p>当出现连接问题时，我们需要像医生诊断疾病一样，从这两个维度进行系统性排查。  </p>  <h2>第二章：常见故障原因深度解析</h2>  <h3>2.1 防火墙的"过度保护"</h3>  <p>现代操作系统都配备了严密的防火墙系统，它们像尽职的保安，有时会错误地将Clash识别为可疑程序。Windows Defender和第三方安全软件尤其常见此类误判。  </p>  <p><strong>典型症状</strong>：<br /> - Clash核心进程运行正常<br /> - 系统日志显示连接被拒绝<br /> - 其他网络应用工作正常  </p>  <h3>2.2 DNS解析的隐形陷阱</h3>  <p>域名解析是网络访问的第一步。当使用运营商默认DNS时，可能会遭遇：<br /> - 污染解析（返回错误IP）<br /> - 解析超时<br /> - 地域限制  </p>  <p><strong>特殊现象</strong>：<br /> - 直接IP访问可行<br /> - 部分网站无法打开<br /> - 时好时坏的连接状态  </p>  <h3>2.3 配置文件的"魔鬼细节"</h3>  <p>YAML格式的配置文件对缩进和语法极其敏感，一个多余的空格都可能导致：<br /> - 代理规则失效<br /> - 端口冲突<br /> - 认证信息错误  </p>  <p><strong>专业建议</strong>：使用专业的YAML验证工具检查配置文件，避免肉眼排查。  </p>  <h3>2.4 网络环境的隐形冲突</h3>  <p>当设备同时运行多个网络工具时（如企业VPN、虚拟机网络等），可能出现：<br /> - 路由表混乱<br /> - IP地址冲突<br /> - 端口占用  </p>  <p><strong>诊断方法</strong>：<br /> <code>bash netstat -ano | findstr "7890"  # 检查Clash默认端口占用 route print  # 查看路由表</code></p>  <h2>第三章：系统化解决方案手册</h2>  <h3>3.1 防火墙配置全攻略</h3>  <p><strong>Windows平台详细步骤</strong>：<br /> 1. Win+S搜索"防火墙"→选择"允许应用通过防火墙"<br /> 2. 点击"更改设置"获取管理员权限<br /> 3. 为Clash.exe勾选专用/公用网络权限<br /> 4. 高级设置中创建入站/出站规则  </p>  <p><strong>macOS用户注意</strong>：<br /> 需同时在"安全性与隐私→防火墙"和"Little Snitch"等第三方工具中放行。  </p>  <h3>3.2 DNS优化方案组合拳</h3>  <p>推荐采用分级DNS策略：<br /> 1. <strong>基础DNS</strong>：<br />    - 阿里DNS 223.5.5.5/223.6.6.6<br />    - Google DNS 8.8.8.8/8.8.4.4  </p>  <ol> <li><p><strong>进阶配置</strong>：<br /> ```yaml dns:  enable: true  enhanced-mode: redir-host  nameserver:</p>  <ul> <li>https://doh.pub/dns-query</li> <li>tls://dns.google ```</li> </ul></li> <li><p><strong>缓存清理命令集</strong>：<br /> ```bash</p>  <h1>Windows  <p>ipconfig /flushdns</p>  <h1>macOS  <p>sudo killall -HUP mDNSResponder ```</p></li> </ol>  <h3>3.3 配置文件调试艺术</h3>  <p>使用"二分法"排查配置问题：<br /> 1. 备份现有配置<br /> 2. 载入官方示例配置文件<br /> 3. 逐步添加自定义规则<br /> 4. 每次修改后使用验证工具：<br />    <code>bash    clash -t -f config.yaml</code></p>  <p><strong>关键检查点</strong>：<br /> - 代理组负载均衡设置<br /> - 规则匹配顺序<br /> - 混合代理端口配置  </p>  <h3>3.4 网络环境净化流程</h3>  <ol> <li><p><strong>终止冲突进程</strong>：<br /> <code>bash taskkill /f /im vpn*  # Windows pkill -9 openvpn      # Linux/macOS</code></p></li> <li><p><strong>重置网络栈</strong>：<br /> <code>bash netsh int ip reset    # Windows sudo netplan apply    # Linux</code></p></li> <li><p><strong>端口占用排查</strong>：<br /> 使用<code>TCPView</code>或<code>lsof -i :7890</code>可视化工具分析。  </p></li> </ol>  <h2>第四章：高阶技巧与深度优化</h2>  <h3>4.1 协议组合策略</h3>  <p>根据网络环境动态调整：<br /> - <strong>移动网络</strong>：优先使用VMess+WS+TLS<br /> - <strong>家庭宽带</strong>：尝试Trojan+TCP<br /> - <strong>严格审查环境</strong>：建议ShadowTLS+Reality  </p>  <h3>4.2 日志分析实战</h3>  <p>解读Clash日志的关键字段：<br /> <code>INFO[0000] Start initial compatible provider 代理名称 ERRO[0005] Failed to connect to server: context deadline exceeded</code></p>  <p><strong>错误代码速查</strong>：<br /> - <code>dial tcp timeout</code> → 节点失效/网络阻断<br /> - <code>authentication failed</code> → 认证信息错误<br /> - <code>connection refused</code> → 端口被封/服务未启动  </p>  <h3>4.3 自动化维护脚本</h3>  <p>创建定期检查脚本：<br /> ```bash</p>  <h1>!/bin/bash  <p>if ! pgrep -x "clash" >/dev/null; then     systemctl restart clash     echo "$(date): Clash restarted" >> /var/log/clash_monitor.log fi ```</p>  <h2>第五章：终极解决方案树</h2>  <p>根据症状快速定位：<br /> <code>无法连接网络 ├─ 所有网站不可用 → 检查防火墙/网络接口 ├─ 特定网站失效 → 检查DNS/规则配置 └─ 间歇性断连 → 测试节点稳定性/网络抖动</code></p>  <h2>结语：从故障排除到网络自由</h2>  <p>解决Clash连接问题不仅是一次技术调试，更是对网络知识体系的完善。通过本文的系统化方法，您已经掌握了：  </p>  <ol> <li>分层诊断的思维框架  </li> <li>关键配置的校验方法  </li> <li>环境冲突的解决路径  </li> </ol>  <p>记住，稳定的网络环境=正确的工具配置×健康的网络基础。当您下次遇到连接问题时，不妨把这当作一次网络知识的实践机会。毕竟，每个问题的解决都是通向技术精进的阶梯。  </p>  <p><strong>最后建议</strong>：建立配置版本库，使用Git管理您的Clash配置变更，这将极大降低维护成本。网络自由之路，始于精心配置，成于持续优化。</p>                 </div>
                 <div class="clearfix"></div>
@@ -158,16 +158,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-145809.htm" title="突破网络藩篱：科学上网工具全解析与实战指南">突破网络藩篱：科学上网工具全解析与实战指南</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-21-node-share.htm" title="8月21日最新Free Stash订阅 | 21.3M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享">8月21日最新Free Stash订阅 | 21.3M/S|2025年Clash/V2ray/SSR/Shadowrocket免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/news/article-146922.htm" title="安卓用户必备：风行科学上网完整使用指南与深度体验分享">安卓用户必备：风行科学上网完整使用指南与深度体验分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-28-free-subscribe-node.htm" title="8月28日最新Free Stash订阅 | 20.5M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享">8月28日最新Free Stash订阅 | 20.5M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-7-14-free-node-subscribe.htm" title="VPN机场 | 7月14日22M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点链接地址">VPN机场 | 7月14日22M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点链接地址</a></li>
                         <li class="py-2"><a href="/news/article-141853.htm" title="掌握Clash订阅更换技巧：解锁稳定高效的代理体验">掌握Clash订阅更换技巧：解锁稳定高效的代理体验</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-7-15-free-node-subscribe-links.htm" title="VPN机场 | 7月15日20.3M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点链接地址">VPN机场 | 7月15日20.3M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-7-8-share-vpn.htm" title="VPN机场 | 7月8日22.9M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点链接地址">VPN机场 | 7月8日22.9M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-145459.htm" title="全面解析 v2ray 节点机场测试：从原理到实践的科学上网指南">全面解析 v2ray 节点机场测试：从原理到实践的科学上网指南</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-8-24-free-clash-stash.htm" title="8月24日最新Free Stash订阅 | 22.7M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享">8月24日最新Free Stash订阅 | 22.7M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-146192.htm" title="苹果手机畅游无界：v2rayng小火箭完整配置与使用宝典">苹果手机畅游无界：v2rayng小火箭完整配置与使用宝典</a></li>
+                        <li class="py-2"><a href="/news/article-143634.htm" title="深入探索Clash补丁：从安装配置到高阶应用的全方位指南">深入探索Clash补丁：从安装配置到高阶应用的全方位指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-subscribe-node.htm" title="9月16日最新Free Stash订阅 | 18.7M/S|2025年SSR/Clash节点/V2ray节点/Shadowrocket免费节点地址链接分享">9月16日最新Free Stash订阅 | 18.7M/S|2025年SSR/Clash节点/V2ray节点/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-23-free-node-subscribe.htm" title="8月23日最新Free Stash订阅 | 21.2M/S|2025年Clash节点/Shadowrocket节点/V2ray节点/SSR免费节点地址链接分享">8月23日最新Free Stash订阅 | 21.2M/S|2025年Clash节点/Shadowrocket节点/V2ray节点/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-19-free-subscribe-node.htm" title="9月19日最新Free Stash订阅 | 19.7M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/SSR免费节点地址链接分享">9月19日最新Free Stash订阅 | 19.7M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-20-linux-clash-stash.htm" title="9月20日最新Free Stash订阅 | 19M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/SSR免费节点地址链接分享">9月20日最新Free Stash订阅 | 19M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-10-clash-stash-node.htm" title="9月10日最新Free Stash订阅 | 22.4M/S|2025年Clash节点/V2ray节点/SSR/Shadowrocket免费节点地址链接分享">9月10日最新Free Stash订阅 | 22.4M/S|2025年Clash节点/V2ray节点/SSR/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-8-28-free-subscribe-node.htm" title="8月28日最新Free Stash订阅 | 20.5M/S|2025年V2ray节点/Shadowrocket节点/SSR/Clash免费节点地址链接分享">8月28日最新Free Stash订阅 | 20.5M/S|2025年V2ray节点/Shadowrocket节点/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-11-clash-stash-node.htm" title="9月11日最新Free Stash订阅 | 18.2M/S|2025年Clash节点/Shadowrocket节点/V2ray节点/SSR免费节点地址链接分享">9月11日最新Free Stash订阅 | 18.2M/S|2025年Clash节点/Shadowrocket节点/V2ray节点/SSR免费节点地址链接分享</a></li>
                     </ul>
     </div>
 </div>
@@ -179,10 +179,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2025-07/" title="2025-07 归档">2025-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
             </li>
                     </ul>
     </div>
@@ -197,7 +197,8 @@
         <!-- START FOOTER COPYRIGHT -->
     <div class="foot_copy">
         <div class="footer_copyright">
-                                <p>
+                                <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
                                                 <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
@@ -208,7 +209,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-            <a href="/">Free Stash免费节点地址中文网</a> 版权所有
+                                <a href="/">Free Stash免费节点地址中文网</a> 版权所有
             <br />Powered by WordPress
         </div>
     </div>
