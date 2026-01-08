@@ -410,24 +410,14 @@ systemctl --user start clash
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 如何实现节点订阅自动更新？</h5></div>
+    <div class="panel-heading"><h5>如何在 macOS 上运行 ClashX？</h5></div>
     <div class="panel-body">
-        支持订阅 URL 自动更新节点，程序定期下载并替换旧节点。保证节点列表最新，减少手动维护，提高使用效率和便利性，同时保证网络访问稳定性。<hr />    </div>
+        ClashX 是 macOS 平台专用客户端，用户可在 GitHub 下载 DMG 安装包。安装后导入订阅即可使用，支持系统代理集成、自动更新和延迟测试。界面简洁直观，深受苹果用户欢迎。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的节点延迟过高怎么办？</h5></div>
+    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
     <div class="panel-body">
-        可通过策略组切换低延迟节点，或调整传输协议和端口。检查服务器网络和防火墙设置，确保网络通畅。必要时可启用 MUX 功能减少短连接延迟，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名配置有哪些注意事项？</h5></div>
-    <div class="panel-body">
-        伪装域名必须真实可访问且证书有效，否则无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的重写规则可实现哪些功能？</h5></div>
-    <div class="panel-body">
-        QuantumultX 的重写规则支持请求头修改、响应内容修改、广告屏蔽及自动跳转。结合脚本可实现自动签到、流量统计和定制化网络访问，极大增强客户端灵活性。<hr />    </div>
+        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 模式适合高丢包网络吗？</h5></div>
@@ -445,19 +435,29 @@ systemctl --user start clash
         如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 macOS 上运行 ClashX？</h5></div>
+    <div class="panel-heading"><h5>Trojan 的伪装域名配置有哪些注意事项？</h5></div>
     <div class="panel-body">
-        ClashX 是 macOS 平台专用客户端，用户可在 GitHub 下载 DMG 安装包。安装后导入订阅即可使用，支持系统代理集成、自动更新和延迟测试。界面简洁直观，深受苹果用户欢迎。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
-    <div class="panel-body">
-        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
+        伪装域名必须真实可访问且证书有效，否则无法建立连接。正确配置可隐藏真实流量特征，降低被封锁和检测风险，提高节点安全性和长期可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 模式与 TLS 模式有何不同？</h5></div>
     <div class="panel-body">
-        Reality 模式通过伪造握手和真实网站特征提升隐蔽性，TLS 模式侧重加密和传输效率。Reality 更难被 DPI 检测，适合高封锁环境，TLS 模式在稳定性和速度上更优。    </div>
+        Reality 模式通过伪造握手和真实网站特征提升隐蔽性，TLS 模式侧重加密和传输效率。Reality 更难被 DPI 检测，适合高封锁环境，TLS 模式在稳定性和速度上更优。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 的重写规则可实现哪些功能？</h5></div>
+    <div class="panel-body">
+        QuantumultX 的重写规则支持请求头修改、响应内容修改、广告屏蔽及自动跳转。结合脚本可实现自动签到、流量统计和定制化网络访问，极大增强客户端灵活性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的节点延迟过高怎么办？</h5></div>
+    <div class="panel-body">
+        可通过策略组切换低延迟节点，或调整传输协议和端口。检查服务器网络和防火墙设置，确保网络通畅。必要时可启用 MUX 功能减少短连接延迟，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 如何实现节点订阅自动更新？</h5></div>
+    <div class="panel-body">
+        支持订阅 URL 自动更新节点，程序定期下载并替换旧节点。保证节点列表最新，减少手动维护，提高使用效率和便利性，同时保证网络访问稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -486,16 +486,16 @@ systemctl --user start clash
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-12-24-clash-stash.htm" title="12月24日最新Free Stash订阅 | 18.1M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点地址链接分享">12月24日最新Free Stash订阅 | 18.1M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-7-node-share-links.htm" title="12月7日最新Free Stash订阅 | 21.4M/S|2025年Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点免费节点地址链接分享">12月7日最新Free Stash订阅 | 21.4M/S|2025年Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-1-free-high-speed-nodes.htm" title="12月1日最新Free Stash订阅 | 18.4M/S|2025年Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点地址链接分享">12月1日最新Free Stash订阅 | 18.4M/S|2025年Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-node-subscribe-links.htm" title="11月20日最新Free Stash订阅 | 18.7M/S|2025年Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点地址链接分享">11月20日最新Free Stash订阅 | 18.7M/S|2025年Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-node-share.htm" title="11月11日最新Free Stash订阅 | 20.3M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点免费节点地址链接分享">11月11日最新Free Stash订阅 | 20.3M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-15-free-high-speed-nodes.htm" title="12月15日最新Free Stash订阅 | 22.6M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点免费节点地址链接分享">12月15日最新Free Stash订阅 | 22.6M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-free-stash-node.htm" title="11月30日最新Free Stash订阅 | 19.8M/S|2025年V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点地址链接分享">11月30日最新Free Stash订阅 | 19.8M/S|2025年V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-28-clash-stash.htm" title="11月28日最新Free Stash订阅 | 22.4M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点地址链接分享">11月28日最新Free Stash订阅 | 22.4M/S|2025年Singbox节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-6-node-share.htm" title="12月6日最新Free Stash订阅 | 19.1M/S|2025年SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点地址链接分享">12月6日最新Free Stash订阅 | 19.1M/S|2025年SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点地址链接分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-node-share-links.htm" title="11月14日最新Free Stash订阅 | 20.7M/S|2025年Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点地址链接分享">11月14日最新Free Stash订阅 | 20.7M/S|2025年Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-1-free-stash-node.htm" title="1月1日最新Free Stash订阅 | 20.6M/S|2025年SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点免费节点地址链接分享">1月1日最新Free Stash订阅 | 20.6M/S|2025年SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-27-linux-clash-stash.htm" title="12月27日最新Free Stash订阅 | 20.3M/S|2025年Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点免费节点地址链接分享">12月27日最新Free Stash订阅 | 20.3M/S|2025年Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-20-linux-clash-stash.htm" title="12月20日最新Free Stash订阅 | 22.9M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点地址链接分享">12月20日最新Free Stash订阅 | 22.9M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-10-clash-stash-node.htm" title="12月10日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点免费节点地址链接分享">12月10日最新Free Stash订阅 | 20.2M/S|2025年Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-21-free-stash-node.htm" title="12月21日最新Free Stash订阅 | 19.6M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点地址链接分享">12月21日最新Free Stash订阅 | 19.6M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-6-free-high-speed-nodes.htm" title="1月6日最新Free Stash订阅 | 19.4M/S|2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点免费节点地址链接分享">1月6日最新Free Stash订阅 | 19.4M/S|2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-19-clash-stash-node.htm" title="12月19日最新Free Stash订阅 | 18.4M/S|2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点地址链接分享">12月19日最新Free Stash订阅 | 18.4M/S|2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-18-node-share-links.htm" title="12月18日最新Free Stash订阅 | 22M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点地址链接分享">12月18日最新Free Stash订阅 | 22M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-16-clash-stash.htm" title="12月16日最新Free Stash订阅 | 19M/S|2025年SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点免费节点地址链接分享">12月16日最新Free Stash订阅 | 19M/S|2025年SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-22-free-node-subscribe.htm" title="12月22日最新Free Stash订阅 | 22.6M/S|2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点地址链接分享">12月22日最新Free Stash订阅 | 22.6M/S|2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点地址链接分享</a></li>
                     </ul>
     </div>
 </div>
@@ -507,13 +507,10 @@ systemctl --user start clash
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                     </ul>
     </div>
